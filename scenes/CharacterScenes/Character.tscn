@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d30d48tynvwhu"]
+
+[ext_resource type="Script" uid="uid://wvx2ks8vr6ou" path="res://scripts/CharScripts/character.gd" id="1_3i3nt"]
+[ext_resource type="Texture2D" uid="uid://cyhalcxww0pei" path="res://assets/Sprites/spaceship 5px.png" id="2_3i3nt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apuoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3i3nt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i3nt"]
+height = 22.593931
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1347624096]
+z_index = 5
+scale = Vector2(0.74682707, 0.7564578)
+script = ExtResource("1_3i3nt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1362404207]
+z_index = 4096
+position = Vector2(0.18604915, 0.44429487)
+sprite_frames = SubResource("SpriteFrames_apuoc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830943964]
+z_index = 10
+position = Vector2(0.18604915, 0.44429487)
+shape = SubResource("CapsuleShape2D_3i3nt")

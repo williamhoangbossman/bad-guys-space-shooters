@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c4wb160d4e7q2"]
+
+[ext_resource type="PackedScene" uid="uid://d30d48tynvwhu" path="res://scenes/CharacterScenes/Character.tscn" id="1_ibkli"]
+[ext_resource type="PackedScene" uid="uid://df8vr1fel2kwr" path="res://scenes/CharacterScenes/enemy.tscn" id="3_78awf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
+distance = -1.0
+
+[node name="Game" type="Node2D" unique_id=805202920]
+
+[node name="CharacterBody2D" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
+position = Vector2(452, 496)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1996695120]
+position = Vector2(451, 521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1559320361]
+position = Vector2(0, 80)
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=926739258]
+position = Vector2(-337, -38)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=562628365]
+position = Vector2(552, -374.00003)
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=81611243]
+position = Vector2(441, -124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=709239584]
+position = Vector2(421, 628)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="Enemy" parent="." unique_id=1916203662 instance=ExtResource("3_78awf")]
+position = Vector2(445, 152)

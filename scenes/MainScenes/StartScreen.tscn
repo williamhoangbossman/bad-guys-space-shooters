@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://057jqgmaan3j"]
+
+[ext_resource type="Script" uid="uid://bdwh2vf805lx8" path="res://scripts/MainScripts/start_screen.gd" id="1_2mdob"]
+[ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_dxqsf"]
+[ext_resource type="Texture2D" uid="uid://c8mafbsb4pucy" path="res://assets/Sprites/New Piskel-1.png (1).png" id="3_wqkjh"]
+[ext_resource type="Texture2D" uid="uid://bkmrchynhb6c5" path="res://assets/Sprites/pixil-frame-0 (17).png" id="4_q553w"]
+
+[sub_resource type="Animation" id="Animation_q553w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(93, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_47qn4"]
+resource_name = "TitleAnim"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.7),
+"transitions": PackedFloat32Array(0.13, 0.14),
+"update": 0,
+"values": [Vector2(93, 150), Vector2(93, 80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epuca"]
+_data = {
+&"RESET": SubResource("Animation_q553w"),
+&"TitleAnim": SubResource("Animation_47qn4")
+}
+
+[sub_resource type="Animation" id="Animation_dxqsf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/GameOptionsContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(65, 184)]
+}
+
+[sub_resource type="Animation" id="Animation_wqkjh"]
+resource_name = "StartMenuAnim"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/GameOptionsContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.7),
+"transitions": PackedFloat32Array(0.25000003, 0.17677657),
+"update": 0,
+"values": [Vector2(65, 184), Vector2(65, 302)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q553w"]
+_data = {
+&"RESET": SubResource("Animation_dxqsf"),
+&"StartMenuAnim": SubResource("Animation_wqkjh")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1919995100]
+script = ExtResource("1_2mdob")
+
+[node name="UI" type="Control" parent="." unique_id=442214809]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI" unique_id=1300513648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.003921569, 0.09019608, 1)
+
+[node name="TitleContainer" type="VBoxContainer" parent="UI" unique_id=1825922000]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.0
+offset_top = -150.0
+offset_right = 393.0
+offset_bottom = 101.000244
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="UI/TitleContainer" unique_id=483537926]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0.7294118, 1)
+theme_override_fonts/font = ExtResource("2_dxqsf")
+theme_override_font_sizes/font_size = 50
+text = "SPACE SHOOTRE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/TitleContainer" unique_id=879577779]
+libraries/ = SubResource("AnimationLibrary_epuca")
+autoplay = &"TitleAnim"
+
+[node name="GameOptionsContainer" type="VBoxContainer" parent="UI" unique_id=1956711617]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 184.0
+offset_right = 815.0
+offset_bottom = 370.0013
+
+[node name="StartButton" type="Button" parent="UI/GameOptionsContainer" unique_id=972273239]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.98012847, 0.3879849, 0.47934318, 1)
+theme_override_colors/font_hover_color = Color(0.10980392, 1, 0.49019608, 1)
+theme_override_colors/font_outline_color = Color(0.7882353, 0.10980392, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("2_dxqsf")
+theme_override_font_sizes/font_size = 25
+action_mode = 0
+text = "Play Spatula Shots"
+icon = ExtResource("3_wqkjh")
+flat = true
+
+[node name="QuitButton" type="Button" parent="UI/GameOptionsContainer" unique_id=378088573]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.10980392, 1, 0.49019608, 1)
+theme_override_constants/h_separation = 5
+theme_override_fonts/font = ExtResource("2_dxqsf")
+action_mode = 0
+text = "Quit (Not Recommended)"
+icon = ExtResource("4_q553w")
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/GameOptionsContainer" unique_id=1346893422]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_q553w")
+autoplay = &"StartMenuAnim"
+
+[node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
+
+[connection signal="button_up" from="UI/GameOptionsContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="UI/GameOptionsContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UI/GameOptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
