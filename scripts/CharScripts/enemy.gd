@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var maxHealth: int = 30
+
 var currentHealth: int
 
 func _ready() -> void:

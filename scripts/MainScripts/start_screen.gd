@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@onready var titleLabel = $UI/TitleContainer/TitleLabel
+@onready var titleLabel = $MainScreenUI/TitleContainer/TitleLabel
+var buttonfunction = false
 
 func _ready() -> void:
 	titleLabel.pivot_offset = titleLabel.size / 2
@@ -13,6 +14,9 @@ func _ready() -> void:
 func _on_title_timer_timeout() -> void:
 	titleGrowth()
 	
+	await get_tree().create_timer(1).timeout	
+	buttonfunction = true
+	
 func titleGrowth() -> void:
 	var TweenCreate = create_tween()
 	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.2, 1.2), 0.7)\
@@ -20,9 +24,11 @@ func titleGrowth() -> void:
 		.set_ease(Tween.EASE_IN_OUT)
 	
 func _on_start_button_pressed() -> void:
-	print("sigmatron")
-	get_tree().change_scene_to_file("res://scenes/MainScenes/Game.tscn")
+	if (buttonfunction):
+		print("sigmatron")
+		get_tree().change_scene_to_file("res://scenes/MainScenes/Game.tscn")
 	
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	if (buttonfunction):
+		get_tree().quit()
 	

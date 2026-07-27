@@ -34,5 +34,7 @@ position = Vector2(421, 628)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_qbsmt")
 
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=576528690]
+
 [node name="Enemy" parent="." unique_id=1916203662 instance=ExtResource("3_78awf")]
 position = Vector2(445, 152)

@@ -6,19 +6,18 @@ const  BulletScene = preload("res://scenes/Misc/bullet.tscn")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var cooldown = 0.2
-
+var cooldown = 0.4
+var timer = 0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
 	# Handle jump.
-	
-	if Input.is_action_just_pressed("shoot"):
-		if cooldown: pass
-		spawnBullet()
-		
+	timer += delta 
+	if Input.is_action_pressed("shoot"):
+		if timer >= cooldown:
+			spawnBullet()
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -40,3 +39,4 @@ func spawnBullet():
 	bullet.global_position.y = playersprite.global_position.y - 30
 	bullet.global_position.x = playersprite.global_position.x 
 	add_child(bullet)
+	timer = 0

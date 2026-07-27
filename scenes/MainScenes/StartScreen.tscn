@@ -47,7 +47,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/GameOptionsContainer:position")
+tracks/0/path = NodePath("MainScreenUI/GameOptionsContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +63,7 @@ length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/GameOptionsContainer:position")
+tracks/0/path = NodePath("MainScreenUI/GameOptionsContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,7 +82,7 @@ _data = {
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1919995100]
 script = ExtResource("1_2mdob")
 
-[node name="UI" type="Control" parent="." unique_id=442214809]
+[node name="MainScreenUI" type="Control" parent="." unique_id=442214809]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +90,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="UI" unique_id=1300513648]
+[node name="Background" type="ColorRect" parent="MainScreenUI" unique_id=1300513648]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.043137256, 0.003921569, 0.09019608, 1)
 
-[node name="TitleContainer" type="VBoxContainer" parent="UI" unique_id=1825922000]
+[node name="TitleContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=1825922000]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +113,7 @@ offset_bottom = 101.000244
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleLabel" type="Label" parent="UI/TitleContainer" unique_id=483537926]
+[node name="TitleLabel" type="Label" parent="MainScreenUI/TitleContainer" unique_id=483537926]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 1, 0.7294118, 1)
@@ -121,18 +121,18 @@ theme_override_fonts/font = ExtResource("2_dxqsf")
 theme_override_font_sizes/font_size = 50
 text = "SPACE SHOOTRE"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/TitleContainer" unique_id=879577779]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/TitleContainer" unique_id=879577779]
 libraries/ = SubResource("AnimationLibrary_epuca")
 autoplay = &"TitleAnim"
 
-[node name="GameOptionsContainer" type="VBoxContainer" parent="UI" unique_id=1956711617]
+[node name="GameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=1956711617]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 184.0
 offset_right = 815.0
-offset_bottom = 370.0013
+offset_bottom = 398.0
 
-[node name="StartButton" type="Button" parent="UI/GameOptionsContainer" unique_id=972273239]
+[node name="StartButton" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=972273239]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -147,7 +147,7 @@ text = "Play Spatula Shots"
 icon = ExtResource("3_wqkjh")
 flat = true
 
-[node name="QuitButton" type="Button" parent="UI/GameOptionsContainer" unique_id=378088573]
+[node name="QuitButton" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=378088573]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
@@ -161,14 +161,148 @@ text = "Quit (Not Recommended)"
 icon = ExtResource("4_q553w")
 flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/GameOptionsContainer" unique_id=1346893422]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/GameOptionsContainer" unique_id=1346893422]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_q553w")
 autoplay = &"StartMenuAnim"
 
+[node name="Settings Button" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=1892737149]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_dxqsf")
+text = "Settings"
+flat = true
+
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
-[connection signal="button_up" from="UI/GameOptionsContainer/StartButton" to="." method="_on_start_button_button_up"]
-[connection signal="pressed" from="UI/GameOptionsContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="UI/GameOptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="SettingsMenu" type="Control" parent="." unique_id=748750943]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 91.0
+offset_right = -135.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu" unique_id=330202516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.7058824, 1)
+
+[node name="SettingsButtonContainer" type="VBoxContainer" parent="SettingsMenu" unique_id=551367029]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 20.0
+offset_right = 444.0
+offset_bottom = 356.0
+
+[node name="Button" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=1918623250]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button2" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=940381219]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button3" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=815502851]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button4" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=796330179]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button5" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=628300963]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button6" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=871288266]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button7" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=75038585]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button8" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=274251314]
+layout_mode = 2
+text = "Uhhh settings "
+
+[node name="Button" type="Button" parent="SettingsMenu" unique_id=2142586463]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 71.0
+offset_bottom = 49.0
+text = "BACK"
+
+[node name="DifficultyMenu" type="Control" parent="." unique_id=38508641]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -825.0
+offset_right = 26.0
+offset_bottom = -825.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DifficultyMenu" unique_id=912068007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0170575, 1.0039841)
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 84.0
+offset_right = 539.0
+offset_bottom = 124.0
+scale = Vector2(2.154742, 1.9191458)
+theme_override_constants/separation = 20
+
+[node name="EasyModeButton" type="Button" parent="DifficultyMenu/HBoxContainer" unique_id=344480133]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dxqsf")
+theme_override_font_sizes/font_size = 16
+text = "EASY"
+
+[node name="NormalModeButton" type="Button" parent="DifficultyMenu/HBoxContainer" unique_id=749323769]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dxqsf")
+text = "Normal"
+
+[node name="HardModeButton" type="Button" parent="DifficultyMenu/HBoxContainer" unique_id=877556345]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dxqsf")
+text = "Hard
+"
+
+[node name="DifficultyLabel" type="Label" parent="DifficultyMenu" unique_id=268973294]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 105.0
+offset_right = 153.0
+offset_bottom = 128.0
+scale = Vector2(1.6018518, 1.5378057)
+text = "DIFFICULTY"
+
+[connection signal="button_up" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="pressed" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainScreenUI/GameOptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
