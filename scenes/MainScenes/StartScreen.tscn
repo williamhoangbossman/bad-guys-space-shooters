@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8mafbsb4pucy" path="res://assets/Sprites/New Piskel-1.png (1).png" id="3_wqkjh"]
 [ext_resource type="Texture2D" uid="uid://bkmrchynhb6c5" path="res://assets/Sprites/pixil-frame-0 (17).png" id="4_q553w"]
 [ext_resource type="Texture2D" uid="uid://nxff2torwmgk" path="res://icon.svg" id="5_wqkjh"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/Misc/transition.tscn" id="6_q553w"]
 
 [sub_resource type="Animation" id="Animation_q553w"]
 length = 0.001
@@ -80,7 +81,7 @@ _data = {
 &"StartMenuAnim": SubResource("Animation_wqkjh")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1919995100]
+[node name="StartScreen" type="CanvasLayer" unique_id=1919995100]
 script = ExtResource("1_2mdob")
 
 [node name="MainScreenUI" type="Control" parent="." unique_id=442214809]
@@ -247,48 +248,55 @@ offset_bottom = 49.0
 text = "BACK"
 
 [node name="DifficultyMenu" type="Control" parent="." unique_id=38508641]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = -825.0
-offset_right = 26.0
-offset_bottom = -825.0
+offset_left = 76.0
+offset_top = 76.0
+offset_right = 76.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.77999765, 0.675)
 
 [node name="ColorRect" type="ColorRect" parent="DifficultyMenu" unique_id=912068007]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.2820553
+offset_right = -1.2820435
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.0170575, 1.0039841)
-color = Color(0, 0, 0, 1)
+scale = Vector2(1.0793662, 1.1075834)
+color = Color(1, 0, 0, 1)
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 84.0
-offset_right = 539.0
-offset_bottom = 124.0
+offset_left = 202.43959
+offset_top = 93.33331
+offset_right = 544.4396
+offset_bottom = 133.33331
 scale = Vector2(2.154742, 1.9191458)
 theme_override_constants/separation = 20
 
 [node name="EasyModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=344480133]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
 theme_override_font_sizes/font_size = 16
 text = "EASY"
 
 [node name="NormalModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=749323769]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
 text = "Normal"
 
 [node name="HardModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=877556345]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
 text = "Hard
@@ -296,19 +304,19 @@ text = "Hard
 
 [node name="DifficultyLabel" type="Label" parent="DifficultyMenu" unique_id=268973294]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 105.0
-offset_right = 153.0
-offset_bottom = 128.0
+offset_left = 40.244015
+offset_top = 106.666664
+offset_right = 128.24402
+offset_bottom = 129.66666
 scale = Vector2(1.6018518, 1.5378057)
 text = "DIFFICULTY"
 
 [node name="DescriptionContainer" type="Control" parent="DifficultyMenu" unique_id=307266478]
 anchors_preset = 0
-offset_left = 117.0
-offset_top = 215.0
-offset_right = 157.0
-offset_bottom = 255.0
+offset_left = 173.17122
+offset_top = 226.66667
+offset_right = 213.17122
+offset_bottom = 266.66666
 scale = Vector2(17.12067, 7.299165)
 
 [node name="ColorRect" type="ColorRect" parent="DifficultyMenu/DescriptionContainer" unique_id=138606752]
@@ -326,25 +334,12 @@ offset_bottom = 129.9279
 scale = Vector2(0.04109369, 0.0834868)
 texture = ExtResource("5_wqkjh")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DifficultyMenu/DescriptionContainer" unique_id=1057146996]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 9.695882
-offset_top = -18.081972
-offset_right = 49.69588
-offset_bottom = 21.91803
-grow_vertical = 2
-scale = Vector2(0.6847289, 0.65960515)
-text = "This is a a descritption"
-
 [node name="VBoxContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=262026771]
 layout_mode = 0
-offset_left = 334.00003
-offset_top = 523.00006
-offset_right = 454.00003
-offset_bottom = 563.00006
+offset_left = 396.34262
+offset_top = 546.6667
+offset_right = 516.34265
+offset_bottom = 586.6667
 scale = Vector2(2.125801, 1.2709262)
 
 [node name="MenuBackButton" type="Button" parent="DifficultyMenu/VBoxContainer" unique_id=1828292274]
@@ -355,7 +350,30 @@ text = "BACK"
 layout_mode = 2
 text = "CREATE"
 
+[node name="DescrptionLabel" type="RichTextLabel" parent="DifficultyMenu" unique_id=1999814049]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 0
+offset_left = 215.38527
+offset_top = 337.77777
+offset_right = 640.38525
+offset_bottom = 377.77777
+theme_override_colors/default_color = Color(1, 0.007843138, 0.25490198, 1)
+theme_override_colors/font_selected_color = Color(0.8784314, 0, 0.5372549, 0)
+theme_override_colors/font_outline_color = Color(0, 0.3137255, 0.7176471, 1)
+theme_override_fonts/normal_font = ExtResource("2_dxqsf")
+text = "This is where the desciption of the game difficulty appears!"
+
+[node name="Transition" parent="." unique_id=140022182 instance=ExtResource("6_q553w")]
+visible = false
+
 [connection signal="button_up" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_button_up"]
 [connection signal="pressed" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/GameOptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
+[connection signal="pressed" from="DifficultyMenu/DifficultyContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/DifficultyContainer/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/DifficultyContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuBackButton" to="." method="_on_menu_back_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuCreateButton" to="." method="_on_menu_create_button_pressed"]
+
+[editable path="Transition"]

@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	if direction < 0:
 		playersprite.flip_h = true
 	elif direction > 0:
-		playersprite.flip_h = false
+		playersprite.flip_h = false 
 	move_and_slide()
 	
 	

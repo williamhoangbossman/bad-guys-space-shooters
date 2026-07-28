@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://c4wb160d4e7q2"]
 
 [ext_resource type="PackedScene" uid="uid://d30d48tynvwhu" path="res://scenes/CharacterScenes/Character.tscn" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://0dqhcdi7s16n" path="res://scenes/MainScenes/game.gd" id="1_l0e6y"]
 [ext_resource type="PackedScene" uid="uid://df8vr1fel2kwr" path="res://scenes/CharacterScenes/enemy.tscn" id="3_78awf"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/Misc/transition.tscn" id="4_hq8g2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
 distance = -1.0
 
 [node name="Game" type="Node2D" unique_id=805202920]
+script = ExtResource("1_l0e6y")
 
 [node name="CharacterBody2D" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
 position = Vector2(452, 496)
@@ -38,3 +41,16 @@ shape = SubResource("WorldBoundaryShape2D_qbsmt")
 
 [node name="Enemy" parent="." unique_id=1916203662 instance=ExtResource("3_78awf")]
 position = Vector2(445, 152)
+
+[node name="Transition" parent="." unique_id=140022182 instance=ExtResource("4_hq8g2")]
+
+[node name="Button" type="Button" parent="." unique_id=1605882255]
+offset_left = 33.0
+offset_top = 34.0
+offset_right = 140.0
+offset_bottom = 131.0
+text = "BACKKK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+
+[editable path="Transition"]
