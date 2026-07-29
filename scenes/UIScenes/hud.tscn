@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://q2ywaaslli0u"]
+
+[ext_resource type="Script" uid="uid://kg7vh3065ukp" path="res://scripts/UIScripts/HUD.gd" id="1_q8te5"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1063632305]
+process_mode = 3
+script = ExtResource("1_q8te5")
+
+[node name="Control" type="Control" parent="." unique_id=2034880923]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="moneyLabel" type="Label" parent="Control" unique_id=755575244]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 557.0
+offset_right = 78.0
+offset_bottom = 580.0
+scale = Vector2(2.0896995, 1.9282385)
+text = "moneyyy:"
+
+[node name="scoreLabel" type="Label" parent="Control" unique_id=1363424593]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -1.0000001
+offset_right = 84.0
+offset_bottom = 22.0
+scale = Vector2(2.2553058, 2.0878825)
+text = "scroe:"

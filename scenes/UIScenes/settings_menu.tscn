@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b5fipfj41gxpv"]
+
+[sub_resource type="GDScript" id="GDScript_k1ws3"]
+script/source = "extends CanvasLayer
+
+@onready var settingsMenu = $\".\"
+
+func _on_return_button_pressed() -> void:
+	settingsMenu.visible = false
+"
+
+[node name="SettingsMenu" type="CanvasLayer" unique_id=1448677036]
+script = SubResource("GDScript_k1ws3")
+
+[node name="Control" type="Control" parent="." unique_id=336197975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blackBackground" type="ColorRect" parent="Control" unique_id=656997278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="silverScreen" type="ColorRect" parent="Control" unique_id=1915742198]
+layout_mode = 0
+offset_left = 84.00001
+offset_top = 54.0
+offset_right = 124.00001
+offset_bottom = 94.0
+scale = Vector2(17.67157, 11.988404)
+color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+
+[node name="blueScreen" type="ColorRect" parent="Control" unique_id=80607427]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 76.00001
+offset_right = 150.0
+offset_bottom = 116.00001
+scale = Vector2(16.35588, 10.923708)
+color = Color(0.5294118, 1, 1, 0.5058824)
+
+[node name="PlaceHolderText" type="RichTextLabel" parent="Control" unique_id=1807212521]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 173.0
+offset_right = 277.0
+offset_bottom = 213.0
+scale = Vector2(10.293239, 4.673829)
+text = "THIS IS THE SETTINGS BRO"
+autowrap_mode = 2
+
+[node name="returnButtonContainer" type="VBoxContainer" parent="Control" unique_id=1950955532]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 94.0
+offset_right = 179.0
+offset_bottom = 134.0
+scale = Vector2(1.836837, 1.650813)
+
+[node name="returnButton" type="Button" parent="Control/returnButtonContainer" unique_id=505527195]
+layout_mode = 2
+text = "RETURN"
+
+[connection signal="pressed" from="Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]

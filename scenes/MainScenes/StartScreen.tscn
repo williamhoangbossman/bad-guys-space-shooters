@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bdwh2vf805lx8" path="res://scripts/MainScripts/start_screen.gd" id="1_2mdob"]
 [ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_dxqsf"]
-[ext_resource type="Texture2D" uid="uid://c8mafbsb4pucy" path="res://assets/Sprites/New Piskel-1.png (1).png" id="3_wqkjh"]
-[ext_resource type="Texture2D" uid="uid://bkmrchynhb6c5" path="res://assets/Sprites/pixil-frame-0 (17).png" id="4_q553w"]
+[ext_resource type="Texture2D" uid="uid://cfyvli3qho5od" path="res://assets/UI/MainMenu/SETTINGS.png" id="4_cxwh5"]
+[ext_resource type="Texture2D" uid="uid://gxjajib0bdk" path="res://assets/UI/MainMenu/QUITBtn.png" id="5_0toi5"]
+[ext_resource type="Texture2D" uid="uid://c206jtjjuknhc" path="res://assets/UI/MainMenu/TITLE_1.png" id="5_epuca"]
 [ext_resource type="Texture2D" uid="uid://nxff2torwmgk" path="res://icon.svg" id="5_wqkjh"]
-[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/Misc/transition.tscn" id="6_q553w"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="6_q553w"]
+[ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/settings_menu.tscn" id="7_47qn4"]
+[ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
 
-[sub_resource type="Animation" id="Animation_q553w"]
+[sub_resource type="Animation" id="Animation_cxwh5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -19,12 +22,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(93, 150)]
+"values": [Vector2(353, 231)]
 }
 
-[sub_resource type="Animation" id="Animation_47qn4"]
-resource_name = "TitleAnim"
-length = 1.7
+[sub_resource type="Animation" id="Animation_0toi5"]
+resource_name = "SlideDown"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,56 +34,20 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 1.7),
-"transitions": PackedFloat32Array(0.13, 0.14),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.35355347, 0.35355332),
 "update": 0,
-"values": [Vector2(93, 150), Vector2(93, 80)]
+"values": [Vector2(353, 231), Vector2(353, 369)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_epuca"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fpu7k"]
 _data = {
-&"RESET": SubResource("Animation_q553w"),
-&"TitleAnim": SubResource("Animation_47qn4")
-}
-
-[sub_resource type="Animation" id="Animation_dxqsf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainScreenUI/GameOptionsContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(65, 184)]
-}
-
-[sub_resource type="Animation" id="Animation_wqkjh"]
-resource_name = "StartMenuAnim"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MainScreenUI/GameOptionsContainer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 1.7),
-"transitions": PackedFloat32Array(0.25000003, 0.17677657),
-"update": 0,
-"values": [Vector2(65, 184), Vector2(65, 302)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q553w"]
-_data = {
-&"RESET": SubResource("Animation_dxqsf"),
-&"StartMenuAnim": SubResource("Animation_wqkjh")
+&"RESET": SubResource("Animation_cxwh5"),
+&"SlideDown": SubResource("Animation_0toi5")
 }
 
 [node name="StartScreen" type="CanvasLayer" unique_id=1919995100]
+process_mode = 3
 script = ExtResource("1_2mdob")
 
 [node name="MainScreenUI" type="Control" parent="." unique_id=442214809]
@@ -101,151 +67,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.043137256, 0.003921569, 0.09019608, 1)
 
-[node name="TitleContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=1825922000]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.0
-offset_top = -150.0
-offset_right = 393.0
-offset_bottom = 101.000244
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TitleLabel" type="Label" parent="MainScreenUI/TitleContainer" unique_id=483537926]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 1, 0.7294118, 1)
-theme_override_fonts/font = ExtResource("2_dxqsf")
-theme_override_font_sizes/font_size = 50
-text = "SPACE SHOOTRE"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/TitleContainer" unique_id=879577779]
-libraries/ = SubResource("AnimationLibrary_epuca")
-autoplay = &"TitleAnim"
-
-[node name="GameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=1956711617]
+[node name="TitleContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=881861856]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 184.0
-offset_right = 815.0
-offset_bottom = 398.0
+offset_left = 150.0
+offset_top = 74.00001
+offset_right = 425.0
+offset_bottom = 145.0
+scale = Vector2(2.187008, 1.8305589)
 
-[node name="StartButton" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=972273239]
+[node name="gameTitle" type="TextureRect" parent="MainScreenUI/TitleContainer" unique_id=264713499]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("5_epuca")
+
+[node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 231.0
+offset_right = 410.0
+offset_bottom = 271.00003
+scale = Vector2(3.4615345, 3.9316647)
+theme_override_constants/separation = 9
+
+[node name="gameStartButton" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=56340042]
+layout_mode = 2
+texture_normal = ExtResource("7_epuca")
+
+[node name="settingsButton" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=2002526867]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(0.98012847, 0.3879849, 0.47934318, 1)
-theme_override_colors/font_hover_color = Color(0.10980392, 1, 0.49019608, 1)
-theme_override_colors/font_outline_color = Color(0.7882353, 0.10980392, 0.14117648, 1)
-theme_override_fonts/font = ExtResource("2_dxqsf")
-theme_override_font_sizes/font_size = 25
-action_mode = 0
-text = "Play Spatula Shots"
-icon = ExtResource("3_wqkjh")
-flat = true
+texture_normal = ExtResource("4_cxwh5")
 
-[node name="QuitButton" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=378088573]
+[node name="quitButton2" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=1321108199]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.10980392, 1, 0.49019608, 1)
-theme_override_constants/h_separation = 5
-theme_override_fonts/font = ExtResource("2_dxqsf")
-action_mode = 0
-text = "Quit (Not Recommended)"
-icon = ExtResource("4_q553w")
-flat = true
+texture_normal = ExtResource("5_0toi5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/GameOptionsContainer" unique_id=1346893422]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_q553w")
-autoplay = &"StartMenuAnim"
-
-[node name="Settings Button" type="Button" parent="MainScreenUI/GameOptionsContainer" unique_id=1892737149]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("2_dxqsf")
-text = "Settings"
-flat = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/gameOptionsContainer" unique_id=1944578413]
+libraries/ = SubResource("AnimationLibrary_fpu7k")
 
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
-
-[node name="SettingsMenu" type="Control" parent="." unique_id=748750943]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 136.0
-offset_top = 91.0
-offset_right = -135.0
-offset_bottom = -107.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="SettingsMenu" unique_id=330202516]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 0.7058824, 1)
-
-[node name="SettingsButtonContainer" type="VBoxContainer" parent="SettingsMenu" unique_id=551367029]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 20.0
-offset_right = 444.0
-offset_bottom = 356.0
-
-[node name="Button" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=1918623250]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button2" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=940381219]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button3" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=815502851]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button4" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=796330179]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button5" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=628300963]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button6" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=871288266]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button7" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=75038585]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button8" type="Button" parent="SettingsMenu/SettingsButtonContainer" unique_id=274251314]
-layout_mode = 2
-text = "Uhhh settings "
-
-[node name="Button" type="Button" parent="SettingsMenu" unique_id=2142586463]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 18.0
-offset_right = 71.0
-offset_bottom = 49.0
-text = "BACK"
 
 [node name="DifficultyMenu" type="Control" parent="." unique_id=38508641]
 visible = false
@@ -361,14 +223,19 @@ theme_override_colors/default_color = Color(1, 0.007843138, 0.25490198, 1)
 theme_override_colors/font_selected_color = Color(0.8784314, 0, 0.5372549, 0)
 theme_override_colors/font_outline_color = Color(0, 0.3137255, 0.7176471, 1)
 theme_override_fonts/normal_font = ExtResource("2_dxqsf")
-text = "This is where the desciption of the game difficulty appears!"
+text = "You are currently in NORMAL mode. 
+	Money Gain: 1x 
+	Enemy HealthPoints: 1x 
+	
+	Enemy Movement Speed will be NORMAL. 
+	Expect to have neither a calming nor stressful experience!"
 
 [node name="Transition" parent="." unique_id=140022182 instance=ExtResource("6_q553w")]
 visible = false
 
-[connection signal="button_up" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_button_up"]
-[connection signal="pressed" from="MainScreenUI/GameOptionsContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainScreenUI/GameOptionsContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="SettingsMenu2" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
+visible = false
+
 [connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]

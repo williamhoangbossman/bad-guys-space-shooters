@@ -1,0 +1,19 @@
+extends Node2D
+
+var currentDifficulty: String = "Normal"
+var gamePaused: bool = false
+#characterData
+var characterHealth: float = 3
+var characterBulletSpeed: float = 200
+var playerBaseDamage: float = 1
+
+var currentScore: float = 0
+
+var damageMultiplier: float = 1
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

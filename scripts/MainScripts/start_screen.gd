@@ -3,33 +3,39 @@ extends CanvasLayer
 @onready var transitionrect = $Transition
 @onready var transition = $Transition/AnimationPlayer
 
-@onready var titleLabel = $MainScreenUI/TitleContainer/TitleLabel
+@onready var titleLabel = $MainScreenUI/TitleContainer/gameTitle
 @onready var difficultyMenu = $DifficultyMenu
 @onready var difficultyLabel = $DifficultyMenu/DescrptionLabel
+@onready var settingsMenu = $SettingsMenu2
 
-@export var Difficulty = 0
+@onready var slideanimation = $MainScreenUI/gameOptionsContainer/AnimationPlayer
+
 var buttonfunction = false
 
 func _ready() -> void:
 	titleLabel.pivot_offset = titleLabel.size / 2
-	titleLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	titleLabel.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	
 	
 	var titleTimer = $TitleTimer
 	titleTimer.start()
+	slideanimation.play("SlideDown")
+	
 	
 func _on_title_timer_timeout() -> void:
 	titleGrowth()
+	
 	
 	await get_tree().create_timer(1).timeout	
 	buttonfunction = true
 	
 func titleGrowth() -> void:
 	var TweenCreate = create_tween()
-	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.2, 1.2), 0.7)\
+	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
 	
+		
 func _on_start_button_pressed() -> void:
 	if (buttonfunction):
 		transitionrect.visible = true
@@ -63,9 +69,9 @@ func _on_menu_create_button_pressed() -> void:
 	
 
 func _on_easy_mode_button_pressed() -> void:
-	difficultyLabel.text = "This is EASY mode. 
-	Money Gain: 1.5x -- 150% more money.
-	Enemy HealthPoints: 0.75x -- enemies have 75% of the health they normally would have. 
+	difficultyLabel.text = "You are currently in EASY mode. 
+	Money Gain: 1.5x 
+	Enemy HealthPoints: 0.75x  
 	
 	Enemy Movement Speed will be lowered
 	Expect to have a rather calming experience!
@@ -73,9 +79,9 @@ func _on_easy_mode_button_pressed() -> void:
 	GameManager.currentDifficulty = "Easy"
 	
 func _on_normal_mode_button_pressed():
-	difficultyLabel.text = "This is NORMAL mode. 
-	Money Gain: 1x -- money gain is not increased nor decreased. 
-	Enemy HealthPoints: 1x -- enemies have the normal amount of health.
+	difficultyLabel.text = "You are currently in NORMAL mode. 
+	Money Gain: 1x 
+	Enemy HealthPoints: 1x 
 	
 	Enemy Movement Speed will be NORMAL. 
 	Expect to have neither a calming nor stressful experience!
@@ -83,9 +89,9 @@ func _on_normal_mode_button_pressed():
 	GameManager.currentDifficulty = "Normal"	
 
 func _on_hard_mode_button_pressed():
-	difficultyLabel.text = "This is HARD mode. 
-	Money Gain: 0.8x -- money gain is decreased. 
-	Enemy HealthPoints: 2x -- enemies have double amount of health.
+	difficultyLabel.text = "You are currently in HARD mode. 
+	Money Gain: 0.8x
+	Enemy HealthPoints: 2x 
 	
 	Enemy Movement Speed will be increased 140%. 
 	
@@ -96,3 +102,5 @@ func _on_hard_mode_button_pressed():
 	GameManager.currentDifficulty = "Hard"
 	
 	
+func _on_settings_button_pressed() -> void:
+	settingsMenu.visible = true

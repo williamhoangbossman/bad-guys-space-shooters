@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://np5afscoduop"
+EconomyManager="*uid://c7h0b6ugr854c"
+Signals="*uid://cac8ip82v4lud"
 
 [display]
 

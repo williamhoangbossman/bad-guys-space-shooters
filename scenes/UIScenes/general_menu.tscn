@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cf0qjmk11o65"]
+
+[ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/settings_menu.tscn" id="1_5vmkj"]
+[ext_resource type="Script" uid="uid://c5jn1odkykgml" path="res://scripts/UIScripts/generalMenu.gd" id="1_qlqyq"]
+[ext_resource type="PackedScene" uid="uid://b8x2dia5q10a" path="res://scenes/UIScenes/about_menu.tscn" id="3_qlqyq"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="4_qlqyq"]
+
+[node name="generalMenu" type="CanvasLayer" unique_id=403360699]
+process_mode = 3
+script = ExtResource("1_qlqyq")
+
+[node name="Control" type="Control" parent="." unique_id=764928727]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1306819442]
+process_mode = 3
+layout_mode = 0
+offset_left = 254.0
+offset_top = 72.0
+offset_right = 294.0
+offset_bottom = 112.0
+scale = Vector2(9.761978, 9.745298)
+mouse_filter = 2
+
+[node name="optionsContainer" type="VBoxContainer" parent="Control" unique_id=942778686]
+process_mode = 3
+layout_mode = 0
+offset_left = 367.0
+offset_top = 162.0
+offset_right = 446.0
+offset_bottom = 263.0
+scale = Vector2(2.016217, 1.68441)
+
+[node name="continueButton" type="Button" parent="Control/optionsContainer" unique_id=1457970377]
+process_mode = 3
+layout_mode = 2
+text = "Continue"
+
+[node name="optionsButton" type="Button" parent="Control/optionsContainer" unique_id=1356787563]
+process_mode = 3
+layout_mode = 2
+text = "Options"
+
+[node name="aboutButton" type="Button" parent="Control/optionsContainer" unique_id=934442061]
+process_mode = 3
+layout_mode = 2
+text = "About"
+
+[node name="mainMenuContainer" type="VBoxContainer" parent="Control" unique_id=65486219]
+process_mode = 3
+layout_mode = 0
+offset_left = 312.0
+offset_top = 353.0
+offset_right = 462.0
+offset_bottom = 393.0
+scale = Vector2(1.8315916, 1.8919685)
+
+[node name="mainMenuButton" type="Button" parent="Control/mainMenuContainer" unique_id=494849738]
+process_mode = 3
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Exit to main menu"
+
+[node name="SettingsMenu" parent="." unique_id=1448677036 instance=ExtResource("1_5vmkj")]
+process_mode = 3
+visible = false
+
+[node name="aboutMenu" parent="." unique_id=1124628361 instance=ExtResource("3_qlqyq")]
+process_mode = 3
+visible = false
+
+[node name="Transition" parent="." unique_id=140022182 instance=ExtResource("4_qlqyq")]
+process_mode = 3
+visible = false
+mouse_filter = 2
+
+[node name="transparentBackground" type="ColorRect" parent="." unique_id=2040870072]
+process_mode = 3
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1111969, 0.11119684, 0.11119681, 0.61960787)
+
+[connection signal="pressed" from="Control/optionsContainer/continueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/optionsContainer/optionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Control/optionsContainer/aboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="Control/mainMenuContainer/mainMenuButton" to="." method="_on_main_menu_button_pressed"]
+
+[editable path="Transition"]

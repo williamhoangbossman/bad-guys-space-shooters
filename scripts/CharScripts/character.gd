@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 func spawnBullet():
 	var bullet = BulletScene.instantiate()
-	bullet.global_position.y = playersprite.global_position.y - 30
 	bullet.global_position.x = playersprite.global_position.x 
+	bullet.global_position.y = playersprite.global_position.y - 42
 	add_child(bullet)
 	timer = 0

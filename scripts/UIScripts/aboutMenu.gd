@@ -1,11 +1,15 @@
-extends Node2D
+extends CanvasLayer
 
-var currentDifficulty: String = "Normal"
-
+@onready var aboutMenu = $"."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+
+func _on_return_button_pressed() -> void:
+	aboutMenu.visible = false

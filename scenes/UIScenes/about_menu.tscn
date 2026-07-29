@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b8x2dia5q10a"]
+
+[sub_resource type="GDScript" id="GDScript_xcss0"]
+script/source = "extends CanvasLayer
+
+@onready var aboutMenu = $\".\"
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+
+func _on_return_button_pressed() -> void:
+	aboutMenu.visible = false
+"
+
+[node name="aboutMenu" type="CanvasLayer" unique_id=1124628361]
+script = SubResource("GDScript_xcss0")
+
+[node name="Control" type="Control" parent="." unique_id=1415938551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mainBackground" type="ColorRect" parent="Control" unique_id=1499879751]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stuff" type="ColorRect" parent="Control" unique_id=1466391507]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 110.99999
+offset_right = 182.0
+offset_bottom = 151.0
+scale = Vector2(14.943719, 9.009503)
+color = Color(1, 0, 1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1530207587]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 204.0
+offset_top = 213.0
+offset_right = 304.0
+offset_bottom = 253.0
+scale = Vector2(4.9125915, 2.8917627)
+text = "THIS IS ABOUT ME AND KANYE"
+
+[node name="returnButtonContainer" type="VBoxContainer" parent="Control" unique_id=991928007]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 62.0
+offset_bottom = 60.0
+scale = Vector2(2.5408578, 2.4643748)
+
+[node name="returnButton" type="Button" parent="Control/returnButtonContainer" unique_id=1678314537]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+text = "RETURN"
+
+[connection signal="pressed" from="Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]
