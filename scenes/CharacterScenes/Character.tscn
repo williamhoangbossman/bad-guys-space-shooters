@@ -17,7 +17,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i3nt"]
 height = 22.593931
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1347624096]
+[node name="playerShip" type="CharacterBody2D" unique_id=1347624096]
 z_index = 5
 scale = Vector2(0.74682707, 0.7564578)
 script = ExtResource("1_3i3nt")

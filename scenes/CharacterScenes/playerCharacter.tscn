@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://rfe5o7ug2fr0"]
+
+[ext_resource type="Texture2D" uid="uid://dglkabj3h0172" path="res://assets/Sprites/playerdude.png" id="1_i14ww"]
+[ext_resource type="Script" uid="uid://5xb6pth3uo8r" path="res://scripts/MainScripts/playerCharacter.gd" id="1_mf2ae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf2ae"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(0, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nqqu"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(95, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq567"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(190, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evwrq"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(285, 0, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whju8"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(0, 95, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2us0k"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(95, 95, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auqda"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(190, 95, 95, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro146"]
+atlas = ExtResource("1_i14ww")
+region = Rect2(285, 95, 95, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3idr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf2ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nqqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq567")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evwrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whju8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2us0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auqda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro146")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7djt"]
+radius = 23.0
+height = 46.0
+
+[node name="playerCharacter" type="CharacterBody2D" unique_id=443729702]
+script = ExtResource("1_mf2ae")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=818507506]
+scale = Vector2(0.309892, 0.309892)
+sprite_frames = SubResource("SpriteFrames_g3idr")
+autoplay = "default"
+frame_progress = 0.22963032
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2080691960]
+position = Vector2(2, 8)
+scale = Vector2(0.3255649, 0.48866713)
+shape = SubResource("CapsuleShape2D_l7djt")

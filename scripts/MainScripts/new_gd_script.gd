@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var transition = $Transition
 @onready var transitionPlayer = $Transition/AnimationPlayer
-@onready var generalMenu = $UI/MenuUI/generalMenu
+@onready var generalMenu = $HUD/UI/MenuUI/generalMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

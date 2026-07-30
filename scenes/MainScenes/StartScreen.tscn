@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdwh2vf805lx8" path="res://scripts/MainScripts/start_screen.gd" id="1_2mdob"]
 [ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_dxqsf"]
+[ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/SKYCLOUDBG_1.png" id="2_fpu7k"]
 [ext_resource type="Texture2D" uid="uid://cfyvli3qho5od" path="res://assets/UI/MainMenu/SETTINGS.png" id="4_cxwh5"]
 [ext_resource type="Texture2D" uid="uid://gxjajib0bdk" path="res://assets/UI/MainMenu/QUITBtn.png" id="5_0toi5"]
 [ext_resource type="Texture2D" uid="uid://c206jtjjuknhc" path="res://assets/UI/MainMenu/TITLE_1.png" id="5_epuca"]
@@ -23,14 +24,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="MainScreenUI" unique_id=1300513648]
+[node name="Background" type="TextureRect" parent="MainScreenUI" unique_id=2073653425]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.043137256, 0.003921569, 0.09019608, 1)
+texture = ExtResource("2_fpu7k")
 
 [node name="TitleContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=881861856]
 layout_mode = 0
@@ -45,6 +46,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("5_epuca")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/TitleContainer" unique_id=752196973]
 
 [node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
 layout_mode = 0
