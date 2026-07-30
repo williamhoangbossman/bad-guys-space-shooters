@@ -6,15 +6,11 @@ extends Node2D
 @onready var enemyCharacter =  $Enemy
 @onready var pauseButton = $UI/menuUI/backButton
 
-
 func _ready() -> void:
-	
-	
 	print("Game Difficulty is " + GameManager.currentDifficulty)
 	
 	transitionRect.visible = true
 	transitionAnimation.play("FadeOut")
-	
 	
 	match  GameManager.currentDifficulty:
 		"Easy":
@@ -25,22 +21,31 @@ func _ready() -> void:
 			hard_mode_setup()
 			
 			
-
 func easy_mode_setup() -> void:
-	enemyCharacter.speed = 7.5
-	enemyCharacter.maxHealth = 25
+	GameManager.enemySpeed = 7.5
+	GameManager.enemyMaxhealth = 1
+	
+	GameManager.characterBulletSpeed =  7
+	EconomyManager.moneyMultiplier = 5
 
 func normal_mode_setup() -> void:
-	enemyCharacter.speed = 10
-	enemyCharacter.maxHealth = 30
+	GameManager.enemySpeed = 10
+	GameManager.enemyMaxhealth = 30
+	
+	GameManager.characterBulletSpeed = 4
+	EconomyManager.moneyMultiplier = 1
 	
 func hard_mode_setup() -> void:
-	enemyCharacter.speed = 50
-	enemyCharacter.maxHealth = 60
+	GameManager.enemySpeed = 50
+	GameManager.enemyMaxhealth = 60
+	
+	GameManager.characterBulletSpeed = 35
+	EconomyManager.moneyMultiplier = 0.8
 
 func _process(delta: float) -> void:
 	if (GameManager.gamePaused == true): #stop the pausebutton from work + hud invis
 		pauseButton.disabled = true
+		
 		
 	if  GameManager.gamePaused == false: #make them norm
 		pauseButton.disabled = false

@@ -1,8 +1,5 @@
 extends Area2D
 
-@export var speed = 10
-@export var maxHealth: int = 30
-
 @onready var rightRayCast = $RightRayCast
 @onready var leftRayCast = $LeftRayCast
 
@@ -11,7 +8,7 @@ var direction = 1
 var currentHealth: int
 
 func _ready() -> void:
-	currentHealth = maxHealth
+	currentHealth = GameManager.enemyMaxhealth
 
 func take_damage(amount: int):
 	currentHealth -= amount
@@ -27,7 +24,7 @@ func die():
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	$".".position.x += speed * direction
+	$".".position.x += GameManager.enemySpeed * direction
 	
 	if rightRayCast.is_colliding() and direction == 1:
 		direction = -1

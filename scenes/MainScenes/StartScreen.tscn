@@ -9,42 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="6_q553w"]
 [ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/settings_menu.tscn" id="7_47qn4"]
 [ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
-
-[sub_resource type="Animation" id="Animation_cxwh5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(353, 231)]
-}
-
-[sub_resource type="Animation" id="Animation_0toi5"]
-resource_name = "SlideDown"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.35355347, 0.35355332),
-"update": 0,
-"values": [Vector2(353, 231), Vector2(353, 369)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fpu7k"]
-_data = {
-&"RESET": SubResource("Animation_cxwh5"),
-&"SlideDown": SubResource("Animation_0toi5")
-}
+[ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/MainMenu/CursorSelect.png" id="10_0toi5"]
 
 [node name="StartScreen" type="CanvasLayer" unique_id=1919995100]
 process_mode = 3
@@ -84,9 +49,9 @@ texture = ExtResource("5_epuca")
 [node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
 layout_mode = 0
 offset_left = 353.0
-offset_top = 231.0
+offset_top = 367.00003
 offset_right = 410.0
-offset_bottom = 271.00003
+offset_bottom = 407.00006
 scale = Vector2(3.4615345, 3.9316647)
 theme_override_constants/separation = 9
 
@@ -104,8 +69,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("5_0toi5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/gameOptionsContainer" unique_id=1944578413]
-libraries/ = SubResource("AnimationLibrary_fpu7k")
+[node name="left_Cursor" type="TextureRect" parent="MainScreenUI" unique_id=1022919165]
+layout_mode = 0
+offset_left = 291.99997
+offset_top = 360.0
+offset_right = 361.99997
+offset_bottom = 430.0
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("10_0toi5")
+
+[node name="right_Cursor" type="TextureRect" parent="MainScreenUI" unique_id=1492991077]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 356.0
+offset_right = 644.0
+offset_bottom = 426.0
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("10_0toi5")
+flip_h = true
 
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
@@ -115,13 +96,9 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 76.0
-offset_top = 76.0
-offset_right = 76.0
-offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.77999765, 0.675)
+scale = Vector2(0.9264218, 0.90016556)
 
 [node name="ColorRect" type="ColorRect" parent="DifficultyMenu" unique_id=912068007]
 layout_mode = 1
@@ -223,12 +200,7 @@ theme_override_colors/default_color = Color(1, 0.007843138, 0.25490198, 1)
 theme_override_colors/font_selected_color = Color(0.8784314, 0, 0.5372549, 0)
 theme_override_colors/font_outline_color = Color(0, 0.3137255, 0.7176471, 1)
 theme_override_fonts/normal_font = ExtResource("2_dxqsf")
-text = "You are currently in NORMAL mode. 
-	Money Gain: 1x 
-	Enemy HealthPoints: 1x 
-	
-	Enemy Movement Speed will be NORMAL. 
-	Expect to have neither a calming nor stressful experience!"
+text = "Please choose a difficulty to begin!"
 
 [node name="Transition" parent="." unique_id=140022182 instance=ExtResource("6_q553w")]
 visible = false
@@ -236,11 +208,17 @@ visible = false
 [node name="SettingsMenu2" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
 visible = false
 
+[connection signal="pressed" from="MainScreenUI/gameOptionsContainer/gameStartButton" to="." method="_on_game_start_button_pressed"]
+[connection signal="pressed" from="MainScreenUI/gameOptionsContainer/gameStartButton" to="MainScreenUI/gameOptionsContainer" method="_on_game_start_button_pressed"]
+[connection signal="pressed" from="MainScreenUI/gameOptionsContainer/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainScreenUI/gameOptionsContainer/quitButton2" to="." method="_on_quit_button_2_pressed"]
 [connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuBackButton" to="." method="_on_menu_back_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuCreateButton" to="." method="_on_menu_create_button_pressed"]
+[connection signal="pressed" from="SettingsMenu2/Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]
 
 [editable path="Transition"]
+[editable path="SettingsMenu2"]

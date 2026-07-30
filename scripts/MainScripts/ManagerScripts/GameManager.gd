@@ -1,6 +1,6 @@
 extends Node2D
 
-var currentDifficulty: String = "Normal"
+var currentDifficulty: String = "Please Select!"
 var gamePaused: bool = false
 #characterData
 var characterHealth: float = 3
@@ -8,8 +8,12 @@ var characterBulletSpeed: float = 200
 var playerBaseDamage: float = 1
 
 var currentScore: float = 0
-
 var damageMultiplier: float = 1
+
+#enemy data
+var enemyMaxhealth: float = 30
+var enemySpeed: float = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

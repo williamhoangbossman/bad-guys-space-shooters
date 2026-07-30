@@ -8,48 +8,65 @@ extends CanvasLayer
 @onready var difficultyLabel = $DifficultyMenu/DescrptionLabel
 @onready var settingsMenu = $SettingsMenu2
 
-@onready var slideanimation = $MainScreenUI/gameOptionsContainer/AnimationPlayer
+@onready var leftCursor = $MainScreenUI/left_Cursor
+@onready var rightCursor = $MainScreenUI/right_Cursor
+@export var cursorOffset: float = 15
+
+@onready var gameOptionsContainer = $MainScreenUI/gameOptionsContainer
+@onready var playButton = $MainScreenUI/gameOptionsContainer/gameStartButton
+@onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
+@onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
+
+
 
 var buttonfunction = false
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
+	for child in gameOptionsContainer.get_children():
+		if child is TextureButton:
+			child.focus_entered.connect(func(): onButtonFocusEntered(child))
+			
+	playButton.grab_focus()
+	
 	titleLabel.pivot_offset = titleLabel.size / 2
 	titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
-	
 	var titleTimer = $TitleTimer
 	titleTimer.start()
-	slideanimation.play("SlideDown")
+	#slideanimation.play("SlideDown")
+	
+func onButtonFocusEntered(button: TextureButton) -> void:
+	var focusedNode = get_viewport().gui_get_focus_owner()
+	
+	if focusedNode is TextureButton:
+		var buttonrect = focusedNode.get_global_rect()
+		
+		var leftsize = leftCursor.get_rect().size
+		var rightsize = rightCursor.get_rect().size
+	
+		leftCursor.global_position = Vector2(
+		buttonrect.position.x - leftsize.x - cursorOffset,
+		buttonrect.get_center().y - (leftCursor.size.y / 2) + 15
+		)
+		rightCursor.global_position = Vector2(
+		buttonrect.end.x + cursorOffset,
+		buttonrect.get_center().y - (rightsize.y / 2)
+		)
 	
 	
-func _on_title_timer_timeout() -> void:
+func _on_title_timer_timeout() -> void: #title stuff
 	titleGrowth()
-	
-	
 	await get_tree().create_timer(1).timeout	
 	buttonfunction = true
 	
-func titleGrowth() -> void:
+func titleGrowth() -> void: # title stuff again 
 	var TweenCreate = create_tween()
 	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
-	
 		
-func _on_start_button_pressed() -> void:
-	if (buttonfunction):
-		transitionrect.visible = true
-		print("sigmatron")
-		transition.play("FadeIn")
-		await get_tree().create_timer(0.75).timeout
-		transition.play("FadeOut")
-		difficultyMenu.visible = true
-		await get_tree().create_timer(0.75).timeout
-		transitionrect.visible = false
-		
-func _on_quit_button_pressed() -> void:
-	if (buttonfunction):
-		get_tree().quit()
 		
 func _on_menu_back_button_pressed() -> void:
 	transitionrect.visible = true
@@ -60,7 +77,24 @@ func _on_menu_back_button_pressed() -> void:
 	transitionrect.visible = false
 	difficultyMenu.visible = false
 	
+	playButton.grab_focus()
+	
 func _on_menu_create_button_pressed() -> void:
+	#if GameManager.currentDifficulty == "Please Select":
+	#	var WordSelector = randi_range(1, 5)
+	#	if WordSelector == 1:
+		#		difficultyLabel.text = "Select a difficulty, please."
+		#	2:
+		#		difficultyLabel.text = "I'm telling you to select a difficulty."
+		#	3:
+		#		difficultyLabel.text = "Just select a difficulty already."
+		#	4:
+		#		difficultyLabel.text = "Don't make me say it again."
+			#5:
+			#	difficultyLabel.text = "SELECT A FUCKING DIFFICULTY."
+			
+	#return
+	
 	transitionrect.visible = true
 	transition.play("FadeIn")
 	await get_tree().create_timer(0.75).timeout
@@ -101,6 +135,25 @@ func _on_hard_mode_button_pressed():
 	"
 	GameManager.currentDifficulty = "Hard"
 	
-	
+
+
+func _on_game_start_button_pressed() -> void:
+	if (buttonfunction):
+		transitionrect.visible = true
+		print("sigmatron")
+		transition.play("FadeIn")
+		await get_tree().create_timer(0.75).timeout
+		transition.play("FadeOut")
+		difficultyMenu.visible = true
+		await get_tree().create_timer(0.75).timeout
+		transitionrect.visible = false
+
+func _on_quit_button_2_pressed() -> void:
+	if (buttonfunction):
+		get_tree().quit()
+
 func _on_settings_button_pressed() -> void:
-	settingsMenu.visible = true
+	settingsMenu.visible = true 
+
+func _on_return_button_pressed() -> void:
+	settingsButton.grab_focus()
