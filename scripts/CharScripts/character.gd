@@ -6,7 +6,6 @@ const  BulletScene = preload("res://scenes/Misc/bullet.tscn")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-var cooldown = 0.4
 var timer = 0
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	timer += delta 
 	if Input.is_action_pressed("shoot"):
-		if timer >= cooldown:
+		if timer >= GameManager.playerBulletCooldown:
 			spawnBullet()
 		
 	# Get the input direction and handle the movement/deceleration.
@@ -26,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)	
-
 	if direction < 0:
 		playersprite.flip_h = true
 	elif direction > 0:

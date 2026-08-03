@@ -22,25 +22,33 @@ func _ready() -> void:
 			
 			
 func easy_mode_setup() -> void:
-	GameManager.enemySpeed = 7.5
+	GameManager.enemySpeed = 120
 	GameManager.enemyMaxhealth = 1
+	GameManager.enemyBulletFrequencyMin = 1
+	GameManager.enemyBulletFrequencyMax = 5
 	
 	GameManager.characterBulletSpeed =  7
 	EconomyManager.moneyMultiplier = 5
 
 func normal_mode_setup() -> void:
-	GameManager.enemySpeed = 10
-	GameManager.enemyMaxhealth = 30
+	GameManager.enemySpeed = 160
+	GameManager.enemyMaxhealth = 60
+	GameManager.enemyBulletFrequencyMin = 1
+	GameManager.enemyBulletFrequencyMax = 3
 	
 	GameManager.characterBulletSpeed = 4
 	EconomyManager.moneyMultiplier = 1
 	
-func hard_mode_setup() -> void:
-	GameManager.enemySpeed = 50
-	GameManager.enemyMaxhealth = 60
 	
-	GameManager.characterBulletSpeed = 35
+func hard_mode_setup() -> void:
+	GameManager.enemySpeed = 500
+	GameManager.enemyMaxhealth = 60
+	GameManager.enemyBulletFrequencyMin = 0.04
+	GameManager.enemyBulletFrequencyMax = 0.4
+	
+	GameManager.characterBulletSpeed = 32
 	EconomyManager.moneyMultiplier = 0.8
+	
 
 func _process(delta: float) -> void:
 	if (GameManager.gamePaused == true): #stop the pausebutton from work + hud invis

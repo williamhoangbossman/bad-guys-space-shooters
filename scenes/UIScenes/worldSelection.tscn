@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://x7qmw6tmyfke"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1266624653]
+
+[node name="Control" type="Control" parent="." unique_id=73113987]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=420095694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="optionsContainer" type="VBoxContainer" parent="Control/ColorRect" unique_id=897709657]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 61.000004
+offset_right = 323.0
+offset_bottom = 232.0
+scale = Vector2(8.233581, 2.686754)
+
+[node name="Button" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=1999063473]
+layout_mode = 2
+text = "w1"
+
+[node name="Button2" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=146052453]
+layout_mode = 2
+text = "w2"
+
+[node name="Button3" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=336384949]
+layout_mode = 2
+text = "w3"
+
+[node name="Button4" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=14248848]
+layout_mode = 2
+text = "w4"
+
+[node name="Button5" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=1323528307]
+layout_mode = 2
+text = "w5"

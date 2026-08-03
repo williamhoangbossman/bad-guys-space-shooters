@@ -34,4 +34,4 @@ offset_top = -1.0000001
 offset_right = 84.0
 offset_bottom = 22.0
 scale = Vector2(2.2553058, 2.0878825)
-text = "scroe:"
+text = "score:"

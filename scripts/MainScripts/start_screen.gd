@@ -17,8 +17,6 @@ extends CanvasLayer
 @onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
 @onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
 
-
-
 var buttonfunction = false
 
 func _ready() -> void:
@@ -55,7 +53,6 @@ func onButtonFocusEntered(button: TextureButton) -> void:
 		buttonrect.get_center().y - (rightsize.y / 2)
 		)
 	
-	
 func _on_title_timer_timeout() -> void: #title stuff
 	titleGrowth()
 	await get_tree().create_timer(1).timeout	
@@ -66,7 +63,6 @@ func titleGrowth() -> void: # title stuff again
 	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
-		
 		
 func _on_menu_back_button_pressed() -> void:
 	transitionrect.visible = true
@@ -80,21 +76,28 @@ func _on_menu_back_button_pressed() -> void:
 	playButton.grab_focus()
 	
 func _on_menu_create_button_pressed() -> void:
-	#if GameManager.currentDifficulty == "Please Select":
-	#	var WordSelector = randi_range(1, 5)
-	#	if WordSelector == 1:
-		#		difficultyLabel.text = "Select a difficulty, please."
-		#	2:
-		#		difficultyLabel.text = "I'm telling you to select a difficulty."
-		#	3:
-		#		difficultyLabel.text = "Just select a difficulty already."
-		#	4:
-		#		difficultyLabel.text = "Don't make me say it again."
-			#5:
-			#	difficultyLabel.text = "SELECT A FUCKING DIFFICULTY."
-			
-	#return
+	if GameManager.currentDifficulty == "Please Select!":
+		var WordSelector = randi_range(1, 5)
+		match WordSelector: 
+			1:
+				difficultyLabel.text = "Select a difficulty, please."
+			2:
+				difficultyLabel.text = "I'm telling you to select a difficulty."
+			3:
+				difficultyLabel.text = "Just select a difficulty already."
+			4:
+				difficultyLabel.text = "Don't make me say it again."
+			5:
+				difficultyLabel.text = "."
+	elif GameManager.currentDifficulty == "Easy":
+		gameTransition()
+	elif GameManager.currentDifficulty == "Normal":
+		gameTransition()
+	elif GameManager.currentDifficulty == "Hard":
+		gameTransition()
+	return
 	
+func gameTransition() ->void: 
 	transitionrect.visible = true
 	transition.play("FadeIn")
 	await get_tree().create_timer(0.75).timeout
@@ -135,7 +138,6 @@ func _on_hard_mode_button_pressed():
 	"
 	GameManager.currentDifficulty = "Hard"
 	
-
 
 func _on_game_start_button_pressed() -> void:
 	if (buttonfunction):

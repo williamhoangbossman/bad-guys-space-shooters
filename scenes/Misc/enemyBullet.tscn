@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cp2ckf7lgynjq"]
+
+[ext_resource type="Script" uid="uid://docubivold24v" path="res://scripts/MiscItemsScripts/enemyBulletScript.gd" id="1_7ynlk"]
+[ext_resource type="Texture2D" uid="uid://cpnvv7f3cdr7c" path="res://assets/Sprites/CrystalAtk_1.png" id="2_7ynlk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5w5p"]
+radius = 305.74057
+height = 637.5016
+
+[node name="enemyBullet" type="Area2D" unique_id=1511659055]
+script = ExtResource("1_7ynlk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274180043]
+scale = Vector2(0.09321786, 0.19025645)
+shape = SubResource("CapsuleShape2D_c5w5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=459726399]
+scale = Vector2(0.6063932, 0.60526705)
+texture = ExtResource("2_7ynlk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

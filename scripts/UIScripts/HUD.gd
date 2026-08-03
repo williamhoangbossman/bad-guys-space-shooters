@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	moneylabel.text = "money: %d" % EconomyManager.currentMoney
-	scoreLabel.text = "scroe: %d" % GameManager.currentScore
+	scoreLabel.text = "score: %d" % GameManager.currentScore
 
 #func _on_continue():
 	#visible = true

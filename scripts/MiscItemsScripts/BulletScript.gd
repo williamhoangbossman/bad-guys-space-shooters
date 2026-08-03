@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	Bullet.position.y -= GameManager.characterBulletSpeed
+	Bullet.position.y -= GameManager.characterBulletSpeed * delta
 
 
 func _on_area_entered(area: Area2D) -> void:
