@@ -54,15 +54,15 @@ func onButtonFocusEntered(button: TextureButton) -> void:
 		)
 	
 func _on_title_timer_timeout() -> void: #title stuff
-	titleGrowth()
-	await get_tree().create_timer(1).timeout	
+	#titleGrowth()
+#	await get_tree().create_timer(1).timeout	
 	buttonfunction = true
 	
-func titleGrowth() -> void: # title stuff again 
-	var TweenCreate = create_tween()
-	TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
-		.set_trans(Tween.TRANS_SINE)\
-		.set_ease(Tween.EASE_IN_OUT)
+#func titleGrowth() -> void: # title stuff again 
+	#var TweenCreate = create_tween()
+	#TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
+	#	.set_trans(Tween.TRANS_SINE)\
+	#	.set_ease(Tween.EASE_IN_OUT)
 		
 func _on_menu_back_button_pressed() -> void:
 	transitionrect.visible = true
