@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var transitionrect = $Transition
 @onready var transition = $Transition/AnimationPlayer
 
-@onready var titleLabel = $MainScreenUI/TitleContainer/gameTitle
 @onready var difficultyMenu = $DifficultyMenu
 @onready var difficultyLabel = $DifficultyMenu/DescrptionLabel
 @onready var settingsMenu = $SettingsMenu2
@@ -28,14 +27,14 @@ func _ready() -> void:
 			
 	playButton.grab_focus()
 	
-	titleLabel.pivot_offset = titleLabel.size / 2
-	titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	#titleLabel.pivot_offset = titleLabel.size / 2
+	#titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
 	var titleTimer = $TitleTimer
 	titleTimer.start()
 	#slideanimation.play("SlideDown")
 	
-func onButtonFocusEntered(button: TextureButton) -> void:
+func onButtonFocusEntered(_button: TextureButton) -> void:
 	var focusedNode = get_viewport().gui_get_focus_owner()
 	
 	if focusedNode is TextureButton:

@@ -27,6 +27,15 @@ offset_bottom = 580.0
 scale = Vector2(2.0896995, 1.9282385)
 text = "moneyyy:"
 
+[node name="liveCountLabel" type="Label" parent="Control" unique_id=518802101]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 500.00003
+offset_right = 81.0
+offset_bottom = 549.0
+scale = Vector2(2.0896995, 1.9282385)
+text = "lives:"
+
 [node name="scoreLabel" type="Label" parent="Control" unique_id=1363424593]
 layout_mode = 0
 offset_left = 9.0
@@ -35,3 +44,13 @@ offset_right = 84.0
 offset_bottom = 22.0
 scale = Vector2(2.2553058, 2.0878825)
 text = "score:"
+
+[node name="InteractLabel" type="Label" parent="Control" unique_id=934694604]
+visible = false
+layout_mode = 0
+offset_left = 330.99997
+offset_top = 399.99997
+offset_right = 427.99997
+offset_bottom = 422.99997
+scale = Vector2(3.0441167, 2.2529674)
+text = "E - Interacte"

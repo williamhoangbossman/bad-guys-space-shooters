@@ -9,7 +9,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_3i3nt")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -31,5 +31,11 @@ sprite_frames = SubResource("SpriteFrames_apuoc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830943964]
 z_index = 10
 position = Vector2(0.18604915, 0.44429487)
-scale = Vector2(0.9430296, 1.3259673)
+scale = Vector2(0.31616095, 1.305374)
+shape = SubResource("CapsuleShape2D_3i3nt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=19315011]
+z_index = 10
+position = Vector2(0, 13.219508)
+scale = Vector2(1.030885, 0.4318952)
 shape = SubResource("CapsuleShape2D_3i3nt")

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://vfmw4yhksw44" path="res://assets/UI/Background1.png" id="7_vd5g6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
-distance = -1.0
+distance = -31.0
 
 [node name="Game" type="Node2D" unique_id=805202920]
 process_mode = 1
@@ -31,7 +31,7 @@ process_mode = 3
 position = Vector2(451, 521)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wallContainer/Floor" unique_id=1559320361]
-position = Vector2(0, 80)
+position = Vector2(-5, 131)
 shape = SubResource("WorldBoundaryShape2D_qbsmt")
 
 [node name="Wall2" type="StaticBody2D" parent="wallContainer" unique_id=926739258]
@@ -86,6 +86,7 @@ mouse_filter = 2
 
 [node name="Background1" type="Sprite2D" parent="." unique_id=1784211833]
 position = Vector2(450, 300)
+scale = Vector2(1.0019448, 0.9971386)
 texture = ExtResource("7_vd5g6")
 
 [node name="HUD" parent="." unique_id=1063632305 instance=ExtResource("6_t6ftk")]

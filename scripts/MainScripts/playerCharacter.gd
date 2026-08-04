@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 140
 const JUMP_VELOCITY = -400.0
 
+@onready var playerCharacter = $"."
 @onready var playerCharacterSprite = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -18,13 +19,13 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * SPEED
-		playerCharacterSprite.flip_h
-	else:
-		playerCharacterSprite.flip_h
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction != 0:
+		playerCharacter.position.x += direction * delta * SPEED
+		playerCharacterSprite.flip_h = (direction > 0)
 
-
+	if velocity.length() != 0:
+		pass #add jump sprite frames 
+	
+	
 	
 	move_and_slide()

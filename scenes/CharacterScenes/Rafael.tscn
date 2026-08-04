@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://d3kmp2mfc1hos"]
 
 [ext_resource type="Texture2D" uid="uid://c3q4g0crboi45" path="res://assets/Sprites/spritesheet.png" id="1_6g60s"]
-[ext_resource type="Script" uid="uid://hhmdxittjir" path="res://scenes/CharacterScenes/rafael.gd" id="1_u5f3r"]
+[ext_resource type="Script" uid="uid://hhmdxittjir" path="res://scripts/CharScripts/rafael.gd" id="1_u5f3r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw42r"]
-size = Vector2(20, 22.155962)
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5f3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6g60s"]
 atlas = ExtResource("1_6g60s")
@@ -86,20 +85,25 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ouq0r")
 }],
-"loop": 0,
+"loop": false,
 "name": &"default",
 "speed": 12.0
 }]
 
 [node name="Rafael" type="Area2D" unique_id=573379232]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_u5f3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392419910]
 position = Vector2(0, -9.399995)
-scale = Vector2(12.200001, 8.65371)
-shape = SubResource("RectangleShape2D_yw42r")
+scale = Vector2(16.140547, 17.474337)
+shape = SubResource("CircleShape2D_u5f3r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=271808154]
 sprite_frames = SubResource("SpriteFrames_exxwl")
 frame = 10
 frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

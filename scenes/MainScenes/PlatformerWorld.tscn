@@ -186,7 +186,13 @@ offset_top = 2.0
 offset_right = 75.0
 offset_bottom = 25.0
 
-[node name="scoreLabel" parent="HUD/Control" parent_id_path=PackedInt32Array(1063632305, 2034880923) index="1" unique_id=1363424593]
+[node name="liveCountLabel" parent="HUD/Control" parent_id_path=PackedInt32Array(1063632305, 2034880923) index="1" unique_id=518802101]
+offset_left = 132.0
+offset_top = -66.99997
+offset_right = 207.0
+offset_bottom = -18.0
+
+[node name="scoreLabel" parent="HUD/Control" parent_id_path=PackedInt32Array(1063632305, 2034880923) index="2" unique_id=1363424593]
 offset_left = -1.9999995
 offset_top = -68.0
 offset_right = 73.0
@@ -235,6 +241,8 @@ tile_set = SubResource("TileSet_globh")
 [node name="Rafael" parent="." unique_id=1056135792 instance=ExtResource("7_tf0h1")]
 position = Vector2(1038.108, -65.01525)
 scale = Vector2(0.21, 0.21)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=464687593]
 
 [connection signal="pressed" from="HUD/UI/returnToSpaceButton" to="." method="_on_return_to_space_button_pressed"]
 [connection signal="pressed" from="HUD/UI/MenuUI/backButton" to="." method="_on_back_button_pressed"]

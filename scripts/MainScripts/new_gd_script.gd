@@ -23,3 +23,4 @@ func _on_return_to_space_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	generalMenu.visible = true
+	get_tree().paused = true
