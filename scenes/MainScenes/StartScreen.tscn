@@ -12,6 +12,84 @@
 [ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
 [ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/MainMenu/CursorSelect.png" id="10_0toi5"]
 
+[sub_resource type="Animation" id="Animation_fpu7k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gorqs"]
+resource_name = "leftCursor"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwb15"]
+_data = {
+&"RESET": SubResource("Animation_fpu7k"),
+&"leftCursor": SubResource("Animation_gorqs")
+}
+
+[sub_resource type="Animation" id="Animation_hkvy1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../right_Cursor:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e3il4"]
+resource_name = "leftCursor"
+
+[sub_resource type="Animation" id="Animation_1cjrn"]
+resource_name = "rightCursor"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../right_Cursor:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dv5bs"]
+_data = {
+&"RESET": SubResource("Animation_hkvy1"),
+&"leftCursor": SubResource("Animation_e3il4"),
+&"rightCursor": SubResource("Animation_1cjrn")
+}
+
 [node name="StartScreen" type="CanvasLayer" unique_id=1919995100]
 process_mode = 3
 script = ExtResource("1_2mdob")
@@ -35,19 +113,17 @@ texture = ExtResource("2_fpu7k")
 
 [node name="TitleContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=881861856]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 74.00001
-offset_right = 425.0
-offset_bottom = 145.0
-scale = Vector2(2.187008, 1.8305589)
+offset_left = 163.0
+offset_top = 90.0
+offset_right = 438.0
+offset_bottom = 161.0
+scale = Vector2(2, 2)
 
 [node name="gameTitle" type="TextureRect" parent="MainScreenUI/TitleContainer" unique_id=264713499]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("5_epuca")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/TitleContainer" unique_id=752196973]
 
 [node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
 layout_mode = 0
@@ -81,6 +157,10 @@ offset_bottom = 430.0
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("10_0toi5")
 
+[node name="LeftCursorFade" type="AnimationPlayer" parent="MainScreenUI/left_Cursor" unique_id=2022268074]
+libraries/ = SubResource("AnimationLibrary_iwb15")
+autoplay = &"leftCursor"
+
 [node name="right_Cursor" type="TextureRect" parent="MainScreenUI" unique_id=1492991077]
 layout_mode = 0
 offset_left = 574.0
@@ -90,6 +170,11 @@ offset_bottom = 426.0
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("10_0toi5")
 flip_h = true
+
+[node name="RightCursorFade" type="AnimationPlayer" parent="MainScreenUI/right_Cursor" unique_id=1328907114]
+root_node = NodePath("../../left_Cursor/LeftCursorFade")
+libraries/ = SubResource("AnimationLibrary_dv5bs")
+autoplay = &"rightCursor"
 
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
