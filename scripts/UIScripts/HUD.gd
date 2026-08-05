@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var moneylabel = $Control/moneyLabel
 @onready var scoreLabel = $Control/scoreLabel
+@onready var liveCountLabel = $Control/liveCountLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,9 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
 	moneylabel.text = "money: %d" % EconomyManager.currentMoney
 	scoreLabel.text = "score: %d" % GameManager.currentScore
+	liveCountLabel.text = "lives: %d" % GameManager.liveCount
 
 #func _on_continue():
 	#visible = true

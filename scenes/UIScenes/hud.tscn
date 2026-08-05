@@ -29,10 +29,10 @@ text = "moneyyy:"
 
 [node name="liveCountLabel" type="Label" parent="Control" unique_id=518802101]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 500.00003
-offset_right = 81.0
-offset_bottom = 549.0
+offset_left = 4.0
+offset_top = 520.0
+offset_right = 79.0
+offset_bottom = 569.0
 scale = Vector2(2.0896995, 1.9282385)
 text = "lives:"
 

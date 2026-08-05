@@ -11,6 +11,8 @@ var playerBulletCooldown: float = 0.4
 var currentScore: float = 0
 var scoreMultiplier: float = 1
 
+var liveCount: float = 3
+
 var damageMultiplier: float = 1
 
 #enemy data

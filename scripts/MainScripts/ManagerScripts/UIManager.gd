@@ -3,6 +3,7 @@ extends Node
 var dialogueScene = preload("res://scenes/UIScenes/dialogueBox.tscn")
 var upgradeMenuScene = preload("res://scenes/UIScenes/upgrade_menu.tscn")
 var worldSelectionScene = preload("res://scenes/UIScenes/worldSelection.tscn")
+var deathScreenScene = preload("res://scenes/UIScenes/death_screen.tscn")
 
 var activeUI: CanvasLayer = null
 # Called when the node enters the scene tree for the first time.
@@ -44,3 +45,9 @@ func openWorldSelectionMenu() -> void:
 	get_tree().root.add_child(worldMenuInstance)
 	activeUI = worldMenuInstance
 	
+func openDeathScreen() -> void:
+	closeCurrentUI()
+	
+	var deathScreen = deathScreenScene.instantiate()
+	get_tree().root.add_child(deathScreen)
+	activeUI = deathScreen
