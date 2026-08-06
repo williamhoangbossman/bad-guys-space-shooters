@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	
 
 func _on_return_button_pressed() -> void:
-	aboutMenu.visible = false
+	UiManager.closeCurrentUI()

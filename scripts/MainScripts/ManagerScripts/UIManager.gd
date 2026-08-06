@@ -4,6 +4,9 @@ var dialogueScene = preload("res://scenes/UIScenes/dialogueBox.tscn")
 var upgradeMenuScene = preload("res://scenes/UIScenes/upgrade_menu.tscn")
 var worldSelectionScene = preload("res://scenes/UIScenes/worldSelection.tscn")
 var deathScreenScene = preload("res://scenes/UIScenes/death_screen.tscn")
+var generalMenuScene = preload("res://scenes/UIScenes/general_menu.tscn")
+var aboutScreenScene = preload("res://scenes/UIScenes/about_menu.tscn")
+var settingsMenuScene = preload("res://scenes/UIScenes/settings_menu.tscn")
 
 var activeUI: CanvasLayer = null
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +23,8 @@ func closeCurrentUI() -> void:
 		activeUI.queue_free()
 		activeUI = null
 		
+		get_tree().paused = false
+		
 func openDialogue(npcData: Dictionary) -> void:
 	closeCurrentUI()
 	
@@ -34,6 +39,7 @@ func openDialogue(npcData: Dictionary) -> void:
 func openUpgradeMenu() -> void: 
 	closeCurrentUI()
 	
+	get_tree().paused = true
 	var upgradeInstance = upgradeMenuScene.instantiate()
 	get_tree().root.add_child(upgradeInstance)
 	activeUI = upgradeInstance
@@ -41,6 +47,7 @@ func openUpgradeMenu() -> void:
 func openWorldSelectionMenu() -> void:
 	closeCurrentUI()
 	
+	get_tree().paused = true
 	var worldMenuInstance = worldSelectionScene.instantiate()
 	get_tree().root.add_child(worldMenuInstance)
 	activeUI = worldMenuInstance
@@ -48,6 +55,32 @@ func openWorldSelectionMenu() -> void:
 func openDeathScreen() -> void:
 	closeCurrentUI()
 	
+	get_tree().paused = true
 	var deathScreen = deathScreenScene.instantiate()
 	get_tree().root.add_child(deathScreen)
 	activeUI = deathScreen
+
+func openGeneralMenu() -> void:
+	closeCurrentUI()
+	
+	get_tree().paused = true
+	var generalMenu = generalMenuScene.instantiate()
+	get_tree().root.add_child(generalMenu)
+	activeUI = generalMenu
+
+func openAboutScreen() -> void:
+	closeCurrentUI()
+	
+	get_tree().paused = true
+	var aboutScreen = aboutScreenScene.instantiate()
+	get_tree().root.add_child(aboutScreen)
+	activeUI = aboutScreen
+	
+func openSettingsMenu() -> void:
+	closeCurrentUI()
+	
+	get_tree().paused = true
+	var settingsMenu = settingsMenuScene.instantiate()
+	get_tree().root.add_child(settingsMenu)
+	activeUI = settingsMenu
+	

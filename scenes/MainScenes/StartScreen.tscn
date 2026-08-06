@@ -233,10 +233,10 @@ text = "DIFFICULTY"
 
 [node name="DescriptionContainer" type="Control" parent="DifficultyMenu" unique_id=307266478]
 anchors_preset = 0
-offset_left = 173.17122
-offset_top = 226.66667
-offset_right = 213.17122
-offset_bottom = 266.66666
+offset_left = 103.6245
+offset_top = 219.95953
+offset_right = 143.6245
+offset_bottom = 259.95953
 scale = Vector2(17.12067, 7.299165)
 
 [node name="ColorRect" type="ColorRect" parent="DifficultyMenu/DescriptionContainer" unique_id=138606752]

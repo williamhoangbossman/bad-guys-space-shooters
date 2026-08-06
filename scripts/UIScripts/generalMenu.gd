@@ -13,17 +13,15 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_continue_button_pressed() -> void:
-	GameManager.gamePaused = false
-	get_tree().paused = false
-	generalMenu.visible = false
+	UiManager.closeCurrentUI()
 	
 #	Signals.emit_signal("game_continue")
 	
 func _on_options_button_pressed() -> void:
-	settingsMenu.visible = true
+	UiManager.openSettingsMenu()
 
 func _on_about_button_pressed() -> void:
-	aboutMenu.visible  = true 
+	UiManager.openAboutScreen()
 
 
 func _on_main_menu_button_pressed() -> void:

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://debdy3b3mg4jp" path="res://scripts/UIScripts/WorldSelectionScript.gd" id="1_22hpk"]
 
 [node name="WorldSelectionMenu" type="CanvasLayer" unique_id=1266624653]
+process_mode = 3
 script = ExtResource("1_22hpk")
 
 [node name="Control" type="Control" parent="." unique_id=73113987]
@@ -31,10 +32,11 @@ offset_bottom = 218.0
 scale = Vector2(2.7428648, 2.8279986)
 
 [node name="HomeButton" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=1999063473]
+process_mode = 3
 layout_mode = 2
 text = "Return Home"
 
-[node name="WorldOneButton" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=146052453]
+[node name="GolemLandButton" type="Button" parent="Control/ColorRect/optionsContainer" unique_id=146052453]
 layout_mode = 2
 text = "GolemLand"
 
@@ -62,11 +64,13 @@ texture = ExtResource("1_1vtds")
 [node name="returnButton" type="Button" parent="Control" unique_id=1423045367]
 process_mode = 3
 layout_mode = 0
-offset_left = 673.0
+offset_left = 683.00006
 offset_top = 20.0
-offset_right = 718.0
+offset_right = 741.00006
 offset_bottom = 51.0
-scale = Vector2(4.568427, 2.3516672)
-text = "back"
+scale = Vector2(3.116046, 1.9772362)
+text = "return"
 
+[connection signal="pressed" from="Control/ColorRect/optionsContainer/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Control/ColorRect/optionsContainer/GolemLandButton" to="." method="_on_golem_land_button_pressed"]
 [connection signal="pressed" from="Control/returnButton" to="." method="_on_return_button_pressed"]

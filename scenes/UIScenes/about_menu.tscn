@@ -19,6 +19,7 @@ func _on_return_button_pressed() -> void:
 "
 
 [node name="aboutMenu" type="CanvasLayer" unique_id=1124628361]
+process_mode = 3
 script = SubResource("GDScript_xcss0")
 
 [node name="Control" type="Control" parent="." unique_id=1415938551]

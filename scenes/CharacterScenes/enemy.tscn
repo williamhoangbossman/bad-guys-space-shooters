@@ -93,9 +93,11 @@ scale = Vector2(2.843636, 5.5600767)
 shape = SubResource("CapsuleShape2D_t2l28")
 
 [node name="RightRayCast" type="RayCast2D" parent="." unique_id=63522769]
+scale = Vector2(1.8355597, 1.8355597)
 target_position = Vector2(76, 0)
 
 [node name="LeftRayCast" type="RayCast2D" parent="." unique_id=970435443]
+scale = Vector2(1.7237973, 1.7237973)
 target_position = Vector2(-81, 0)
 
 [node name="shootTimer" type="Timer" parent="." unique_id=1356347083]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://buinj7o58vqd0" path="res://scripts/UIScripts/dialogueBoxScript.gd" id="1_7hfyf"]
 
 [node name="dialogueBox" type="CanvasLayer" unique_id=751850066]
+process_mode = 2
 script = ExtResource("1_7hfyf")
 
 [node name="Panel" type="Panel" parent="." unique_id=560310343]

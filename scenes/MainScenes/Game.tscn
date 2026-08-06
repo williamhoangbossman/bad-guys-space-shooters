@@ -63,6 +63,7 @@ process_mode = 3
 visible = false
 
 [node name="backButton" type="Button" parent="UI/menuUI" unique_id=1605882255]
+z_index = 20
 offset_left = 757.0
 offset_top = 28.0
 offset_right = 864.0
