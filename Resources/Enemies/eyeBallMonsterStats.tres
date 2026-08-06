@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="enemyStats" format=3 uid="uid://bp6bk4sblmbiy"]
+
+[ext_resource type="Script" uid="uid://cvo0tw35ftpjg" path="res://Resources/Enemies/enemyStats.gd" id="1_qhl0p"]
+
+[resource]
+script = ExtResource("1_qhl0p")
+name = "EyeballMonster"
+maxHealthPoints = 50
+moveSpeed = 500
+metadata/_custom_type_script = "uid://cvo0tw35ftpjg"

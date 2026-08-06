@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/SKYCLOUDBG_1.png" id="2_fpu7k"]
 [ext_resource type="Texture2D" uid="uid://cfyvli3qho5od" path="res://assets/UI/MainMenu/SETTINGS.png" id="4_cxwh5"]
 [ext_resource type="Texture2D" uid="uid://gxjajib0bdk" path="res://assets/UI/MainMenu/QUITBtn.png" id="5_0toi5"]
-[ext_resource type="Texture2D" uid="uid://cpxl8w8xlokvf" path="res://assets/UI/MainMenu/New Piskel (4).png" id="6_gorqs"]
+[ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/MainMenu/CursorSelect.png" id="6_dv5bs"]
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="6_q553w"]
 [ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/settings_menu.tscn" id="7_47qn4"]
 [ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
@@ -98,7 +98,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_iwb15"]
 resource_name = "Float Loop"
-length = 2.5000000000000004
+length = 2.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -186,7 +186,7 @@ offset_top = 360.0
 offset_right = 361.99997
 offset_bottom = 430.0
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("6_gorqs")
+texture = ExtResource("6_dv5bs")
 
 [node name="LeftCursorFade" type="AnimationPlayer" parent="MainScreenUI/left_Cursor" unique_id=2022268074]
 libraries/ = SubResource("AnimationLibrary_iwb15")
@@ -199,7 +199,7 @@ offset_top = 356.0
 offset_right = 644.0
 offset_bottom = 426.0
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("6_gorqs")
+texture = ExtResource("6_dv5bs")
 flip_h = true
 
 [node name="RightCursorFade" type="AnimationPlayer" parent="MainScreenUI/right_Cursor" unique_id=1328907114]
@@ -224,6 +224,7 @@ texture = ExtResource("8_iwb15")
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
 [node name="DifficultyMenu" type="Control" parent="." unique_id=38508641]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

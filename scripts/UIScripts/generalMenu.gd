@@ -4,17 +4,11 @@ extends CanvasLayer
 @onready var settingsMenu = $SettingsMenu
 @onready var aboutMenu = $aboutMenu
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_continue_button_pressed() -> void:
-	UiManager.closeCurrentUI()
-	
+	#UiManager.closeCurrentUI() --> dont use!
+	generalMenu.visible = false
+	get_tree().paused = false
 #	Signals.emit_signal("game_continue")
 	
 func _on_options_button_pressed() -> void:

@@ -16,7 +16,13 @@ extends CanvasLayer
 @onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
 @onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
 
-var buttonfunction = false
+var pressed: bool = false
+var buttonSelected = null
+
+func unselectButton() -> void:
+	pressed = false
+	buttonSelected = null
+#var buttonfunction = false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -52,10 +58,10 @@ func onButtonFocusEntered(_button: TextureButton) -> void:
 		buttonrect.get_center().y - (rightsize.y / 2)
 		)
 	
-func _on_title_timer_timeout() -> void: #title stuff
+#func _on_title_timer_timeout() -> void: #title stuff
 	#titleGrowth()
 #	await get_tree().create_timer(1).timeout	
-	buttonfunction = true
+	#buttonfunction = true
 	
 #func titleGrowth() -> void: # title stuff again 
 	#var TweenCreate = create_tween()
@@ -105,6 +111,8 @@ func gameTransition() ->void:
 	
 
 func _on_easy_mode_button_pressed() -> void:
+	
+	
 	difficultyLabel.text = "You are currently in EASY mode. 
 	Money Gain: 1.5x 
 	Enemy HealthPoints: 0.75x  
@@ -139,7 +147,9 @@ func _on_hard_mode_button_pressed():
 	
 
 func _on_game_start_button_pressed() -> void:
-	if (buttonfunction):
+	buttonSelected  = "start"
+	
+	if buttonSelected == "start" and pressed:
 		transitionrect.visible = true
 		print("sigmatron")
 		transition.play("FadeIn")
@@ -148,13 +158,31 @@ func _on_game_start_button_pressed() -> void:
 		difficultyMenu.visible = true
 		await get_tree().create_timer(0.75).timeout
 		transitionrect.visible = false
+		
+		unselectButton()
+	
+	if buttonSelected == "start":
+		pressed = true
 
 func _on_quit_button_2_pressed() -> void:
-	if (buttonfunction):
+	buttonSelected = "quit"
+	
+	if buttonSelected == "quit" and pressed:
 		get_tree().quit()
+		unselectButton()
+		
+	if buttonSelected == "quit":
+		pressed = true
 
 func _on_settings_button_pressed() -> void:
-	settingsMenu.visible = true 
+	buttonSelected = "settings"
+	
+	if buttonSelected == "settings" and pressed:
+		UiManager.openSettingsMenu()
+		unselectButton()
 
+	if buttonSelected == "settings":
+		pressed = true
+		
 func _on_return_button_pressed() -> void:
 	settingsButton.grab_focus()

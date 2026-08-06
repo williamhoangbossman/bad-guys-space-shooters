@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jv45muwshv4g" path="res://assets/UI/BackBtn.png" id="5_t2ei0"]
 [ext_resource type="Texture2D" uid="uid://dr0kjv25r27ca" path="res://assets/UI/HomeBtn.png" id="6_t4ixl"]
 [ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/hud.tscn" id="6_t6ftk"]
-[ext_resource type="Texture2D" uid="uid://vfmw4yhksw44" path="res://assets/UI/Background1.png" id="7_vd5g6"]
+[ext_resource type="Texture2D" uid="uid://vfmw4yhksw44" path="res://assets/UI/DescriptionIcons/Background1.png" id="7_vd5g6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
 distance = -31.0

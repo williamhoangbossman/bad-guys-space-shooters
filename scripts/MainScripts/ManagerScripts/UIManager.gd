@@ -75,6 +75,7 @@ func openAboutScreen() -> void:
 	var aboutScreen = aboutScreenScene.instantiate()
 	get_tree().root.add_child(aboutScreen)
 	activeUI = aboutScreen
+	print("YES FIGMA")
 	
 func openSettingsMenu() -> void:
 	closeCurrentUI()

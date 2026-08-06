@@ -89,11 +89,9 @@ text = "Quit"
 flat = true
 
 [node name="SettingsMenu" parent="." unique_id=1448677036 instance=ExtResource("1_5vmkj")]
-process_mode = 3
 visible = false
 
 [node name="aboutMenu" parent="." unique_id=1124628361 instance=ExtResource("3_qlqyq")]
-process_mode = 3
 visible = false
 
 [node name="Transition" parent="." unique_id=140022182 instance=ExtResource("4_qlqyq")]

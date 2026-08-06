@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var stats: enemyStats
+
 @onready var enemyCharacter = $"."
 
 @onready var shootTimer = $shootTimer
@@ -12,8 +14,8 @@ var direction = 1
 var currentHealth: int
 
 func _ready() -> void:
-	currentHealth = GameManager.enemyMaxhealth
-	shootTimer.wait_time = randf_range(GameManager.enemyBulletFrequencyMin, GameManager.enemyBulletFrequencyMax)
+	currentHealth = stats.maxHealthPoints
+	shootTimer.wait_time = randf_range(stats.BulletFrequencyMin, stats.BulletFrequencyMax)
 	shootTimer.start()
 
 func take_damage(amount: int):
@@ -37,11 +39,11 @@ func die():
 func _on_shoot_timer_timeout() -> void:
 	spawnBullet()
 	
-	shootTimer.wait_time = randf_range(GameManager.enemyBulletFrequencyMin, GameManager.enemyBulletFrequencyMax)
+	shootTimer.wait_time = randf_range(stats.BulletFrequencyMin, stats.BulletFrequencyMax)
 	shootTimer.start()
 
 func _physics_process(delta: float) -> void:
-	$".".position.x += GameManager.enemySpeed * direction * delta
+	$".".position.x += stats.moveSpeed * direction * delta
 	
 	if rightRayCast.is_colliding() and direction == 1:
 		direction = -1

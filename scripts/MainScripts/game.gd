@@ -3,9 +3,15 @@ extends Node2D
 @onready var transitionRect = $UI/Animation/Transition
 @onready var transitionAnimation = $UI/Animation/Transition/AnimationPlayer
 @onready var pauseButton = $UI/menuUI/backButton
+@onready var generalMenu = $UI/menuUI/generalMenu
+
+var enemyScene = preload("res://scenes/CharacterScenes/enemy.tscn")
 
 func _ready() -> void:
 	print("Game Difficulty is " + GameManager.currentDifficulty)
+	
+	var newenemy = enemyScene.instantiate()
+	add_child(newenemy)
 	
 	transitionRect.visible = true
 	transitionAnimation.play("FadeOut")
@@ -66,11 +72,11 @@ func _process(delta: float) -> void:
 	if  GameManager.gamePaused == false: #make them norm
 		pauseButton.disabled = false
 
-func _on_back_button_pressed() -> void:
-	UiManager.openGeneralMenu()
-
+func _on_back_button_pressed() -> void: # dont use the UImanager for this!
+	generalMenu.visible = true
+	get_tree().paused = true
 	
-	print("PLEASE I WANT TO GO BACK")
+	print("HELPPPP")
 	
 
 func _on_home_button_pressed() -> void:
