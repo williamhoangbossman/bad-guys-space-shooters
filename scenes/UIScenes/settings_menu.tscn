@@ -66,6 +66,7 @@ offset_bottom = 134.0
 scale = Vector2(1.836837, 1.650813)
 
 [node name="returnButton" type="Button" parent="Control/returnButtonContainer" unique_id=505527195]
+process_mode = 3
 layout_mode = 2
 text = "RETURN"
 

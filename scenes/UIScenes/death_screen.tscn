@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bfw5qnfe50dyv"]
 
+[ext_resource type="Script" uid="uid://d05bbelsd42gq" path="res://scripts/UIScripts/deathScreenScript.gd" id="1_1jlxs"]
+
 [node name="DeathScreen" type="CanvasLayer" unique_id=963930137]
+script = ExtResource("1_1jlxs")
 
 [node name="Control" type="Control" parent="." unique_id=625213823]
 layout_mode = 3
@@ -29,11 +32,14 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "GO TO HELL"
 
-[node name="Button" type="Button" parent="Control" unique_id=946543695]
+[node name="ReturnButton" type="Button" parent="Control" unique_id=946543695]
+process_mode = 3
 layout_mode = 0
 offset_left = 326.0
-offset_top = 331.0
+offset_top = 436.0
 offset_right = 397.0
-offset_bottom = 362.0
+offset_bottom = 467.0
 scale = Vector2(2.8097796, 3.2707784)
 text = "RETURN"
+
+[connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]
