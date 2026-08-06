@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dhlml")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }]
@@ -81,24 +81,22 @@ scale = Vector2(0.5941129, 1.2985171)
 shape = SubResource("CircleShape2D_m5w63")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1533941779]
-position = Vector2(82, -0.9999962)
+position = Vector2(93.00001, -0.9999962)
 rotation = -0.62206376
 scale = Vector2(2.843636, 5.5600767)
 shape = SubResource("CapsuleShape2D_t2l28")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=470481604]
-position = Vector2(-92, 0)
+position = Vector2(-93, 0)
 rotation = 0.54054165
 scale = Vector2(2.843636, 5.5600767)
 shape = SubResource("CapsuleShape2D_t2l28")
 
 [node name="RightRayCast" type="RayCast2D" parent="." unique_id=63522769]
-scale = Vector2(1.8355597, 1.8355597)
-target_position = Vector2(76, 0)
+target_position = Vector2(150, 0)
 
 [node name="LeftRayCast" type="RayCast2D" parent="." unique_id=970435443]
-scale = Vector2(1.7237973, 1.7237973)
-target_position = Vector2(-81, 0)
+target_position = Vector2(-150, 0)
 
 [node name="shootTimer" type="Timer" parent="." unique_id=1356347083]
 
