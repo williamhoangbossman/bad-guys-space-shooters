@@ -5,12 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/SKYCLOUDBG_1.png" id="2_fpu7k"]
 [ext_resource type="Texture2D" uid="uid://cfyvli3qho5od" path="res://assets/UI/MainMenu/SETTINGS.png" id="4_cxwh5"]
 [ext_resource type="Texture2D" uid="uid://gxjajib0bdk" path="res://assets/UI/MainMenu/QUITBtn.png" id="5_0toi5"]
-[ext_resource type="Texture2D" uid="uid://c206jtjjuknhc" path="res://assets/UI/MainMenu/TITLE_1.png" id="5_epuca"]
-[ext_resource type="Texture2D" uid="uid://nxff2torwmgk" path="res://icon.svg" id="5_wqkjh"]
+[ext_resource type="Texture2D" uid="uid://cpxl8w8xlokvf" path="res://assets/UI/MainMenu/New Piskel (4).png" id="6_gorqs"]
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="6_q553w"]
 [ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/settings_menu.tscn" id="7_47qn4"]
 [ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
-[ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/MainMenu/CursorSelect.png" id="10_0toi5"]
+[ext_resource type="Texture2D" uid="uid://fukdptk0mv8i" path="res://assets/UI/MainMenu/AstrariaTitle.png" id="7_gorqs"]
+[ext_resource type="Texture2D" uid="uid://c0rdja8lapeag" path="res://assets/UI/MainMenu/StellarSiege.png" id="8_iwb15"]
+[ext_resource type="Texture2D" uid="uid://drdyngc858fho" path="res://assets/UI/EasyBtn.png" id="10_1cjrn"]
+[ext_resource type="Texture2D" uid="uid://dcyrittr05s1l" path="res://assets/UI/NormalBtn.png" id="11_dv5bs"]
+[ext_resource type="Texture2D" uid="uid://cfwaoy8flsv2a" path="res://assets/UI/HardBtn.png" id="12_wxiv8"]
+[ext_resource type="Texture2D" uid="uid://b7xfhfc5e1edj" path="res://assets/UI/BoxBtn.png" id="13_e4gof"]
+[ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="14_o38up"]
+[ext_resource type="Script" uid="uid://upgfy3iqkcoq" path="res://scripts/UIScripts/descrption_label.gd" id="15_dv5bs"]
 
 [sub_resource type="Animation" id="Animation_fpu7k"]
 length = 0.001
@@ -90,6 +96,44 @@ _data = {
 &"rightCursor": SubResource("Animation_1cjrn")
 }
 
+[sub_resource type="Animation" id="Animation_iwb15"]
+resource_name = "Float Loop"
+length = 2.5000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.2, 2.4),
+"transitions": PackedFloat32Array(0.85, 0.7, 0.85),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2.5, 2.5), Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_dv5bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wxiv8"]
+_data = {
+&"Float Loop": SubResource("Animation_iwb15"),
+&"RESET": SubResource("Animation_dv5bs")
+}
+
 [node name="StartScreen" type="CanvasLayer" unique_id=1919995100]
 process_mode = 3
 script = ExtResource("1_2mdob")
@@ -113,11 +157,12 @@ texture = ExtResource("2_fpu7k")
 
 [node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 367.00003
-offset_right = 410.0
-offset_bottom = 407.00006
-scale = Vector2(3.4615345, 3.9316647)
+offset_left = 422.0
+offset_top = 400.0
+offset_right = 479.0
+offset_bottom = 433.0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(28, 20)
 theme_override_constants/separation = 9
 
 [node name="gameStartButton" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=56340042]
@@ -141,7 +186,7 @@ offset_top = 360.0
 offset_right = 361.99997
 offset_bottom = 430.0
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("10_0toi5")
+texture = ExtResource("6_gorqs")
 
 [node name="LeftCursorFade" type="AnimationPlayer" parent="MainScreenUI/left_Cursor" unique_id=2022268074]
 libraries/ = SubResource("AnimationLibrary_iwb15")
@@ -154,7 +199,7 @@ offset_top = 356.0
 offset_right = 644.0
 offset_bottom = 426.0
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("10_0toi5")
+texture = ExtResource("6_gorqs")
 flip_h = true
 
 [node name="RightCursorFade" type="AnimationPlayer" parent="MainScreenUI/right_Cursor" unique_id=1328907114]
@@ -164,15 +209,21 @@ autoplay = &"rightCursor"
 
 [node name="gameTitle" type="Sprite2D" parent="MainScreenUI" unique_id=960869192]
 position = Vector2(442, 140)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("5_epuca")
+scale = Vector2(3, 3)
+texture = ExtResource("7_gorqs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainScreenUI/gameTitle" unique_id=219618597]
+libraries/ = SubResource("AnimationLibrary_wxiv8")
+autoplay = &"Float Loop"
+
+[node name="StellarSiege" type="Sprite2D" parent="MainScreenUI" unique_id=1475694027]
+position = Vector2(450, 260)
+scale = Vector2(1.333, 1.333)
+texture = ExtResource("8_iwb15")
 
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
 [node name="DifficultyMenu" type="Control" parent="." unique_id=38508641]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,15 +242,15 @@ offset_right = -1.2820435
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0793662, 1.1075834)
-color = Color(1, 0, 0, 1)
+color = Color(0.03137255, 0.09019608, 0.13333334, 1)
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
 layout_mode = 0
-offset_left = 202.43959
-offset_top = 93.33331
-offset_right = 544.4396
-offset_bottom = 133.33331
-scale = Vector2(2.154742, 1.9191458)
+offset_left = 62.0
+offset_top = 94.0
+offset_right = 621.0
+offset_bottom = 157.0
+scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
 
 [node name="EasyModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=344480133]
@@ -207,29 +258,26 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
 theme_override_font_sizes/font_size = 16
-text = "EASY"
+icon = ExtResource("10_1cjrn")
+flat = true
 
 [node name="NormalModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=749323769]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
-text = "Normal"
+icon = ExtResource("11_dv5bs")
+flat = true
 
 [node name="HardModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=877556345]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
-text = "Hard
-"
+icon = ExtResource("12_wxiv8")
+flat = true
 
-[node name="DifficultyLabel" type="Label" parent="DifficultyMenu" unique_id=268973294]
-layout_mode = 0
-offset_left = 40.244015
-offset_top = 106.666664
-offset_right = 128.24402
-offset_bottom = 129.66666
-scale = Vector2(1.6018518, 1.5378057)
-text = "DIFFICULTY"
+[node name="ColorRect2" type="Sprite2D" parent="DifficultyMenu" unique_id=1232255497]
+position = Vector2(450, 318)
+texture = ExtResource("13_e4gof")
 
 [node name="DescriptionContainer" type="Control" parent="DifficultyMenu" unique_id=307266478]
 anchors_preset = 0
@@ -238,21 +286,6 @@ offset_top = 226.66667
 offset_right = 213.17122
 offset_bottom = 266.66666
 scale = Vector2(17.12067, 7.299165)
-
-[node name="ColorRect" type="ColorRect" parent="DifficultyMenu/DescriptionContainer" unique_id=138606752]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 1, 0.4392157, 1)
-
-[node name="LevelIcon" type="TextureRect" parent="DifficultyMenu/DescriptionContainer" unique_id=1253133409]
-layout_mode = 0
-offset_left = 1.5823044
-offset_top = 1.9278972
-offset_right = 129.5823
-offset_bottom = 129.9279
-scale = Vector2(0.04109369, 0.0834868)
-texture = ExtResource("5_wqkjh")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=262026771]
 layout_mode = 0
@@ -271,17 +304,19 @@ layout_mode = 2
 text = "CREATE"
 
 [node name="DescrptionLabel" type="RichTextLabel" parent="DifficultyMenu" unique_id=1999814049]
-custom_minimum_size = Vector2(600, 150)
+texture_filter = 1
 layout_mode = 0
-offset_left = 215.38527
-offset_top = 337.77777
-offset_right = 640.38525
-offset_bottom = 377.77777
-theme_override_colors/default_color = Color(1, 0.007843138, 0.25490198, 1)
-theme_override_colors/font_selected_color = Color(0.8784314, 0, 0.5372549, 0)
-theme_override_colors/font_outline_color = Color(0, 0.3137255, 0.7176471, 1)
-theme_override_fonts/normal_font = ExtResource("2_dxqsf")
-text = "Please choose a difficulty to begin!"
+offset_left = 87.43319
+offset_top = 247.73221
+offset_right = 812.43317
+offset_bottom = 382.7322
+scale = Vector2(0.9985779, 1.0032465)
+theme_override_colors/default_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/normal_font = ExtResource("14_o38up")
+theme_override_font_sizes/normal_font_size = 30
+text = "Please select a difficulty to begin!"
+horizontal_alignment = 1
+script = ExtResource("15_dv5bs")
 
 [node name="Transition" parent="." unique_id=140022182 instance=ExtResource("6_q553w")]
 visible = false

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BadGuysSpaceShooters"
-run/main_scene="uid://c4wb160d4e7q2"
+run/main_scene="uid://057jqgmaan3j"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -28,6 +28,7 @@ window/size/viewport_width=900
 window/size/viewport_height=600
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://1xdemlnhb31b"
 
 [input]
 
@@ -62,5 +63,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.21699977, 0.102729045, 0.12300908, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
