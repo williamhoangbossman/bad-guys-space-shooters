@@ -1,8 +1,5 @@
 extends Node
 
-@export var playerData: playerStats
-@export var enemyData: enemyStats
-
 @export var golemData: enemyStats
 @export var eyeballMonsterData: enemyStats
 @export var enemyScene: PackedScene
@@ -11,11 +8,13 @@ extends Node
 @export var normalPreset: DifficultyData
 @export var hardPreset: DifficultyData
 
+var currentConfig: DifficultyData
+
 var difficultyMultiplier: float = 1
 
 func _ready() -> void:
 	print("Game Difficulty is " + GameManager.currentDifficulty)
-	var currentConfig: DifficultyData = getCurrentDifficultyConfig()
+	currentConfig = getCurrentDifficultyConfig()
 	applyDifficulty(currentConfig)
 	spawnEnemy()
 	
@@ -32,9 +31,13 @@ func startNextWave() -> void:
 	spawnEnemy()
 
 func spawnEnemy() -> void:
+	#if currentConfig == null:
+		#currentConfig = getCurrentDifficultyConfig()
+	
 	var enemy = enemyScene.instantiate()
+	enemy.position = Vector2(450, 150)
 	add_child(enemy)
 	
-	enemy.setUp(golemData, difficultyMultiplier)
+	enemy.setUp(golemData, currentConfig)
 	
 	

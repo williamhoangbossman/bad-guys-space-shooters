@@ -20,8 +20,6 @@ func _process(delta: float) -> void:
 	if (GameManager.gamePaused == true): #stop the pausebutton from work + hud invis
 		pauseButton.disabled = true
 		
-		
-		
 	if  GameManager.gamePaused == false: #make them norm
 		pauseButton.disabled = false
 

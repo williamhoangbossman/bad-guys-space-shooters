@@ -14,9 +14,9 @@ const enemyBulletPreload = preload("res://scenes/Misc/enemyBullet.tscn")
 var direction = 1
 var currentHealth: int
 
-func setUp(data: enemyStats, healthMultiplier: float) -> void: 
-	stats = data
-	currentHealth = int(data.maxHealthPoints * healthMultiplier)
+func setUp(data: enemyStats, config: DifficultyData) -> void: 
+	currentHealth = int(data.maxHealthPoints * config.enemyMaxHPMultiplier)
+	stats.moveSpeed = data.moveSpeed * config.enemyMoveSpeedMultiplier
 	
 	animatedSprite.sprite_frames = data.spriteFrames
 	animatedSprite.play("default")
@@ -24,10 +24,8 @@ func setUp(data: enemyStats, healthMultiplier: float) -> void:
 	print("YESSSSSS")
 
 func _ready() -> void:
-	currentHealth = stats.maxHealthPoints
 	shootTimer.wait_time = randf_range(stats.BulletFrequencyMin, stats.BulletFrequencyMax)
 	shootTimer.start()
-	
 	
 func take_damage(amount: int):
 	currentHealth -= amount

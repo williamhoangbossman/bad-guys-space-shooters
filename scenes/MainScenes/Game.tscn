@@ -103,7 +103,6 @@ texture = ExtResource("7_vd5g6")
 
 [node name="waveManager" type="Node" parent="." unique_id=1142585231]
 script = ExtResource("11_rco02")
-playerData = ExtResource("2_kx3nx")
 golemData = ExtResource("3_rco02")
 eyeballMonsterData = ExtResource("12_83ac0")
 enemyScene = ExtResource("3_78awf")
