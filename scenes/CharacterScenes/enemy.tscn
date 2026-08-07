@@ -37,4 +37,6 @@ target_position = Vector2(-150, 0)
 
 [node name="shootTimer" type="Timer" parent="." unique_id=234624325]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269256957]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,13 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://d30d48tynvwhu" path="res://scenes/CharacterScenes/Character.tscn" id="1_ibkli"]
 [ext_resource type="Script" uid="uid://0dqhcdi7s16n" path="res://scripts/MainScripts/game.gd" id="1_l0e6y"]
+[ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_kx3nx"]
 [ext_resource type="PackedScene" uid="uid://df8vr1fel2kwr" path="res://scenes/CharacterScenes/enemy.tscn" id="3_78awf"]
+[ext_resource type="Resource" uid="uid://cbiv2om8cl5wt" path="res://Resources/Enemies/golemStats.tres" id="3_rco02"]
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="4_hq8g2"]
 [ext_resource type="PackedScene" uid="uid://cf0qjmk11o65" path="res://scenes/UIScenes/general_menu.tscn" id="4_kbpjg"]
 [ext_resource type="Texture2D" uid="uid://jv45muwshv4g" path="res://assets/UI/BackBtn.png" id="5_t2ei0"]
 [ext_resource type="Texture2D" uid="uid://dr0kjv25r27ca" path="res://assets/UI/HomeBtn.png" id="6_t4ixl"]
 [ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/hud.tscn" id="6_t6ftk"]
 [ext_resource type="Texture2D" uid="uid://vfmw4yhksw44" path="res://assets/UI/DescriptionIcons/Background1.png" id="7_vd5g6"]
+[ext_resource type="Script" uid="uid://bjyhkla70h1eh" path="res://scripts/MainScripts/ManagerScripts/waveManager.gd" id="11_rco02"]
+[ext_resource type="Resource" uid="uid://bp6bk4sblmbiy" path="res://Resources/Enemies/eyeBallMonsterStats.tres" id="12_83ac0"]
+[ext_resource type="Resource" uid="uid://blkkn7ubts4o0" path="res://Resources/Difficulty/Easy.tres" id="14_vep8k"]
+[ext_resource type="Resource" uid="uid://dgcq2rq24lo2h" path="res://Resources/Difficulty/Normal.tres" id="15_ov7ts"]
+[ext_resource type="Resource" uid="uid://6oc24jg236vr" path="res://Resources/Difficulty/Hard.tres" id="16_71y7t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
 distance = -31.0
@@ -16,15 +23,13 @@ distance = -31.0
 [node name="Game" type="Node2D" unique_id=805202920]
 process_mode = 1
 script = ExtResource("1_l0e6y")
+playerData = ExtResource("2_kx3nx")
+enemyData = ExtResource("3_rco02")
 
 [node name="CharacterBody2D" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
 position = Vector2(452, 496)
 
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=576528690]
-
-[node name="Enemy" parent="." unique_id=1916203662 instance=ExtResource("3_78awf")]
-z_index = 10
-position = Vector2(450, 150)
 
 [node name="wallContainer" type="Node" parent="." unique_id=1608297305]
 process_mode = 3
@@ -95,6 +100,16 @@ position = Vector2(450, 300)
 texture = ExtResource("7_vd5g6")
 
 [node name="HUD" parent="." unique_id=1063632305 instance=ExtResource("6_t6ftk")]
+
+[node name="waveManager" type="Node" parent="." unique_id=1142585231]
+script = ExtResource("11_rco02")
+playerData = ExtResource("2_kx3nx")
+golemData = ExtResource("3_rco02")
+eyeballMonsterData = ExtResource("12_83ac0")
+enemyScene = ExtResource("3_78awf")
+easyPreset = ExtResource("14_vep8k")
+normalPreset = ExtResource("15_ov7ts")
+hardPreset = ExtResource("16_71y7t")
 
 [connection signal="pressed" from="UI/menuUI/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/menuUI/homeButton" to="." method="_on_home_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" format=3 uid="uid://6oc24jg236vr"]
+
+[ext_resource type="Script" uid="uid://blac7h80xm6lh" path="res://Resources/Difficulty/DifficultyData.gd" id="1_ghrv6"]
+
+[resource]
+script = ExtResource("1_ghrv6")
+difficulty_multiplier = 2.0
+enemy_move_speed = 500.0
+bullet_freq_min = 0.04
+bullet_freq_max = 0.4
+player_max_lives = 2
+money_multiplier = 0.8

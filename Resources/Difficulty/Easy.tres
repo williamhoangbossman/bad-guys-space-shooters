@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://blkkn7ubts4o0"]
+
+[ext_resource type="Script" uid="uid://blac7h80xm6lh" path="res://Resources/Difficulty/DifficultyData.gd" id="1_w2co7"]
+
+[resource]
+script = ExtResource("1_w2co7")
+difficulty_multiplier = 0.75
+player_max_lives = 5
+money_multiplier = 1.5

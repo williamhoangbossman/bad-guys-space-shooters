@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var playerData: playerStats
 @onready var playersprite = $AnimatedSprite2D
 const  BulletScene = preload("res://scenes/Misc/bullet.tscn")
 
@@ -15,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	timer += delta 
 	if Input.is_action_pressed("shoot"):
-		if timer >= GameManager.playerBulletCooldown:
+		if timer >= playerData.playerBulletCooldown:
 			spawnBullet()
 		
 	# Get the input direction and handle the movement/deceleration.
