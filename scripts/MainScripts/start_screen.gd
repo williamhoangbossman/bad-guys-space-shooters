@@ -112,7 +112,6 @@ func gameTransition() ->void:
 
 func _on_easy_mode_button_pressed() -> void:
 	
-	
 	difficultyLabel.text = "You are currently in EASY mode. 
 	Money Gain: 1.5x 
 	Enemy HealthPoints: 0.75x  
@@ -147,9 +146,7 @@ func _on_hard_mode_button_pressed():
 	
 
 func _on_game_start_button_pressed() -> void:
-	buttonSelected  = "start"
 	
-	if buttonSelected == "start" and pressed:
 		transitionrect.visible = true
 		print("sigmatron")
 		transition.play("FadeIn")
@@ -159,30 +156,11 @@ func _on_game_start_button_pressed() -> void:
 		await get_tree().create_timer(0.75).timeout
 		transitionrect.visible = false
 		
-		unselectButton()
-	
-	if buttonSelected == "start":
-		pressed = true
-
 func _on_quit_button_2_pressed() -> void:
-	buttonSelected = "quit"
+	get_tree().quit()
 	
-	if buttonSelected == "quit" and pressed:
-		get_tree().quit()
-		unselectButton()
-		
-	if buttonSelected == "quit":
-		pressed = true
-
 func _on_settings_button_pressed() -> void:
-	buttonSelected = "settings"
-	
-	if buttonSelected == "settings" and pressed:
-		UiManager.openSettingsMenu()
-		unselectButton()
-
-	if buttonSelected == "settings":
-		pressed = true
+	UiManager.openSettingsMenu()
 		
 func _on_return_button_pressed() -> void:
 	settingsButton.grab_focus()

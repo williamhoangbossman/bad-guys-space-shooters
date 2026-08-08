@@ -9,12 +9,9 @@ var aboutScreenScene = preload("res://scenes/UIScenes/about_menu.tscn")
 var settingsMenuScene = preload("res://scenes/UIScenes/settings_menu.tscn")
 
 var activeUI: CanvasLayer = null
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	pass 
 func _process(delta: float) -> void:
 	pass
 	
@@ -33,7 +30,6 @@ func openDialogue(npcData: Dictionary) -> void:
 	activeUI = dialogueInstance
 
 	if dialogueInstance.has_method("setupDialogue"):
-		print("I AM GAY TOO")
 		dialogueInstance.setupDialogue(npcData)
 	
 func openUpgradeMenu() -> void: 
@@ -84,4 +80,6 @@ func openSettingsMenu() -> void:
 	var settingsMenu = settingsMenuScene.instantiate()
 	get_tree().root.add_child(settingsMenu)
 	activeUI = settingsMenu
+	
+	print("IVE OPENED IT!")
 	

@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://b5fipfj41gxpv"]
 
-[sub_resource type="GDScript" id="GDScript_k1ws3"]
-script/source = "extends CanvasLayer
-
-@onready var settingsMenu = $\".\"
-
-func _on_return_button_pressed() -> void:
-	settingsMenu.visible = false
-"
+[ext_resource type="Script" uid="uid://bllao1artoied" path="res://scripts/UIScripts/settingsMenuScript.gd" id="1_hgk2i"]
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1448677036]
 process_mode = 3
-script = SubResource("GDScript_k1ws3")
+script = ExtResource("1_hgk2i")
 
 [node name="Control" type="Control" parent="." unique_id=336197975]
 layout_mode = 3
