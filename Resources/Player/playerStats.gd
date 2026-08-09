@@ -7,5 +7,5 @@ extends Resource
 @export var characterBulletSpeed: float = 200
 @export var playerBulletCooldown: float = 0.4
 
-@export var playerBaseDamage: float = 1
+@export var playerBaseDamage: float = 3
 @export var damageMultiplier: float = 1

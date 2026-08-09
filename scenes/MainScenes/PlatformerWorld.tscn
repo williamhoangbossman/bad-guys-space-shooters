@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://chf2ovkhl8in6"]
 
 [ext_resource type="Script" uid="uid://bab56oc2qkhwt" path="res://scripts/MainScripts/new_gd_script.gd" id="1_13n4u"]
-[ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/hud.tscn" id="1_t41q8"]
+[ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/OnscreenElements/hud.tscn" id="1_t41q8"]
 [ext_resource type="Texture2D" uid="uid://cgxm7n8346f6k" path="res://assets/Sprites/world_tileset.png" id="1_ylijf"]
-[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="3_j1qjm"]
-[ext_resource type="PackedScene" uid="uid://cf0qjmk11o65" path="res://scenes/UIScenes/general_menu.tscn" id="5_mqxsf"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/OnscreenElements/transition.tscn" id="3_j1qjm"]
+[ext_resource type="PackedScene" uid="uid://cf0qjmk11o65" path="res://scenes/UIScenes/Menus/general_menu.tscn" id="5_mqxsf"]
 [ext_resource type="PackedScene" uid="uid://rfe5o7ug2fr0" path="res://scenes/CharacterScenes/playerCharacter.tscn" id="6_ma4ld"]
 [ext_resource type="PackedScene" uid="uid://d3kmp2mfc1hos" path="res://scenes/CharacterScenes/Rafael.tscn" id="7_tf0h1"]
 

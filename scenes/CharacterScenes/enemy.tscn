@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://df8vr1fel2kwr"]
 
-[ext_resource type="Script" uid="uid://cc5ft8qp16sc0" path="res://scripts/CharScripts/enemy.gd" id="1_r2jx8"]
+[ext_resource type="Script" uid="uid://cc5ft8qp16sc0" path="res://scripts/CharScripts/EnemyScripts/enemy.gd" id="1_r2jx8"]
 [ext_resource type="Resource" uid="uid://cbiv2om8cl5wt" path="res://Resources/Enemies/golemStats.tres" id="2_r2jx8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5w63"]

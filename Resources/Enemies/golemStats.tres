@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="enemyStats" format=3 uid="uid://cbiv2om8cl5wt"]
 
 [ext_resource type="Script" uid="uid://cvo0tw35ftpjg" path="res://Resources/Enemies/enemyStats.gd" id="1_gxsss"]
-[ext_resource type="Texture2D" uid="uid://brvyqymnsyklr" path="res://assets/Sprites/golemSpritesheet.png" id="2_ssn2v"]
+[ext_resource type="Texture2D" uid="uid://brvyqymnsyklr" path="res://assets/Sprites/EnemySprites/golemSpritesheet.png" id="2_ssn2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssn2v"]
 atlas = ExtResource("2_ssn2v")

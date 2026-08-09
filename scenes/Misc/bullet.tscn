@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cskkh0hnpv5gd"]
 
 [ext_resource type="Script" uid="uid://2lfneu1ksix0" path="res://scripts/MiscItemsScripts/BulletScript.gd" id="1_b87gg"]
-[ext_resource type="Texture2D" uid="uid://cpg670jf4igak" path="res://assets/Sprites/SpaceshipBullet.png" id="2_b87gg"]
+[ext_resource type="Texture2D" uid="uid://cpg670jf4igak" path="res://assets/Sprites/PlayerSprites/PlayerAttacks/SpaceshipBullet.png" id="2_b87gg"]
 [ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_imecv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]

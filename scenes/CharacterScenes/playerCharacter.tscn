@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rfe5o7ug2fr0"]
 
-[ext_resource type="Texture2D" uid="uid://dglkabj3h0172" path="res://assets/Sprites/playerdude.png" id="1_i14ww"]
+[ext_resource type="Texture2D" uid="uid://dglkabj3h0172" path="res://assets/Sprites/PlayerSprites/playerdude.png" id="1_i14ww"]
 [ext_resource type="Script" uid="uid://5xb6pth3uo8r" path="res://scripts/MainScripts/playerCharacter.gd" id="1_mf2ae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf2ae"]

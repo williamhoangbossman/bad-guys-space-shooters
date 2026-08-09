@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d30d48tynvwhu"]
 
-[ext_resource type="Script" uid="uid://wvx2ks8vr6ou" path="res://scripts/CharScripts/character.gd" id="1_3i3nt"]
-[ext_resource type="Texture2D" uid="uid://cyhalcxww0pei" path="res://assets/Sprites/spaceship 5px.png" id="2_3i3nt"]
+[ext_resource type="Script" uid="uid://wvx2ks8vr6ou" path="res://scripts/CharScripts/CharacterScripts/character.gd" id="1_3i3nt"]
+[ext_resource type="Texture2D" uid="uid://cyhalcxww0pei" path="res://assets/Sprites/PlayerSprites/spaceship 5px.png" id="2_3i3nt"]
 [ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_kvvq1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_apuoc"]

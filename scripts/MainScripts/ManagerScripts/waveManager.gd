@@ -8,7 +8,11 @@ extends Node
 @export var normalPreset: DifficultyData
 @export var hardPreset: DifficultyData
 
+var currentWave: int = 1
+var livingEnemiesCount: int = 1
+
 var currentConfig: DifficultyData
+#var startPosition = Vector2(450, 150)
 
 var difficultyMultiplier: float = 1
 
@@ -17,7 +21,7 @@ func _ready() -> void:
 	currentConfig = getCurrentDifficultyConfig()
 	applyDifficulty(currentConfig)
 	spawnEnemy()
-	
+
 func getCurrentDifficultyConfig() -> DifficultyData:
 	match  GameManager.currentDifficulty:
 		"Easy": return easyPreset
@@ -31,13 +35,23 @@ func startNextWave() -> void:
 	spawnEnemy()
 
 func spawnEnemy() -> void:
-	#if currentConfig == null:
-		#currentConfig = getCurrentDifficultyConfig()
-	
 	var enemy = enemyScene.instantiate()
-	enemy.position = Vector2(450, 150)
+	enemy.position = Vector2(randf_range(250, 700), 150)
 	add_child(enemy)
 	
-	enemy.setUp(golemData, currentConfig)
+	enemy.tree_exited.connect(onEnemyDied)
+	var waveHPMultipler: float = 1.0 + ((currentWave - 1) * 0.2)
 	
+	enemy.setUp(golemData, currentConfig, waveHPMultipler)
+	
+func onEnemyDied() -> void:
+	livingEnemiesCount -= 1
+	if livingEnemiesCount <=0:
+		onWaveCleared()
+	
+func onWaveCleared() -> void:
+	if not is_inside_tree():
+		return
+	currentWave += 1
+	get_tree().create_timer(2).timeout.connect(startNextWave)
 	
