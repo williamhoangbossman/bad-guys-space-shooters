@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://q2ywaaslli0u"]
 
 [ext_resource type="Script" uid="uid://kg7vh3065ukp" path="res://scripts/UIScripts/OnscreenElementsScripts/HUD.gd" id="1_q8te5"]
+[ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_actk5"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1063632305]
 process_mode = 3
 script = ExtResource("1_q8te5")
+playerData = ExtResource("2_actk5")
 
 [node name="Control" type="Control" parent="." unique_id=2034880923]
 process_mode = 3

@@ -16,6 +16,23 @@ var scoreMultiplier: float = 1
 #var enemyBulletFrequencyMin = 0.05
 #var enemyBulletFrequencyMax = 4
 
+var healthLevel: int = 1
+var damageLevel: int = 1
+var bulletSpeedLevel: int = 1
+
+const baseCost: int = 100
+const costMultiplier: float = 1.5
+
+func getUpgradeCost(currentLevel: int) -> int:
+	return int(baseCost * pow(costMultiplier, currentLevel - 1))
+	
+func buyHealthUpgrade() -> bool:
+	var cost = getUpgradeCost(healthLevel)
+	if EconomyManager.currentMoney >= cost:
+		EconomyManager.currentMoney -= cost
+		healthLevel += 1
+		return true 
+	return false	
 
 func _ready() -> void:
 	pass

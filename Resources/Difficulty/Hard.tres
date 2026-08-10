@@ -8,6 +8,6 @@ enemyMoveSpeedMultiplier = 4.0
 enemyMaxHPMultiplier = 2
 bullet_freq_min = 0.04
 bullet_freq_max = 0.4
-player_max_lives = 2
+playerLivesMultiplier = 0.6
 playerBulletSpeedMultiplier = 7.5
 money_multiplier = 0.8

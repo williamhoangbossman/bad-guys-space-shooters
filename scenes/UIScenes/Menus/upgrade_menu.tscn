@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://cksu53uhsyda8"]
 
 [ext_resource type="Script" uid="uid://bhq4dburvuv1v" path="res://scripts/UIScripts/MenusScripts/upgradeMenu.gd" id="1_7nlu7"]
+[ext_resource type="Resource" uid="uid://dqi57ynakuwtk" path="res://Resources/Upgrades/Upgrades.tres" id="2_jsb2q"]
 
 [node name="UpgradeMenu" type="CanvasLayer" unique_id=677118975]
 process_mode = 3
 script = ExtResource("1_7nlu7")
+upgradesData = ExtResource("2_jsb2q")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=820130901]
 anchors_preset = 15
@@ -56,7 +58,6 @@ scale = Vector2(0.12163814, 0.26708528)
 text = "UPGRADE"
 
 [node name="DefenseTab" type="Control" parent="." unique_id=707159438]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 112.00001
@@ -181,4 +182,27 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "MISC"
 
+[node name="CostLabel" type="Label" parent="." unique_id=614023336]
+offset_left = 114.0
+offset_top = 129.0
+offset_right = 249.0
+offset_bottom = 174.0
+scale = Vector2(1.3773228, 1.6726032)
+theme_override_font_sizes/font_size = 32
+text = "COST: 10"
+
+[node name="LevelsLabel" type="Label" parent="." unique_id=51079365]
+offset_left = 117.0
+offset_top = 459.0
+offset_right = 233.0
+offset_bottom = 504.0
+scale = Vector2(1.3773228, 1.6726032)
+theme_override_font_sizes/font_size = 32
+text = "Level: 1"
+
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="DefenseTab/DefenseUpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/DamageUpgradesTab" to="." method="_on_damage_upgrades_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/DefenseUpgradesTab" to="." method="_on_defense_upgrades_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/AttacksUpgradeTab" to="." method="_on_attacks_upgrade_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/MiscUpgradesTab" to="." method="_on_misc_upgrades_tab_pressed"]

@@ -7,6 +7,6 @@ extends Resource
 @export var moveSpeed: float = 200
 @export var spriteFrames: SpriteFrames
 
-@export var BulletSpeed: float = 4
+@export var BulletSpeed: float = 50
 @export var BulletFrequencyMin = 0.05
 @export var BulletFrequencyMax = 4

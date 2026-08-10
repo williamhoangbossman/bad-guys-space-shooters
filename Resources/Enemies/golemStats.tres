@@ -70,6 +70,5 @@ animations = [{
 [resource]
 script = ExtResource("1_gxsss")
 name = "GolemMonster"
-moveSpeed = 250
 spriteFrames = SubResource("SpriteFrames_t2ei0")
 metadata/_custom_type_script = "uid://cvo0tw35ftpjg"

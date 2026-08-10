@@ -1,13 +1,37 @@
 extends CharacterBody2D
 
 @export var playerData: playerStats
+
 @onready var playersprite = $AnimatedSprite2D
 const  BulletScene = preload("res://scenes/Misc/bullet.tscn")
+
+var maxHealth: int
+var currentHealth: int
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var timer = 0
+
+func apply_all_stats(config: DifficultyData) -> void:
+	var baseHP = playerData.maxHealthPoints * config.playerMaxHPMultiplier
+	var hpBonus = (GameManager.health_level - 1) * 20
+	
+	maxHealth = int(baseHP + hpBonus)
+	currentHealth = maxHealth
+
+func setupDifficulty(config: DifficultyData) -> void:
+	maxHealth = int(playerData.maxLifeCount * config.playerLivesMultiplier)
+	currentHealth = maxHealth
+	
+	print("Player has ", currentHealth, "/", maxHealth, " HP" )
+
+func takeDamage(amount: int) -> void: #HANDLES THE DMG + DYING
+	currentHealth -= amount
+	
+	#CHANGE HEALTH/LIVES COUNTER (IN FUTURE WE CAN ADD LIVES TO OUR COUNTER)
+	if currentHealth <= 0:
+		UiManager.openDeathScreen()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

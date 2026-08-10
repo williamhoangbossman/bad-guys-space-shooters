@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BadGuysSpaceShooters"
-run/main_scene="uid://chf2ovkhl8in6"
+run/main_scene="uid://cksu53uhsyda8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

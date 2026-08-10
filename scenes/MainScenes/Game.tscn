@@ -26,9 +26,6 @@ script = ExtResource("1_l0e6y")
 playerData = ExtResource("2_kx3nx")
 enemyData = ExtResource("3_rco02")
 
-[node name="CharacterBody2D" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
-position = Vector2(452, 496)
-
 [node name="EnemyContainer" type="Node2D" parent="." unique_id=576528690]
 
 [node name="wallContainer" type="Node" parent="." unique_id=1608297305]
@@ -101,8 +98,13 @@ texture = ExtResource("7_vd5g6")
 
 [node name="HUD" parent="." unique_id=1063632305 instance=ExtResource("6_t6ftk")]
 
-[node name="waveManager" type="Node" parent="." unique_id=1142585231]
+[node name="Player" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
+position = Vector2(452, 496)
+
+[node name="waveManager" type="Node" parent="." unique_id=1142585231 node_paths=PackedStringArray("player", "HUD")]
 script = ExtResource("11_rco02")
+player = NodePath("../Player")
+HUD = NodePath("../HUD")
 golemData = ExtResource("3_rco02")
 eyeballMonsterData = ExtResource("12_83ac0")
 enemyScene = ExtResource("3_78awf")

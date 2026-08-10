@@ -1,5 +1,8 @@
 extends Node
 
+@export var player : CharacterBody2D
+@export var HUD: CanvasLayer
+
 @export var golemData: enemyStats
 @export var eyeballMonsterData: enemyStats
 @export var enemyScene: PackedScene
@@ -21,6 +24,10 @@ func _ready() -> void:
 	currentConfig = getCurrentDifficultyConfig()
 	applyDifficulty(currentConfig)
 	spawnEnemy()
+	HUD.setupHUD(currentConfig)
+	
+	if player != null:
+		player.setupDifficulty(currentConfig)
 
 func getCurrentDifficultyConfig() -> DifficultyData:
 	match  GameManager.currentDifficulty:
