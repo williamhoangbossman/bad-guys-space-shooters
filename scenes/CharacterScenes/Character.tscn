@@ -1,19 +1,9 @@
 [gd_scene format=3 uid="uid://d30d48tynvwhu"]
 
 [ext_resource type="Script" uid="uid://wvx2ks8vr6ou" path="res://scripts/CharScripts/CharacterScripts/character.gd" id="1_3i3nt"]
-[ext_resource type="Texture2D" uid="uid://cyhalcxww0pei" path="res://assets/Sprites/PlayerSprites/spaceship 5px.png" id="2_3i3nt"]
 [ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_kvvq1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_apuoc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_3i3nt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Resource" uid="uid://vh7ks0dxmei7" path="res://Resources/Upgrades/Attacks/starterLaserAttack.tres" id="3_kvvq1"]
+[ext_resource type="PackedScene" uid="uid://cskkh0hnpv5gd" path="res://scenes/Misc/bullet.tscn" id="4_0imct"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i3nt"]
 radius = 30.610907
@@ -24,11 +14,12 @@ z_index = 5
 scale = Vector2(0.74682707, 0.7564578)
 script = ExtResource("1_3i3nt")
 playerData = ExtResource("2_kvvq1")
+WeaponData = ExtResource("3_kvvq1")
+bullet = ExtResource("4_0imct")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1362404207]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1321038526]
 z_index = 4096
 position = Vector2(0.18604915, 0.44429487)
-sprite_frames = SubResource("SpriteFrames_apuoc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830943964]
 z_index = 10

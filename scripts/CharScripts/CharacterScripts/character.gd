@@ -2,28 +2,41 @@ extends CharacterBody2D
 
 @export var playerData: playerStats
 
-@onready var playersprite = $AnimatedSprite2D
+@export_category("Weapon")
+@export var WeaponData: weaponData
+
+@onready var playersprite = $Sprite2D
 const  BulletScene = preload("res://scenes/Misc/bullet.tscn")
 
 var maxHealth: int
 var currentHealth: int
+var damage: int
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var timer = 0
 
+func _ready() -> void:
+	if GameManager.currentSkin != null:
+		$Sprite2D.texture = GameManager.currentSkin
+
 func applyAllStats(config: DifficultyData) -> void:
-	var baseHP = playerData.maxHealthPoints * config.playerMaxHPMultiplier
-	var hpBonus = (GameManager.health_level - 1) * 1
+	var baseHP = playerData.maxLifeCount * config.playerLivesMultiplier
+	var hpBonus = (GameManager.getUpgradeLevel("health") - 1) * 2
 	
 	maxHealth = int(baseHP + hpBonus)
 	currentHealth = maxHealth
+	
+	var baseDamage = playerData.playerBaseDamage
+	var damageBonus = (GameManager.getUpgradeLevel("damage") - 1) * 2
+	
+	damage = baseDamage + damageBonus
 
 func setupDifficulty(config: DifficultyData) -> void:
-	maxHealth = int(playerData.maxLifeCount * config.playerLivesMultiplier)
-	currentHealth = maxHealth
+	applyAllStats(config)
 	
+	applyAllStats(config)
 	print("Player has ", currentHealth, "/", maxHealth, " HP" )
 
 func takeDamage(amount: int) -> void: #HANDLES THE DMG + DYING
@@ -59,7 +72,12 @@ func _physics_process(delta: float) -> void:
 	
 func spawnBullet():
 	var bullet = BulletScene.instantiate()
+	
 	bullet.global_position.x = playersprite.global_position.x 
 	bullet.global_position.y = playersprite.global_position.y - 42
+	
 	add_child(bullet)
+	
+	if bullet.has_method("bulletSetup"): 
+		bullet.bulletSetup(damage)
 	timer = 0

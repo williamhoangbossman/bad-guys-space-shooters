@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://vh7ks0dxmei7"]
+
+[ext_resource type="Script" uid="uid://cwiv4ebmhtklr" path="res://Resources/Upgrades/Attacks/weaponData.gd" id="1_genw3"]
+
+[resource]
+script = ExtResource("1_genw3")
+weaponName = "StarterLaserAttack"

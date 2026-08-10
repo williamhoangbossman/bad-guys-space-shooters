@@ -14,7 +14,7 @@ extends Node
 var currentWave: int = 1
 var livingEnemiesCount: int = 1
 
-var currentConfig: DifficultyData
+@export var currentConfig: DifficultyData
 #var startPosition = Vector2(450, 150)
 
 var difficultyMultiplier: float = 1
@@ -23,12 +23,13 @@ func _ready() -> void:
 	print("Game Difficulty is " + GameManager.currentDifficulty)
 	currentConfig = getCurrentDifficultyConfig()
 	applyDifficulty(currentConfig)
-	spawnEnemy()
+	
 	HUD.setupHUD(currentConfig)
 	
 	if player != null:
 		player.setupDifficulty(currentConfig)
-
+		
+	spawnEnemy()
 func getCurrentDifficultyConfig() -> DifficultyData:
 	match  GameManager.currentDifficulty:
 		"Easy": return easyPreset

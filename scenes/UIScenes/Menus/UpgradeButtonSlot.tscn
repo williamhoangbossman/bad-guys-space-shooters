@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bm1ctegd1mco2"]
+
+[ext_resource type="Script" uid="uid://eyofqrh2yv7g" path="res://scripts/UIScripts/MenusScripts/upgrade_button_slot.gd" id="1_ync15"]
+
+[node name="UpgradeButtonSlot" type="Control" unique_id=1888422925]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.41350737, 0.4991049)
+script = ExtResource("1_ync15")
+
+[node name="upgradeButton" type="Button" parent="." unique_id=26921749]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 60.0
+offset_bottom = 48.0
+scale = Vector2(4.6122613, 2.6349018)
+text = "BUY"
+
+[node name="costLabel" type="Label" parent="." unique_id=1628992503]
+layout_mode = 0
+offset_left = 22.99997
+offset_top = 196.0
+offset_right = 62.99997
+offset_bottom = 219.0
+scale = Vector2(5.6830273, 3.1816833)
+text = "Cost: 100"
+
+[node name="levelLabel" type="Label" parent="." unique_id=855876679]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 93.0
+offset_right = 65.0
+offset_bottom = 116.0
+scale = Vector2(3.6148393, 4.237795)
+text = "Level: 1"
+
+[connection signal="pressed" from="upgradeButton" to="." method="_on_upgrade_button_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhq4dburvuv1v" path="res://scripts/UIScripts/MenusScripts/upgradeMenu.gd" id="1_7nlu7"]
 [ext_resource type="Resource" uid="uid://dqi57ynakuwtk" path="res://Resources/Upgrades/Upgrades.tres" id="2_jsb2q"]
+[ext_resource type="PackedScene" uid="uid://bm1ctegd1mco2" path="res://scenes/UIScenes/Menus/UpgradeButtonSlot.tscn" id="3_ctjo2"]
 
 [node name="UpgradeMenu" type="CanvasLayer" unique_id=677118975]
 process_mode = 3
@@ -48,16 +49,17 @@ offset_right = 55.94247
 offset_bottom = 43.80327
 scale = Vector2(0.22094423, 0.53627515)
 
-[node name="DamageUpgradeButton" type="Button" parent="DamageTab" unique_id=1414504060]
-layout_mode = 0
-offset_left = 15.698141
-offset_top = 27.500566
-offset_right = 98.69814
-offset_bottom = 58.500565
-scale = Vector2(0.12163814, 0.26708528)
-text = "UPGRADE"
+[node name="UpgradeButtonSlot" parent="DamageTab" unique_id=1888422925 instance=ExtResource("3_ctjo2")]
+layout_mode = 1
+offset_left = 16.73654
+offset_top = 26.13529
+offset_right = 16.736542
+offset_bottom = 26.13529
+scale = Vector2(0.030246543, 0.04556927)
+upgradeID = "damage"
 
 [node name="DefenseTab" type="Control" parent="." unique_id=707159438]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 112.00001
@@ -80,14 +82,15 @@ offset_right = 55.94247
 offset_bottom = 43.80327
 scale = Vector2(0.22094423, 0.53627515)
 
-[node name="DefenseUpgradeButton" type="Button" parent="DefenseTab" unique_id=1279277387]
+[node name="UpgradeButtonSlot" parent="DefenseTab" unique_id=782417021 instance=ExtResource("3_ctjo2")]
 layout_mode = 0
-offset_left = 15.392731
-offset_top = 27.403046
-offset_right = 98.39273
-offset_bottom = 58.403046
-scale = Vector2(0.12163814, 0.26708528)
-text = "UPGRADE"
+offset_left = 16.308964
+offset_top = 25.745209
+offset_right = 16.308964
+offset_bottom = 25.745209
+scale = Vector2(0.033309214, 0.04592146)
+upgradeID = "health"
+costMultiplier = 5.0
 
 [node name="AttacksTab" type="Control" parent="." unique_id=142637782]
 visible = false
@@ -113,14 +116,15 @@ offset_right = 56.064636
 offset_bottom = 43.51071
 scale = Vector2(0.22094423, 0.53627515)
 
-[node name="AttacksUpgradeButton" type="Button" parent="AttacksTab" unique_id=1378248161]
+[node name="UpgradeButtonSlot" parent="AttacksTab" unique_id=1970765023 instance=ExtResource("3_ctjo2")]
 layout_mode = 0
-offset_left = 15.331648
-offset_top = 28.085682
-offset_right = 98.33165
-offset_bottom = 59.085682
-scale = Vector2(0.12163814, 0.26708528)
-text = "UPGRADE"
+offset_left = 17.103031
+offset_top = 25.84273
+offset_right = 17.103031
+offset_bottom = 25.84273
+scale = Vector2(0.026949245, 0.048469916)
+upgradeID = "attack"
+costMultiplier = 10.0
 
 [node name="MiscTab" type="Control" parent="." unique_id=1152804032]
 visible = false
@@ -146,14 +150,15 @@ offset_right = 55.422447
 offset_bottom = 43.120632
 scale = Vector2(0.22094423, 0.53627515)
 
-[node name="MiscUpgradeButton" type="Button" parent="MiscTab" unique_id=1533495954]
+[node name="UpgradeButtonSlot" parent="MiscTab" unique_id=448549028 instance=ExtResource("3_ctjo2")]
 layout_mode = 0
-offset_left = 14.720827
-offset_top = 26.915447
-offset_right = 97.720825
-offset_bottom = 57.915447
-scale = Vector2(0.12163814, 0.26708528)
-text = "UPGRADE"
+offset_left = 15.759223
+offset_top = 25.452656
+offset_right = 15.759223
+offset_bottom = 25.452656
+scale = Vector2(0.031630903, 0.049181473)
+upgradeID = "critChance"
+costMultiplier = 2.0
 
 [node name="ButtonsTabContainer" type="HBoxContainer" parent="." unique_id=1217394932]
 offset_left = 126.0
@@ -182,29 +187,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "MISC"
 
-[node name="CostLabel" type="Label" parent="." unique_id=614023336]
-offset_left = 114.0
-offset_top = 129.0
-offset_right = 249.0
-offset_bottom = 174.0
-scale = Vector2(1.3773228, 1.6726032)
-theme_override_font_sizes/font_size = 32
-text = "COST: 10"
-
-[node name="LevelsLabel" type="Label" parent="." unique_id=51079365]
-offset_left = 117.0
-offset_top = 459.0
-offset_right = 233.0
-offset_bottom = 504.0
-scale = Vector2(1.3773228, 1.6726032)
-theme_override_font_sizes/font_size = 32
-text = "Level: 1"
-
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="DamageTab/DamageUpgradeButton" to="." method="_on_damage_upgrade_button_pressed"]
-[connection signal="pressed" from="DefenseTab/DefenseUpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
-[connection signal="pressed" from="AttacksTab/AttacksUpgradeButton" to="." method="_on_attacks_upgrade_button_pressed"]
-[connection signal="pressed" from="MiscTab/MiscUpgradeButton" to="." method="_on_misc_upgrade_button_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/DamageUpgradesTab" to="." method="_on_damage_upgrades_tab_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/DefenseUpgradesTab" to="." method="_on_defense_upgrades_tab_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/AttacksUpgradeTab" to="." method="_on_attacks_upgrade_tab_pressed"]

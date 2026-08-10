@@ -11,14 +11,15 @@ var livesForLiveCountLabel: int
 func _ready() -> void:
 	pass 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	moneylabel.text = "money: %d" % EconomyManager.currentMoney
 	scoreLabel.text = "score: %d" % GameManager.currentScore
 	
 	liveCountLabel.text = "lives: %d" % livesForLiveCountLabel
 
 func setupHUD(config: DifficultyData) -> void: 
-	livesForLiveCountLabel = config.playerLivesMultiplier * playerData.maxLifeCount
+	livesForLiveCountLabel = int(config.playerLivesMultiplier * playerData.maxLifeCount)
 	liveCountLabel.text = "lives: %d" % int(livesForLiveCountLabel)
-
+	
+signal UpdateHUD()
 #func updateHUD -- MAKE IT A SIGNAL 
