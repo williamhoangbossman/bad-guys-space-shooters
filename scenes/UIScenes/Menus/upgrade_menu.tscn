@@ -201,7 +201,10 @@ theme_override_font_sizes/font_size = 32
 text = "Level: 1"
 
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="DamageTab/DamageUpgradeButton" to="." method="_on_damage_upgrade_button_pressed"]
 [connection signal="pressed" from="DefenseTab/DefenseUpgradeButton" to="." method="_on_defense_upgrade_button_pressed"]
+[connection signal="pressed" from="AttacksTab/AttacksUpgradeButton" to="." method="_on_attacks_upgrade_button_pressed"]
+[connection signal="pressed" from="MiscTab/MiscUpgradeButton" to="." method="_on_misc_upgrade_button_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/DamageUpgradesTab" to="." method="_on_damage_upgrades_tab_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/DefenseUpgradesTab" to="." method="_on_defense_upgrades_tab_pressed"]
 [connection signal="pressed" from="ButtonsTabContainer/AttacksUpgradeTab" to="." method="_on_attacks_upgrade_tab_pressed"]

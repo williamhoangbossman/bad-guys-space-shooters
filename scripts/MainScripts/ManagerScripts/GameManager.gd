@@ -8,23 +8,25 @@ var gameDataStored: bool  = false
 var currentScore: float = 0
 var scoreMultiplier: float = 1
 
-#enemy data
-#var enemyMaxhealth: float = 30
-#var enemySpeed: float = 160
-
-##var enemyBulletSpeed: float = 4
-#var enemyBulletFrequencyMin = 0.05
-#var enemyBulletFrequencyMax = 4
-
 var healthLevel: int = 1
 var damageLevel: int = 1
 var bulletSpeedLevel: int = 1
 
-const baseCost: int = 100
-const costMultiplier: float = 1.5
+var attackLevel: int = 1
+var miscLevel: int = 1
 
-func getUpgradeCost(currentLevel: int) -> int:
-	return int(baseCost * pow(costMultiplier, currentLevel - 1))
+const healthBaseCost: int = 100
+const damageBaseCost: int = 100
+const attackBaseCost: int = 100
+const miscBaseCost: int = 100
+
+const healthCostMult: float = 5
+const damageCostMult: float = 1.175
+const attackCostMult: float = 10
+const MiscCostMult: float = 2.2
+
+func getUpgradeCost(currentLevel: int, baseCost: int, multiplier: float) -> int:
+	return int(baseCost * pow(multiplier, currentLevel - 1))
 	
 func buyHealthUpgrade() -> bool:
 	var cost = getUpgradeCost(healthLevel)
@@ -33,7 +35,31 @@ func buyHealthUpgrade() -> bool:
 		healthLevel += 1
 		return true 
 	return false	
+	
+func buyDamageUpgrade() -> bool:
+	var cost = getUpgradeCost(damageLevel)
+	if EconomyManager.currentMoney >= cost:
+		EconomyManager.currentMoney -= cost
+		damageLevel += 1
+		return true 
+	return false	
 
+func buyAttackUpgrade() -> bool:
+	var cost = getUpgradeCost(attackLevel)
+	if EconomyManager.currentMoney >= cost:
+		EconomyManager.currentMoney -= cost
+		damageLevel += 1
+		return true 
+	return false	
+	
+func buyMiscUpgrade() -> bool:
+	var cost = getUpgradeCost(miscLevel)
+	if EconomyManager.currentMoney >= cost:
+		EconomyManager.currentMoney -= cost
+		damageLevel += 1
+		return true 	
+	return false	
+	
 func _ready() -> void:
 	pass
 func _process(delta: float) -> void:

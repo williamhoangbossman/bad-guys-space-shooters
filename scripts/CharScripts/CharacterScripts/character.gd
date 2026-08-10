@@ -13,9 +13,9 @@ const JUMP_VELOCITY = -400.0
 
 var timer = 0
 
-func apply_all_stats(config: DifficultyData) -> void:
+func applyAllStats(config: DifficultyData) -> void:
 	var baseHP = playerData.maxHealthPoints * config.playerMaxHPMultiplier
-	var hpBonus = (GameManager.health_level - 1) * 20
+	var hpBonus = (GameManager.health_level - 1) * 1
 	
 	maxHealth = int(baseHP + hpBonus)
 	currentHealth = maxHealth
