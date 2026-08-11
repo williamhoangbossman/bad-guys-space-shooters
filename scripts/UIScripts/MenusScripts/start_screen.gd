@@ -178,4 +178,16 @@ func _on_return_button_pressed() -> void:
 
 
 func _on_delete_data_button_pressed() -> void:
-	pass # Replace with function body.
+	GameManager.gameDataStored = false
+	GameManager.currentScore = 0
+	GameManager.scoreMultiplier = 1
+	
+	EconomyManager.currentMoney = 0
+	EconomyManager.moneyMultiplier = 1
+	
+	
+	var deletedata = $deleteDataButton
+	deletedata.text = "DELETED"
+	
+	await get_tree().create_timer(1).timeout
+	deletedata.text = "DELETE DATA"

@@ -31,7 +31,7 @@ func setUp(data: enemyStats, config: DifficultyData, waveHPMultiplier: float) ->
 	currentHealth = maxHealthPoints
 	
 	moveSpeed = data.moveSpeed * config.enemyMoveSpeedMultiplier
-	bulletSpeed = data.BulletSpeed * config.enemyMoveSpeedMultiplier # CHANGE TO BULLETSPEED LATER
+	bulletSpeed = data.BulletSpeed * config.enemyMoveSpeedMultiplier * 2.5 # CHANGE TO BULLETSPEED LATER
 	minFreq = data.BulletFrequencyMin * config.bullet_freq_min
 	maxFreq = data.BulletFrequencyMax * config.bullet_freq_max
 	

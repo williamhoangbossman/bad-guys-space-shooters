@@ -1,53 +1,68 @@
 extends CanvasLayer
 
 @onready var worldSelectionIcon = $Control/WorldIcon
-var HomeSelectionIcon = load("res://assets/UI/New Piskel-1.png (1).png")
-var GolemLandSelectionIcon = load("res://assets/UI/pixil-frame-0 (17).png")
 
-var worldSelected = null
+@export var golemData: enemyStats
+@export var eyeballMonsterData: enemyStats
+
+var HomeSelectionIcon = load("res://assets/UI/New Piskel-1.png (1).png")
+var GolemLandSelectionIcon = load("res://assets/UI/DescriptionIcons/Background1.png")
+var eyebalLandSelectionIcon = load("res://assets/UI/DescriptionIcons/eyeballLandIcon.webp")
+
+var worldSelected: String = ""
 var pressed: bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func unselectWorld() -> void:
-	worldSelected = null
+	worldSelected = ""
 	pressed = false
 	
-	#transitionAnimation.play("FadeIn")
-	#await  get_tree().create_timer(0.75).timeout
-	#get_tree().change_scene_to_file("res://scenes/MainScenes/PlatformerWorld.tscn")
-
-func _on_return_button_pressed() -> void:
-	print("YESYEYSYEYSYE")
-	UiManager.closeCurrentUI()
-	
-	unselectWorld()
-
-func _on_home_button_pressed() -> void:
-	SpawnWorld("Home", HomeSelectionIcon, "res://scenes/MainScenes/PlatformerWorld.tscn")
+func SpawnWorld(WorldName: String, icon: Texture2D, enemyData: enemyStats, bgTexture) -> void:
+	if worldSelected != WorldName: 
+		pressed = false
 		
-func _on_golem_land_button_pressed() -> void:
-	SpawnWorld("GolemLand", GolemLandSelectionIcon, "res://scenes/MainScenes/Game.tscn")
-
-func SpawnWorld(WorldName: String, SelectWorldIcon, ChangeScene) -> void:
-	if not worldSelected == WorldName: pressed = false
 	worldSelected = WorldName
+	worldSelectionIcon.texture = icon
 	print("uh you selected" + worldSelected)
 	
-	worldSelectionIcon.texture = SelectWorldIcon
-	
-	if worldSelected == WorldName and pressed:
-		UiManager.closeCurrentUI()
+	if  pressed:
+		print("GAYTOWN")
+		GameManager.selectedWorldName = WorldName
+		GameManager.currentEnemyStats = enemyData
+		GameManager.currentBackgroundTexture = bgTexture
 		
-		get_tree().change_scene_to_file(ChangeScene) #REWORK NOW! IT'S KINDA TEDIOUS TO MAKE SCENE CHANGING, PROBABLY JUST BACKGROUND + ENEMY DATA CHANGE
+		var waveMGR = get_tree().current_scene.find_child("waveManager", true, false)
+		if waveMGR:
+			print("FOUND YOU!")
+			waveMGR.loadSelectedWorld()
+		else:
+			print("UH WHERE")
+			
+		UiManager.closeCurrentUI()
 		unselectWorld()
+		return
+		
+	pressed = true
+		
+func _on_return_button_pressed() -> void:
+	UiManager.closeCurrentUI()
+	unselectWorld()
+		
 
-	if worldSelected == WorldName:
-		pressed = true
+func _on_home_button_pressed() -> void:
+	worldSelectionIcon.texture = HomeSelectionIcon
+	if  worldSelected != "Home": 
+		pressed = false
+	worldSelected = "home"
+	
+	if pressed: 
+		UiManager.closeCurrentUI()
+		unselectWorld()
+		get_tree().change_scene_to_file("res://scenes/MainScenes/PlatformerWorld.tscn")
+		
+	pressed = true
+		
+func _on_golem_land_button_pressed() -> void:
+	SpawnWorld("GolemLand", GolemLandSelectionIcon, golemData, GolemLandSelectionIcon)
+
+func _on_eyeball_land_button_pressed() -> void:
+	SpawnWorld("EyeballLand", eyebalLandSelectionIcon, eyeballMonsterData, eyebalLandSelectionIcon)

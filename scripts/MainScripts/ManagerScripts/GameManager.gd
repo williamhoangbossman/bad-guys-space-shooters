@@ -4,10 +4,13 @@ extends Node2D
 @export var gamePaused: bool = false
 @export var gameDataStored: bool  = false
 
-##player weapons/attacks
+var selectedWorldName: String = "GolemLand"
+var currentEnemyStats: enemyStats
+var currentBackgroundTexture: Texture2D
+
+##player customization
 var unlockedWeapons: Array[weaponData] = []
 var currentWeapon: weaponData
-##player skins 
 var unlockedSkins: Array[Texture2D] = []
 var currentSkin: Texture2D
 ##score

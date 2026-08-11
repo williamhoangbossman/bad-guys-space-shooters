@@ -1,5 +1,7 @@
 extends Node
 
+@onready var bgSprite = $"../Background1"
+
 @export var player : CharacterBody2D
 @export var HUD: CanvasLayer
 
@@ -20,6 +22,7 @@ var livingEnemiesCount: int = 1
 var difficultyMultiplier: float = 1
 
 func _ready() -> void:
+	loadSelectedWorld()
 	print("Game Difficulty is " + GameManager.currentDifficulty)
 	currentConfig = getCurrentDifficultyConfig()
 	applyDifficulty(currentConfig)
@@ -42,6 +45,17 @@ func applyDifficulty(config: DifficultyData) -> void:
 func startNextWave() -> void:
 	spawnEnemy()
 
+func loadSelectedWorld() -> void:
+	if GameManager.currentBackgroundTexture != null and bgSprite != null:
+		bgSprite.texture = GameManager.currentBackgroundTexture
+
+	currentWave = 1
+	livingEnemiesCount = 1
+	
+	for child in get_children():
+		if child.is_in_group("enemy"):
+			child.queue_free()
+	
 func spawnEnemy() -> void:
 	var enemy = enemyScene.instantiate()
 	enemy.position = Vector2(randf_range(250, 700), 150)
@@ -50,7 +64,9 @@ func spawnEnemy() -> void:
 	enemy.tree_exited.connect(onEnemyDied)
 	var waveHPMultipler: float = 1.0 + ((currentWave - 1) * 0.2)
 	
-	enemy.setUp(golemData, currentConfig, waveHPMultipler)
+	var activeEnemyData = GameManager.currentEnemyStats if GameManager.currentEnemyStats != null else golemData
+	
+	enemy.setUp(activeEnemyData, currentConfig, waveHPMultipler)
 	
 func onEnemyDied() -> void:
 	livingEnemiesCount -= 1
