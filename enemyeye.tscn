@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://blw8b84rcjdcw"]
+
+[ext_resource type="Texture2D" uid="uid://c3q4g0crboi45" path="res://assets/Sprites/spritesheet.png" id="1_dr22p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5bou"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(0, 0, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wouf2"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(299, 0, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rppsv"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(598, 0, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twtma"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(897, 0, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a20uu"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(0, 288, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1byag"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(299, 288, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s50lk"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(598, 288, 299, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsh3n"]
+atlas = ExtResource("1_dr22p")
+region = Rect2(897, 288, 299, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olaob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5bou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wouf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rppsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twtma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a20uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1byag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s50lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsh3n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfism"]
+radius = 24.161274
+height = 140.07104
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwe8w"]
+radius = 22.562212
+height = 132.70157
+
+[node name="enemyeye" type="Area2D" unique_id=1374506718]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1308432648]
+sprite_frames = SubResource("SpriteFrames_olaob")
+frame_progress = 0.5366429
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005269491]
+position = Vector2(11.000001, 54.000004)
+rotation = -0.17453292
+shape = SubResource("CapsuleShape2D_sfism")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=468636525]
+position = Vector2(-57.999996, 53.000004)
+rotation = 0.22347935
+scale = Vector2(0.980302, -1.1089277)
+shape = SubResource("CapsuleShape2D_dwe8w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=67558918]
+position = Vector2(60, 53)
+rotation = -0.5442754
+shape = SubResource("CapsuleShape2D_dwe8w")

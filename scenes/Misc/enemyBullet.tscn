@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cp2ckf7lgynjq"]
 
 [ext_resource type="Script" uid="uid://docubivold24v" path="res://scripts/MiscItemsScripts/enemyBulletScript.gd" id="1_7ynlk"]
-[ext_resource type="Texture2D" uid="uid://cpnvv7f3cdr7c" path="res://assets/Sprites/EnemySprites/EnemyAttacks/CrystalAtk_1.png" id="2_7ynlk"]
+[ext_resource type="Texture2D" uid="uid://cpnvv7f3cdr7c" path="res://assets/Sprites/CrystalAtk_1.png" id="2_7ynlk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5w5p"]
 radius = 305.74057

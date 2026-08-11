@@ -1,6 +1,6 @@
 extends Node
 
-var currentMoney: float = 100000
+var currentMoney: float = 0
 var moneyMultiplier: float = 1
 
 # Called when the node enters the scene tree for the first time.
