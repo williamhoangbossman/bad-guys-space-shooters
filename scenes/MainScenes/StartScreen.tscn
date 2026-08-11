@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
 [ext_resource type="Texture2D" uid="uid://fukdptk0mv8i" path="res://assets/UI/MainMenu/AstrariaTitle.png" id="7_gorqs"]
 [ext_resource type="Texture2D" uid="uid://c0rdja8lapeag" path="res://assets/UI/MainMenu/StellarSiege.png" id="8_iwb15"]
+[ext_resource type="Texture2D" uid="uid://caej656ecxn2g" path="res://assets/UI/Menu/ReturnBtn.png" id="9_e4gof"]
 [ext_resource type="Texture2D" uid="uid://drdyngc858fho" path="res://assets/UI/MainMenu/EasyBtn.png" id="10_1cjrn"]
+[ext_resource type="Texture2D" uid="uid://bp4l3bgbitbee" path="res://assets/UI/MainMenu/CreateBtn.png" id="10_o38up"]
 [ext_resource type="Texture2D" uid="uid://dcyrittr05s1l" path="res://assets/UI/MainMenu/NormalBtn.png" id="11_dv5bs"]
 [ext_resource type="Texture2D" uid="uid://cfwaoy8flsv2a" path="res://assets/UI/MainMenu/HardBtn.png" id="12_wxiv8"]
 [ext_resource type="Texture2D" uid="uid://b7xfhfc5e1edj" path="res://assets/UI/Menu/BoxBtn.png" id="13_e4gof"]
@@ -245,6 +247,24 @@ grow_vertical = 2
 scale = Vector2(1.0793662, 1.1075834)
 color = Color(0.03137255, 0.09019608, 0.13333334, 1)
 
+[node name="MenuBackButton" type="TextureButton" parent="DifficultyMenu/ColorRect" unique_id=1281076553]
+layout_mode = 0
+offset_left = 226.19942
+offset_top = 458.37125
+offset_right = 841.1994
+offset_bottom = 623.3712
+scale = Vector2(0.3356246, 0.44193974)
+texture_normal = ExtResource("9_e4gof")
+
+[node name="MenuCreateButton" type="TextureButton" parent="DifficultyMenu/ColorRect" unique_id=1702299109]
+layout_mode = 0
+offset_left = 463.2116
+offset_top = 456.36523
+offset_right = 668.2116
+offset_bottom = 511.36523
+scale = Vector2(1.1219596, 1.3088336)
+texture_normal = ExtResource("10_o38up")
+
 [node name="DifficultyContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
 layout_mode = 0
 offset_left = 62.0
@@ -296,14 +316,6 @@ offset_right = 516.34265
 offset_bottom = 586.6667
 scale = Vector2(2.125801, 1.2709262)
 
-[node name="MenuBackButton" type="Button" parent="DifficultyMenu/VBoxContainer" unique_id=1828292274]
-layout_mode = 2
-text = "BACK"
-
-[node name="MenuCreateButton" type="Button" parent="DifficultyMenu/VBoxContainer" unique_id=326362088]
-layout_mode = 2
-text = "CREATE"
-
 [node name="DescrptionLabel" type="RichTextLabel" parent="DifficultyMenu" unique_id=1999814049]
 texture_filter = 1
 layout_mode = 0
@@ -337,11 +349,11 @@ text = "DELETE DATA"
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/quitButton2" to="." method="_on_quit_button_2_pressed"]
 [connection signal="timeout" from="TitleTimer" to="." method="_on_title_timer_timeout"]
+[connection signal="pressed" from="DifficultyMenu/ColorRect/MenuBackButton" to="." method="_on_menu_back_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/ColorRect/MenuCreateButton" to="." method="_on_menu_create_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]
-[connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuBackButton" to="." method="_on_menu_back_button_pressed"]
-[connection signal="pressed" from="DifficultyMenu/VBoxContainer/MenuCreateButton" to="." method="_on_menu_create_button_pressed"]
 [connection signal="pressed" from="SettingsMenu2/Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="deleteDataButton" to="." method="_on_delete_data_button_pressed"]
 

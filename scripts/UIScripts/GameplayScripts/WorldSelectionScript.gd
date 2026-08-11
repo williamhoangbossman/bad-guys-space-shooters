@@ -7,7 +7,8 @@ extends CanvasLayer
 
 var HomeSelectionIcon = load("res://assets/UI/New Piskel-1.png (1).png")
 var GolemLandSelectionIcon = load("res://assets/UI/DescriptionIcons/Background1.png")
-var eyebalLandSelectionIcon = load("res://assets/UI/DescriptionIcons/eyeballLandIcon.webp")
+var eyebalLandSelectionIcon = load("res://assets/UI/DescriptionIcons/eyeballLandIcon.png")
+var eyeballLandBG = load("res://assets/UI/DescriptionIcons/eyeballLandBG.png")
 
 var worldSelected: String = ""
 var pressed: bool = false
@@ -65,4 +66,4 @@ func _on_golem_land_button_pressed() -> void:
 	SpawnWorld("GolemLand", GolemLandSelectionIcon, golemData, GolemLandSelectionIcon)
 
 func _on_eyeball_land_button_pressed() -> void:
-	SpawnWorld("EyeballLand", eyebalLandSelectionIcon, eyeballMonsterData, eyebalLandSelectionIcon)
+	SpawnWorld("EyeballLand", eyebalLandSelectionIcon, eyeballMonsterData, eyeballLandBG)
