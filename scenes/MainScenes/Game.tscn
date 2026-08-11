@@ -7,10 +7,10 @@
 [ext_resource type="Resource" uid="uid://cbiv2om8cl5wt" path="res://Resources/Enemies/golemStats.tres" id="3_rco02"]
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/OnscreenElements/transition.tscn" id="4_hq8g2"]
 [ext_resource type="PackedScene" uid="uid://cf0qjmk11o65" path="res://scenes/UIScenes/Menus/general_menu.tscn" id="4_kbpjg"]
-[ext_resource type="Texture2D" uid="uid://jv45muwshv4g" path="res://assets/UI/Menu/BackBtn.png" id="5_t2ei0"]
-[ext_resource type="Texture2D" uid="uid://dr0kjv25r27ca" path="res://assets/UI/Menu/HomeBtn.png" id="6_t4ixl"]
+[ext_resource type="Texture2D" uid="uid://b7arvlg5midsg" path="res://assets/UI/Menu/BackBtn.png" id="5_t2ei0"]
+[ext_resource type="Texture2D" uid="uid://cvs2dtm7itjws" path="res://assets/UI/Menu/HomeBtn.png" id="6_t4ixl"]
 [ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/OnscreenElements/hud.tscn" id="6_t6ftk"]
-[ext_resource type="Texture2D" uid="uid://vfmw4yhksw44" path="res://assets/UI/DescriptionIcons/Background1.png" id="7_vd5g6"]
+[ext_resource type="Texture2D" uid="uid://dwfcdoaee706f" path="res://assets/UI/Menu/Group 9 (3) (1).png" id="8_vep8k"]
 [ext_resource type="Script" uid="uid://bjyhkla70h1eh" path="res://scripts/MainScripts/ManagerScripts/waveManager.gd" id="11_rco02"]
 [ext_resource type="Resource" uid="uid://bp6bk4sblmbiy" path="res://Resources/Enemies/eyeBallMonsterStats.tres" id="12_83ac0"]
 [ext_resource type="Resource" uid="uid://blkkn7ubts4o0" path="res://Resources/Difficulty/Easy.tres" id="14_vep8k"]
@@ -72,6 +72,7 @@ offset_left = 730.0
 offset_top = 16.0
 offset_right = 883.0
 offset_bottom = 79.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/icon_hover_color = Color(0.73580694, 0.71919084, 0.6859754, 1)
 icon = ExtResource("5_t2ei0")
 flat = true
@@ -82,6 +83,7 @@ offset_left = 730.0
 offset_top = 521.0
 offset_right = 883.0
 offset_bottom = 584.0
+scale = Vector2(0.1, 0.1)
 theme_override_colors/icon_hover_color = Color(0.7372549, 0.7176471, 0.6862745, 1)
 icon = ExtResource("6_t4ixl")
 flat = true
@@ -94,7 +96,7 @@ mouse_filter = 2
 
 [node name="Background1" type="Sprite2D" parent="." unique_id=1784211833]
 position = Vector2(450, 300)
-texture = ExtResource("7_vd5g6")
+texture = ExtResource("8_vep8k")
 
 [node name="HUD" parent="." unique_id=1063632305 instance=ExtResource("6_t6ftk")]
 
@@ -112,7 +114,10 @@ easyPreset = ExtResource("14_vep8k")
 normalPreset = ExtResource("15_ov7ts")
 hardPreset = ExtResource("16_71y7t")
 
+[node name="Transition" parent="." unique_id=339286967 instance=ExtResource("4_hq8g2")]
+
 [connection signal="pressed" from="UI/menuUI/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/menuUI/homeButton" to="." method="_on_home_button_pressed"]
 
 [editable path="UI/Animation/Transition"]
+[editable path="Transition"]

@@ -1,3 +1,4 @@
+
 extends CanvasLayer
 
 @onready var worldSelectionIcon = $Control/WorldIcon
@@ -43,27 +44,29 @@ func SpawnWorld(WorldName: String, icon: Texture2D, enemyData: enemyStats, bgTex
 		return
 		
 	pressed = true
-		
-func _on_return_button_pressed() -> void:
-	UiManager.closeCurrentUI()
-	unselectWorld()
-		
+				
 
 func _on_home_button_pressed() -> void:
-	worldSelectionIcon.texture = HomeSelectionIcon
-	if  worldSelected != "Home": 
-		pressed = false
-	worldSelected = "home"
+	#worldSelectionIcon.texture = HomeSelectionIcon
+#	if  worldSelected != "Home": 
+	#	pressed = false
+	#worldSelected = "home"
 	
-	if pressed: 
-		UiManager.closeCurrentUI()
-		unselectWorld()
-		get_tree().change_scene_to_file("res://scenes/MainScenes/PlatformerWorld.tscn")
+#	if pressed: 
+	UiManager.closeCurrentUI()
+	unselectWorld()
+	get_tree().change_scene_to_file("res://scenes/MainScenes/PlatformerWorld.tscn")
 		
-	pressed = true
+#	pressed = true
 		
 func _on_golem_land_button_pressed() -> void:
 	SpawnWorld("GolemLand", GolemLandSelectionIcon, golemData, GolemLandSelectionIcon)
 
 func _on_eyeball_land_button_pressed() -> void:
 	SpawnWorld("EyeballLand", eyebalLandSelectionIcon, eyeballMonsterData, eyeballLandBG)
+
+
+func _on_return_button_pressed() -> void:
+	print("YESSS")
+	UiManager.closeCurrentUI()
+	unselectWorld()

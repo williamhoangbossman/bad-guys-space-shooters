@@ -12,7 +12,7 @@ var maxHealth: int
 var currentHealth: int
 var damage: int
 
-const SPEED = 300.0
+const SPEED = 450.0
 const JUMP_VELOCITY = -400.0
 
 var timer = 0

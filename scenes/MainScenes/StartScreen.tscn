@@ -3,21 +3,21 @@
 [ext_resource type="Script" uid="uid://bdwh2vf805lx8" path="res://scripts/UIScripts/MenusScripts/start_screen.gd" id="1_2mdob"]
 [ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_dxqsf"]
 [ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/Menu/SKYCLOUDBG_1.png" id="2_fpu7k"]
-[ext_resource type="Texture2D" uid="uid://cfyvli3qho5od" path="res://assets/UI/MainMenu/SETTINGS.png" id="4_cxwh5"]
-[ext_resource type="Texture2D" uid="uid://gxjajib0bdk" path="res://assets/UI/MainMenu/QUITBtn.png" id="5_0toi5"]
-[ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/MainMenu/CursorSelect.png" id="6_dv5bs"]
+[ext_resource type="Texture2D" uid="uid://cch5jher6xjk3" path="res://assets/UI/Menu/MainMenu/GameStartMenu10x.png" id="3_e4gof"]
+[ext_resource type="Texture2D" uid="uid://b7lk7n3446uri" path="res://assets/UI/Menu/MainMenu/SettingsMenu10x.png" id="4_o38up"]
+[ext_resource type="Texture2D" uid="uid://c6o5tl3s8rd63" path="res://assets/UI/Menu/MainMenu/QuitMenu10x.png" id="5_k2xk6"]
+[ext_resource type="Texture2D" uid="uid://3c2gqlsq5lwh" path="res://assets/UI/Menu/MainMenu/CursorSelect.png" id="6_dv5bs"]
 [ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/OnscreenElements/transition.tscn" id="6_q553w"]
 [ext_resource type="PackedScene" uid="uid://b5fipfj41gxpv" path="res://scenes/UIScenes/Menus/settings_menu.tscn" id="7_47qn4"]
-[ext_resource type="Texture2D" uid="uid://bjiyphdgpn8eb" path="res://assets/UI/MainMenu/startBtn.png" id="7_epuca"]
-[ext_resource type="Texture2D" uid="uid://fukdptk0mv8i" path="res://assets/UI/MainMenu/AstrariaTitle.png" id="7_gorqs"]
-[ext_resource type="Texture2D" uid="uid://c0rdja8lapeag" path="res://assets/UI/MainMenu/StellarSiege.png" id="8_iwb15"]
-[ext_resource type="Texture2D" uid="uid://caej656ecxn2g" path="res://assets/UI/Menu/ReturnBtn.png" id="9_e4gof"]
-[ext_resource type="Texture2D" uid="uid://drdyngc858fho" path="res://assets/UI/MainMenu/EasyBtn.png" id="10_1cjrn"]
-[ext_resource type="Texture2D" uid="uid://bp4l3bgbitbee" path="res://assets/UI/MainMenu/CreateBtn.png" id="10_o38up"]
-[ext_resource type="Texture2D" uid="uid://dcyrittr05s1l" path="res://assets/UI/MainMenu/NormalBtn.png" id="11_dv5bs"]
-[ext_resource type="Texture2D" uid="uid://cfwaoy8flsv2a" path="res://assets/UI/MainMenu/HardBtn.png" id="12_wxiv8"]
+[ext_resource type="Texture2D" uid="uid://fukdptk0mv8i" path="res://assets/UI/Menu/MainMenu/AstrariaTitle.png" id="7_gorqs"]
+[ext_resource type="Texture2D" uid="uid://bd0lnth1fb56a" path="res://assets/UI/Menu/MainMenu/StellarSiegeMenu10x.png" id="8_e4gof"]
+[ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="9_e4gof"]
+[ext_resource type="Texture2D" uid="uid://dxnxexckn1lob" path="res://assets/UI/Menu/CreateBtn.png" id="10_7oa8u"]
+[ext_resource type="Texture2D" uid="uid://s2ehynkrvw1w" path="res://assets/UI/Menu/EasyBtn.png" id="12_bhrft"]
 [ext_resource type="Texture2D" uid="uid://b7xfhfc5e1edj" path="res://assets/UI/Menu/BoxBtn.png" id="13_e4gof"]
+[ext_resource type="Texture2D" uid="uid://buuqcw7t04ep4" path="res://assets/UI/Menu/NormalBtn.png" id="13_nu7qv"]
 [ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="14_o38up"]
+[ext_resource type="Texture2D" uid="uid://c2fqectg7gheo" path="res://assets/UI/Menu/HardBtn.png" id="14_rp6ii"]
 [ext_resource type="Script" uid="uid://upgfy3iqkcoq" path="res://scripts/UIScripts/MenusScripts/descrption_label.gd" id="15_dv5bs"]
 
 [sub_resource type="Animation" id="Animation_fpu7k"]
@@ -159,27 +159,27 @@ texture = ExtResource("2_fpu7k")
 
 [node name="gameOptionsContainer" type="VBoxContainer" parent="MainScreenUI" unique_id=670057599]
 layout_mode = 0
-offset_left = 422.0
-offset_top = 400.0
-offset_right = 479.0
-offset_bottom = 433.0
-scale = Vector2(4, 4)
-pivot_offset = Vector2(28, 20)
-theme_override_constants/separation = 9
+offset_left = -405.0
+offset_top = -110.0
+offset_right = 1305.0
+offset_bottom = 68.0
+scale = Vector2(0.13, 0.13)
+pivot_offset = Vector2(855, 544)
+theme_override_constants/separation = 300
 
 [node name="gameStartButton" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=56340042]
 layout_mode = 2
-texture_normal = ExtResource("7_epuca")
+texture_normal = ExtResource("3_e4gof")
 
 [node name="settingsButton" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=2002526867]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("4_cxwh5")
+texture_normal = ExtResource("4_o38up")
 
 [node name="quitButton2" type="TextureButton" parent="MainScreenUI/gameOptionsContainer" unique_id=1321108199]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("5_0toi5")
+texture_normal = ExtResource("5_k2xk6")
 
 [node name="left_Cursor" type="TextureRect" parent="MainScreenUI" unique_id=1022919165]
 layout_mode = 0
@@ -220,8 +220,8 @@ autoplay = &"Float Loop"
 
 [node name="StellarSiege" type="Sprite2D" parent="MainScreenUI" unique_id=1475694027]
 position = Vector2(450, 260)
-scale = Vector2(1.333, 1.333)
-texture = ExtResource("8_iwb15")
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("8_e4gof")
 
 [node name="TitleTimer" type="Timer" parent="." unique_id=629474244]
 
@@ -249,55 +249,55 @@ color = Color(0.03137255, 0.09019608, 0.13333334, 1)
 
 [node name="MenuBackButton" type="TextureButton" parent="DifficultyMenu/ColorRect" unique_id=1281076553]
 layout_mode = 0
-offset_left = 226.19942
-offset_top = 458.37125
-offset_right = 841.1994
-offset_bottom = 623.3712
-scale = Vector2(0.3356246, 0.44193974)
+offset_left = 226.771
+offset_top = 460.0
+offset_right = 2326.771
+offset_bottom = 1010.0
+scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("9_e4gof")
 
 [node name="MenuCreateButton" type="TextureButton" parent="DifficultyMenu/ColorRect" unique_id=1702299109]
 layout_mode = 0
-offset_left = 463.2116
-offset_top = 456.36523
-offset_right = 668.2116
-offset_bottom = 511.36523
-scale = Vector2(1.1219596, 1.3088336)
-texture_normal = ExtResource("10_o38up")
+offset_left = 483.212
+offset_top = 460.0
+offset_right = 2583.212
+offset_bottom = 1010.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("10_7oa8u")
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 75.0
 offset_top = 94.0
-offset_right = 621.0
-offset_bottom = 157.0
-scale = Vector2(1.5, 1.5)
-theme_override_constants/separation = 20
+offset_right = 5499.0
+offset_bottom = 652.0
+scale = Vector2(0.15, 0.15)
+theme_override_constants/separation = 200
 
 [node name="EasyModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=344480133]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
 theme_override_font_sizes/font_size = 16
-icon = ExtResource("10_1cjrn")
+icon = ExtResource("12_bhrft")
 flat = true
 
 [node name="NormalModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=749323769]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
-icon = ExtResource("11_dv5bs")
+icon = ExtResource("13_nu7qv")
 flat = true
 
 [node name="HardModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=877556345]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_dxqsf")
-icon = ExtResource("12_wxiv8")
+icon = ExtResource("14_rp6ii")
 flat = true
 
 [node name="ColorRect2" type="Sprite2D" parent="DifficultyMenu" unique_id=1232255497]
-position = Vector2(450, 318)
+position = Vector2(477.639, 318)
 texture = ExtResource("13_e4gof")
 
 [node name="DescriptionContainer" type="Control" parent="DifficultyMenu" unique_id=307266478]
@@ -319,10 +319,10 @@ scale = Vector2(2.125801, 1.2709262)
 [node name="DescrptionLabel" type="RichTextLabel" parent="DifficultyMenu" unique_id=1999814049]
 texture_filter = 1
 layout_mode = 0
-offset_left = 87.43319
-offset_top = 247.73221
-offset_right = 812.43317
-offset_bottom = 382.7322
+offset_left = 115.498146
+offset_top = 249.95404
+offset_right = 840.49817
+offset_bottom = 384.95404
 scale = Vector2(0.9985779, 1.0032465)
 theme_override_colors/default_color = Color(0.75686276, 0.9882353, 1, 1)
 theme_override_fonts/normal_font = ExtResource("14_o38up")
@@ -336,6 +336,13 @@ visible = false
 
 [node name="SettingsMenu2" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
 visible = false
+script = null
+
+[node name="returnButtonContainer" parent="SettingsMenu2/Control" parent_id_path=PackedInt32Array(1448677036, 336197975) index="3" unique_id=1950955532]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 71.0
+offset_bottom = 31.0
 
 [node name="deleteDataButton" type="Button" parent="." unique_id=1046998032]
 offset_left = 53.0

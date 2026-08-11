@@ -63,6 +63,7 @@ func spawnEnemy() -> void:
 	
 	enemy.tree_exited.connect(onEnemyDied)
 	var waveHPMultipler: float = 1.0 + ((currentWave - 1) * 0.2)
+	EconomyManager.moneyMultiplier = 1.0 + ((currentWave -1 ) * 1.75)
 	
 	var activeEnemyData = GameManager.currentEnemyStats if GameManager.currentEnemyStats != null else golemData
 	

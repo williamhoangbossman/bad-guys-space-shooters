@@ -212,6 +212,7 @@ text = "RETURN TO DUTY"
 
 [node name="generalMenu" parent="HUD/UI/MenuUI" unique_id=403360699 instance=ExtResource("5_mqxsf")]
 visible = false
+script = null
 
 [node name="backButton" type="Button" parent="HUD/UI/MenuUI" unique_id=122625356]
 offset_left = 702.00006

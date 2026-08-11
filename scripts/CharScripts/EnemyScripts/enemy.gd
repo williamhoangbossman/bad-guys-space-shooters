@@ -22,6 +22,7 @@ var minFreq: float
 var maxFreq: float
 var bulletSpeed: float
 
+
 var enemyData: enemyStats
 
 func setUp(data: enemyStats, config: DifficultyData, waveHPMultiplier: float) -> void: 
@@ -49,8 +50,8 @@ func spawnBullet(data: enemyStats) -> void:
 	get_tree().current_scene.add_child(enemyBullet)
 	
 	enemyBullet.global_position.x = enemyCharacter.global_position.x
-	enemyBullet.global_position.y = enemyCharacter.global_position.y + enemyCharacter.global_position.y / 2
-	enemyBullet.setupBullet(bulletSpeed)
+	enemyBullet.global_position.y = enemyCharacter.global_position.y 
+	enemyBullet.setupBullet(bulletSpeed, enemyData)
 
 func startShotTimer() -> void:
 	shotTimer.wait_time = randf_range(minFreq, maxFreq)
@@ -62,12 +63,13 @@ func _ready() -> void:
 func take_damage(amount: int):
 	spawnDamageIndicator(amount)
 	currentHealth -= amount
-	EconomyManager.currentMoney += EconomyManager.moneyMultiplier * 1
+	
 	
 	if currentHealth <= 0:
 		die()
 
 func die():
+	EconomyManager.currentMoney += EconomyManager.moneyMultiplier * 1
 	GameManager.currentScore += 1 * GameManager.scoreMultiplier
 	queue_free()
 
@@ -77,9 +79,13 @@ func _physics_process(delta: float) -> void:
 	if rightRayCast.is_colliding() and direction == 1:
 		direction = -1
 	
+	
 	elif leftRayCast.is_colliding() and direction == -1:
 		direction = 1
-	
+		
+	if direction != 0:
+		animatedSprite.flip_h = (direction > 0)
+		
 func spawnDamageIndicator(damageAmount: int) -> void:
 	var damageIndicator = damageIndicatorScene.instantiate()
 	get_tree().current_scene.add_child(damageIndicator)
