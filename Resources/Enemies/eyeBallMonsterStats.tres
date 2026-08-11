@@ -1,7 +1,51 @@
 [gd_resource type="Resource" script_class="enemyStats" format=3 uid="uid://bp6bk4sblmbiy"]
 
+[ext_resource type="Texture2D" uid="uid://cujsn2k4x7osf" path="res://assets/Sprites/EnemySprites/EnemyAttacks/WindyAtkBk (4).png" id="1_ov8ff"]
 [ext_resource type="Script" uid="uid://cvo0tw35ftpjg" path="res://Resources/Enemies/enemyStats.gd" id="1_qhl0p"]
 [ext_resource type="Texture2D" uid="uid://c46kpsb00fhie" path="res://assets/Sprites/EnemySprites/eyeball.png" id="2_3ie2t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdkfv"]
+atlas = ExtResource("1_ov8ff")
+region = Rect2(0, 0, 165, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yly4d"]
+atlas = ExtResource("1_ov8ff")
+region = Rect2(165, 0, 165, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tggbn"]
+atlas = ExtResource("1_ov8ff")
+region = Rect2(330, 0, 165, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x6vf"]
+atlas = ExtResource("1_ov8ff")
+region = Rect2(0, 165, 165, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmqoo"]
+atlas = ExtResource("1_ov8ff")
+region = Rect2(165, 165, 165, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e0mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdkfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yly4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tggbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x6vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmqoo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov8ff"]
 atlas = ExtResource("2_3ie2t")
@@ -73,4 +117,7 @@ name = "EyeballMonster"
 maxHealthPoints = 1000
 moveSpeed = 700.0
 spriteFrames = SubResource("SpriteFrames_kdkfv")
+BulletFrequencyMin = 1.0
+BulletFrequencyMax = 3
+bulletSpriteFrames = SubResource("SpriteFrames_7e0mp")
 metadata/_custom_type_script = "uid://cvo0tw35ftpjg"

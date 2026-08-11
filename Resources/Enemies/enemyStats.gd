@@ -10,3 +10,5 @@ extends Resource
 @export var BulletSpeed: float = 50
 @export var BulletFrequencyMin = 0.05
 @export var BulletFrequencyMax = 4
+
+@export var bulletSpriteFrames: SpriteFrames

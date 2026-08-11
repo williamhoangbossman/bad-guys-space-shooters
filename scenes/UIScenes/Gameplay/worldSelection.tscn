@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/Menu/SKYCLOUDBG_1.png" id="2_8qpck"]
 [ext_resource type="Resource" uid="uid://cbiv2om8cl5wt" path="res://Resources/Enemies/golemStats.tres" id="2_14r8f"]
 [ext_resource type="Resource" uid="uid://bp6bk4sblmbiy" path="res://Resources/Enemies/eyeBallMonsterStats.tres" id="3_dvpbm"]
+[ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="5_psa7o"]
+[ext_resource type="Texture2D" uid="uid://cr30gvj86h3c2" path="res://assets/UI/Menu/worldbtn.png" id="6_6fpmn"]
+[ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="6_psa7o"]
 
 [node name="WorldSelectionMenu" type="CanvasLayer" unique_id=1266624653]
 process_mode = 3
@@ -18,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=420095694]
 layout_mode = 1
@@ -26,54 +30,80 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(0.10980392, 0.10980392, 0.10980392, 0.61960787)
 
 [node name="WorldIcon" type="TextureRect" parent="Control" unique_id=1655311716]
 layout_mode = 0
-offset_left = 444.0
-offset_top = 107.0
-offset_right = 572.0
-offset_bottom = 235.0
-scale = Vector2(0.4556005, 0.6333859)
+offset_left = 1038.0
+offset_top = -224.0
+offset_right = 1938.0
+offset_bottom = 376.0
+scale = Vector2(0.38405007, 0.5501269)
 texture = ExtResource("2_8qpck")
 
-[node name="returnButton" type="Button" parent="Control" unique_id=1423045367]
-process_mode = 3
-layout_mode = 0
-offset_left = 683.00006
-offset_top = 20.0
-offset_right = 741.00006
-offset_bottom = 51.0
-scale = Vector2(3.116046, 1.9772362)
-text = "return"
+[node name="Worldbtn" type="Sprite2D" parent="Control" unique_id=1837579195]
+position = Vector2(446, 251.00003)
+scale = Vector2(0.7023438, 0.7023438)
+texture = ExtResource("6_6fpmn")
 
 [node name="optionsContainer" type="VBoxContainer" parent="Control" unique_id=897709657]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 47.0
-offset_right = 186.0
-offset_bottom = 218.0
-scale = Vector2(2.7428648, 2.8279986)
+offset_left = 265.0
+offset_top = 72.0
+offset_right = 624.0
+offset_bottom = 750.0
+theme_override_constants/separation = 90
 
 [node name="HomeButton" type="Button" parent="Control/optionsContainer" unique_id=1999063473]
 process_mode = 3
 layout_mode = 2
+theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/font = ExtResource("6_psa7o")
+theme_override_font_sizes/font_size = 50
 text = "Return Home"
+flat = true
 
 [node name="GolemLandButton" type="Button" parent="Control/optionsContainer" unique_id=146052453]
 layout_mode = 2
-text = "GolemLand"
+theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/font = ExtResource("6_psa7o")
+theme_override_font_sizes/font_size = 50
+text = "Golem Land"
+flat = true
 
 [node name="eyeballLandButton" type="Button" parent="Control/optionsContainer" unique_id=336384949]
 layout_mode = 2
-text = "EyeballLand"
+theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/font = ExtResource("6_psa7o")
+theme_override_font_sizes/font_size = 50
+text = "Eyeball Land"
+flat = true
 
 [node name="WorldThreeButton" type="Button" parent="Control/optionsContainer" unique_id=14248848]
 layout_mode = 2
-text = "WorldThree"
+theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/font = ExtResource("6_psa7o")
+theme_override_font_sizes/font_size = 50
+flat = true
 
 [node name="WorldFourButton" type="Button" parent="Control/optionsContainer" unique_id=1323528307]
 layout_mode = 2
-text = "WorldFour"
+theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/font = ExtResource("6_psa7o")
+theme_override_font_sizes/font_size = 50
+flat = true
+
+[node name="returnButton" type="TextureButton" parent="Control" unique_id=924978895]
+process_mode = 3
+z_index = 1000
+layout_mode = 0
+offset_left = 340.0
+offset_top = 510.0
+offset_right = 2440.0
+offset_bottom = 1060.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_psa7o")
 
 [node name="VScrollBar" type="VScrollBar" parent="." unique_id=1316203471]
 offset_left = 54.0
@@ -81,7 +111,7 @@ offset_top = 34.0
 offset_right = 62.0
 offset_bottom = 42.0
 
-[connection signal="pressed" from="Control/returnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/GolemLandButton" to="." method="_on_golem_land_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/eyeballLandButton" to="." method="_on_eyeball_land_button_pressed"]
+[connection signal="pressed" from="Control/returnButton" to="." method="_on_return_button_pressed"]
