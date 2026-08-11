@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c4wb160d4e7q2"]
+
+[ext_resource type="PackedScene" uid="uid://d30d48tynvwhu" path="res://scenes/CharacterScenes/Character.tscn" id="1_ibkli"]
+[ext_resource type="Script" uid="uid://0dqhcdi7s16n" path="res://scripts/MainScripts/game.gd" id="1_l0e6y"]
+[ext_resource type="PackedScene" uid="uid://df8vr1fel2kwr" path="res://scenes/CharacterScenes/enemy.tscn" id="3_78awf"]
+[ext_resource type="PackedScene" uid="uid://pvc3wsq0jxie" path="res://scenes/UIScenes/transition.tscn" id="4_hq8g2"]
+[ext_resource type="PackedScene" uid="uid://cf0qjmk11o65" path="res://scenes/UIScenes/general_menu.tscn" id="4_kbpjg"]
+[ext_resource type="Texture2D" uid="uid://b7arvlg5midsg" path="res://assets/UI/BackBtn.png" id="5_t2ei0"]
+[ext_resource type="Texture2D" uid="uid://cvs2dtm7itjws" path="res://assets/UI/HomeBtn.png" id="6_t4ixl"]
+[ext_resource type="PackedScene" uid="uid://q2ywaaslli0u" path="res://scenes/UIScenes/hud.tscn" id="6_t6ftk"]
+[ext_resource type="Texture2D" uid="uid://dwfcdoaee706f" path="res://assets/UI/Group 9 (3) (1).png" id="8_t4ixl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
+distance = -31.0
+
+[node name="Game" type="Node2D" unique_id=805202920]
+process_mode = 1
+script = ExtResource("1_l0e6y")
+
+[node name="CharacterBody2D" parent="." unique_id=1347624096 instance=ExtResource("1_ibkli")]
+position = Vector2(452, 496)
+
+[node name="EnemyContainer" type="Node2D" parent="." unique_id=576528690]
+
+[node name="Enemy" parent="." unique_id=1916203662 instance=ExtResource("3_78awf")]
+z_index = 10
+position = Vector2(450, 150)
+
+[node name="wallContainer" type="Node" parent="." unique_id=1608297305]
+process_mode = 3
+
+[node name="Floor" type="StaticBody2D" parent="wallContainer" unique_id=1996695120]
+position = Vector2(451, 521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallContainer/Floor" unique_id=1559320361]
+position = Vector2(-5, 131)
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="Wall2" type="StaticBody2D" parent="wallContainer" unique_id=926739258]
+position = Vector2(-337, -38)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallContainer/Wall2" unique_id=562628365]
+position = Vector2(552, -374.00003)
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="Wall1" type="StaticBody2D" parent="wallContainer" unique_id=81611243]
+position = Vector2(441, -124)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallContainer/Wall1" unique_id=709239584]
+position = Vector2(421, 628)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_qbsmt")
+
+[node name="UI" type="Node" parent="." unique_id=2035362775]
+process_mode = 3
+
+[node name="playerCurrencies" type="Node" parent="UI" unique_id=427689834]
+process_mode = 3
+
+[node name="menuUI" type="Node" parent="UI" unique_id=527301356]
+process_mode = 3
+
+[node name="generalMenu" parent="UI/menuUI" unique_id=403360699 instance=ExtResource("4_kbpjg")]
+visible = false
+
+[node name="backButton" type="Button" parent="UI/menuUI" unique_id=1605882255]
+z_index = 21
+offset_left = 738.0
+offset_top = 8.0
+offset_right = 891.0
+offset_bottom = 71.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/icon_hover_color = Color(0.73580694, 0.71919084, 0.6859754, 1)
+icon = ExtResource("5_t2ei0")
+flat = true
+
+[node name="homeButton" type="Button" parent="UI/menuUI" unique_id=2019322527]
+custom_minimum_size = Vector2(50, 0)
+offset_left = 738.0
+offset_top = 529.0
+offset_right = 891.0
+offset_bottom = 592.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/icon_hover_color = Color(0.7372549, 0.7176471, 0.6862745, 1)
+icon = ExtResource("6_t4ixl")
+flat = true
+
+[node name="Animation" type="Node" parent="UI" unique_id=2142423173]
+
+[node name="Transition" parent="UI/Animation" unique_id=140022182 instance=ExtResource("4_hq8g2")]
+visible = false
+mouse_filter = 2
+
+[node name="Background1" type="Sprite2D" parent="." unique_id=1784211833]
+position = Vector2(450, 300)
+texture = ExtResource("8_t4ixl")
+
+[node name="HUD" parent="." unique_id=1063632305 instance=ExtResource("6_t6ftk")]
+
+[connection signal="pressed" from="UI/menuUI/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/menuUI/homeButton" to="." method="_on_home_button_pressed"]
+
+[editable path="UI/Animation/Transition"]

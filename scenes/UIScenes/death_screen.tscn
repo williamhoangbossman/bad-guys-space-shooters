@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bfw5qnfe50dyv"]
+
+[ext_resource type="Script" uid="uid://d05bbelsd42gq" path="res://scripts/UIScripts/deathScreenScript.gd" id="1_1jlxs"]
+[ext_resource type="Texture2D" uid="uid://cn8af74wbsswm" path="res://assets/UI/Group 14.png" id="2_k22qp"]
+[ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/ReturnBtn.png" id="3_531l5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc2ad"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(180, 60, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykwf3"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(0, 120, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7avsh"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(90, 120, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il2x2"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(180, 120, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyhvp"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(0, 0, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge7ff"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(90, 0, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mh2"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(180, 0, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbmdi"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(0, 60, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptoe0"]
+atlas = ExtResource("2_k22qp")
+region = Rect2(90, 60, 90, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kt8e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykwf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7avsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il2x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyhvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge7ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbmdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptoe0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=963930137]
+script = ExtResource("1_1jlxs")
+
+[node name="Control" type="Control" parent="." unique_id=625213823]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="AnimatedSprite2D" parent="Control" unique_id=274620326]
+z_index = 20
+position = Vector2(450, 300)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_kt8e4")
+autoplay = "default"
+frame_progress = 0.5057632
+
+[node name="Label" type="Label" parent="Control" unique_id=3117357]
+z_index = 21
+layout_mode = 0
+offset_left = 51.0
+offset_top = 52.999996
+offset_right = 629.0
+offset_bottom = 190.0
+scale = Vector2(1.3802255, 1.6603577)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "GO TO HELL"
+
+[node name="ReturnButton" type="Button" parent="Control" unique_id=946543695]
+process_mode = 3
+z_index = 21
+layout_mode = 0
+offset_left = 326.0
+offset_top = 436.0
+offset_right = 397.0
+offset_bottom = 467.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_531l5")
+flat = true
+
+[connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]
