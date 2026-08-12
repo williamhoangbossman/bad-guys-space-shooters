@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kg7vh3065ukp" path="res://scripts/UIScripts/OnscreenElementsScripts/HUD.gd" id="1_q8te5"]
 [ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_actk5"]
+[ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="3_30u6e"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1063632305]
 process_mode = 3
@@ -22,38 +23,41 @@ mouse_filter = 2
 
 [node name="moneyLabel" type="Label" parent="Control" unique_id=755575244]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 557.0
-offset_right = 78.0
-offset_bottom = 580.0
-scale = Vector2(2.0896995, 1.9282385)
-text = "moneyyy:"
+offset_left = 8.0
+offset_top = 564.0
+offset_right = 125.0
+offset_bottom = 597.0
+theme_override_fonts/font = ExtResource("3_30u6e")
+theme_override_font_sizes/font_size = 35
+text = "money:"
 
 [node name="liveCountLabel" type="Label" parent="Control" unique_id=518802101]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 520.0
-offset_right = 79.0
-offset_bottom = 569.0
-scale = Vector2(2.0896995, 1.9282385)
+offset_left = 8.0
+offset_top = 526.0
+offset_right = 118.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_30u6e")
+theme_override_font_sizes/font_size = 35
 text = "lives:"
 
 [node name="scoreLabel" type="Label" parent="Control" unique_id=1363424593]
 layout_mode = 0
-offset_left = 9.0
-offset_top = -1.0000001
-offset_right = 84.0
-offset_bottom = 22.0
-scale = Vector2(2.2553058, 2.0878825)
+offset_left = 8.0
+offset_top = 11.0
+offset_right = 120.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_30u6e")
+theme_override_font_sizes/font_size = 35
 text = "score:"
 
 [node name="waveLabel" type="Label" parent="Control" unique_id=259065140]
 layout_mode = 0
-offset_left = 367.00003
-offset_top = -3.0
-offset_right = 442.00003
-offset_bottom = 20.0
-scale = Vector2(2.2553058, 2.0878825)
+offset_left = 400.0
+offset_right = 495.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("3_30u6e")
+theme_override_font_sizes/font_size = 35
 text = "wave:"
 
 [node name="InteractLabel" type="Label" parent="Control" unique_id=934694604]
@@ -61,9 +65,10 @@ visible = false
 layout_mode = 0
 offset_left = 330.99997
 offset_top = 399.99997
-offset_right = 427.99997
+offset_right = 445.99997
 offset_bottom = 422.99997
 scale = Vector2(3.0441167, 2.2529674)
+theme_override_fonts/font = ExtResource("3_30u6e")
 text = "E - Interacte"
 
 [node name="SkipWaveButton" type="Button" parent="." unique_id=1322491545]

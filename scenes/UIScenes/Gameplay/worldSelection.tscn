@@ -35,10 +35,10 @@ color = Color(0.10980392, 0.10980392, 0.10980392, 0.61960787)
 
 [node name="WorldIcon" type="TextureRect" parent="Control" unique_id=1655311716]
 layout_mode = 0
-offset_left = 1038.0
-offset_top = -224.0
-offset_right = 1938.0
-offset_bottom = 376.0
+offset_left = -6621.0
+offset_top = -1165.0
+offset_right = -5721.0
+offset_bottom = -565.0
 scale = Vector2(0.38405007, 0.5501269)
 texture = ExtResource("2_8qpck")
 
@@ -58,7 +58,9 @@ theme_override_constants/separation = 90
 [node name="HomeButton" type="Button" parent="Control/optionsContainer" unique_id=1999063473]
 process_mode = 3
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9201477, 0.94485116, 0.9310269, 1)
 theme_override_fonts/font = ExtResource("6_psa7o")
 theme_override_font_sizes/font_size = 50
 text = "Return Home"
@@ -66,7 +68,9 @@ flat = true
 
 [node name="GolemLandButton" type="Button" parent="Control/optionsContainer" unique_id=146052453]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9201477, 0.94485116, 0.9310269, 1)
 theme_override_fonts/font = ExtResource("6_psa7o")
 theme_override_font_sizes/font_size = 50
 text = "Golem Land"
@@ -74,7 +78,9 @@ flat = true
 
 [node name="eyeballLandButton" type="Button" parent="Control/optionsContainer" unique_id=336384949]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9201477, 0.94485116, 0.9310269, 1)
 theme_override_fonts/font = ExtResource("6_psa7o")
 theme_override_font_sizes/font_size = 50
 text = "Eyeball Land"
@@ -94,7 +100,7 @@ theme_override_fonts/font = ExtResource("6_psa7o")
 theme_override_font_sizes/font_size = 50
 flat = true
 
-[node name="returnButton" type="TextureButton" parent="Control" unique_id=924978895]
+[node name="returnButton" type="Button" parent="Control" unique_id=1750994510]
 process_mode = 3
 z_index = 1000
 layout_mode = 0
@@ -103,13 +109,16 @@ offset_top = 510.0
 offset_right = 2440.0
 offset_bottom = 1060.0
 scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("5_psa7o")
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_hover_color = Color(0.7372549, 0.7176471, 0.6862745, 1)
+icon = ExtResource("5_psa7o")
+flat = true
 
 [node name="VScrollBar" type="VScrollBar" parent="." unique_id=1316203471]
-offset_left = 54.0
-offset_top = 34.0
-offset_right = 62.0
-offset_bottom = 42.0
+offset_left = -423.0
+offset_top = -86.0
+offset_right = -415.0
+offset_bottom = -78.0
 
 [connection signal="pressed" from="Control/optionsContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/GolemLandButton" to="." method="_on_golem_land_button_pressed"]
