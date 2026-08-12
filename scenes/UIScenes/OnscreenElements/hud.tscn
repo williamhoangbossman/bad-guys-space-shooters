@@ -47,6 +47,15 @@ offset_bottom = 22.0
 scale = Vector2(2.2553058, 2.0878825)
 text = "score:"
 
+[node name="waveLabel" type="Label" parent="Control" unique_id=259065140]
+layout_mode = 0
+offset_left = 367.00003
+offset_top = -3.0
+offset_right = 442.00003
+offset_bottom = 20.0
+scale = Vector2(2.2553058, 2.0878825)
+text = "wave:"
+
 [node name="InteractLabel" type="Label" parent="Control" unique_id=934694604]
 visible = false
 layout_mode = 0
@@ -56,3 +65,14 @@ offset_right = 427.99997
 offset_bottom = 422.99997
 scale = Vector2(3.0441167, 2.2529674)
 text = "E - Interacte"
+
+[node name="SkipWaveButton" type="Button" parent="." unique_id=1322491545]
+offset_left = 18.0
+offset_top = 351.0
+offset_right = 178.0
+offset_bottom = 404.0
+scale = Vector2(0.7183327, 0.8553169)
+theme_override_font_sizes/font_size = 32
+text = "skip wave"
+
+[connection signal="pressed" from="SkipWaveButton" to="." method="_on_skip_wave_button_pressed"]

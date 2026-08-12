@@ -33,6 +33,7 @@ func _ready() -> void:
 		player.setupDifficulty(currentConfig)
 		
 	spawnEnemy()
+	
 func getCurrentDifficultyConfig() -> DifficultyData:
 	match  GameManager.currentDifficulty:
 		"Easy": return easyPreset
@@ -48,13 +49,16 @@ func startNextWave() -> void:
 func loadSelectedWorld() -> void:
 	if GameManager.currentBackgroundTexture != null and bgSprite != null:
 		bgSprite.texture = GameManager.currentBackgroundTexture
-
-	currentWave = 1
-	livingEnemiesCount = 1
-	
+		
 	for child in get_children():
-		if child.is_in_group("enemy"):
-			child.queue_free()
+			if child.is_in_group("enemy"):
+				child.queue_free()
+				
+	currentWave = 1
+	livingEnemiesCount = 0
+	
+	if HUD and HUD.has_method("updateWaveDisplay"):
+		HUD.updateWaveDisplay(currentWave)
 	
 func spawnEnemy() -> void:
 	var enemy = enemyScene.instantiate()
@@ -62,12 +66,20 @@ func spawnEnemy() -> void:
 	add_child(enemy)
 	
 	enemy.tree_exited.connect(onEnemyDied)
+	livingEnemiesCount += 1
+	
 	var waveHPMultipler: float = 1.0 + ((currentWave - 1) * 0.2)
 	EconomyManager.moneyMultiplier = 1.0 + ((currentWave -1 ) * 1.75)
-	
 	var activeEnemyData = GameManager.currentEnemyStats if GameManager.currentEnemyStats != null else golemData
 	
 	enemy.setUp(activeEnemyData, currentConfig, waveHPMultipler)
+	
+func skipWave() -> void: 
+	currentWave += 1
+	if HUD and HUD.has_method("updateWaveDisplay"):
+		HUD.updateWaveDisplay(currentWave)
+		
+	spawnEnemy()
 	
 func onEnemyDied() -> void:
 	livingEnemiesCount -= 1
@@ -79,4 +91,9 @@ func onWaveCleared() -> void:
 		return
 	currentWave += 1
 	get_tree().create_timer(2).timeout.connect(startNextWave)
+	
+	if HUD and HUD.has_method("updateWaveDisplay"):
+		HUD.updateWaveDisplay(currentWave)
+		
+	get_tree().create_timer(2.0).timeout.connect(startNextWave)
 	

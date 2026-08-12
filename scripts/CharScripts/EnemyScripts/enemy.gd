@@ -42,7 +42,7 @@ func setUp(data: enemyStats, config: DifficultyData, waveHPMultiplier: float) ->
 	direction = chooseDirection(-1, 1)
 
 	enemyData = data
-	
+	print(maxHealthPoints)
 	startShotTimer()
 	
 func spawnBullet(data: enemyStats) -> void:
@@ -64,7 +64,6 @@ func take_damage(amount: int):
 	spawnDamageIndicator(amount)
 	currentHealth -= amount
 	
-	
 	if currentHealth <= 0:
 		die()
 
@@ -78,7 +77,6 @@ func _physics_process(delta: float) -> void:
 	
 	if rightRayCast.is_colliding() and direction == 1:
 		direction = -1
-	
 	
 	elif leftRayCast.is_colliding() and direction == -1:
 		direction = 1
