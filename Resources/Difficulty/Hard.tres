@@ -5,9 +5,8 @@
 [resource]
 script = ExtResource("1_ghrv6")
 enemyMoveSpeedMultiplier = 4.0
-enemyMaxHPMultiplier = 2
 bullet_freq_min = 0.04
-bullet_freq_max = 0.26
+bullet_freq_max = 0.23
 playerLivesMultiplier = 0.6
 playerBulletSpeedMultiplier = 7.5
 money_multiplier = 1.5

@@ -26,7 +26,6 @@ var buttonSelected = null
 func unselectButton() -> void:
 	pressed = false
 	buttonSelected = null
-#var buttonfunction = false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -41,21 +40,15 @@ func _ready() -> void:
 		continueButton.grab_focus()
 	else:
 		playButton.grab_focus()
-	
-	
-	#titleLabel.pivot_offset = titleLabel.size / 2
-	#titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
-	
+
 	var titleTimer = $TitleTimer
 	titleTimer.start()
-	#slideanimation.play("SlideDown")
 	
 func giveOptionsUponDataStored() -> void:
 	var hasData = GameManager.gameDataStored
 	continueButton.visible = hasData
 	newGameButton.visible = hasData
 	playButton.visible = !hasData
-
 		
 func onButtonFocusEntered(_button: TextureButton) -> void:
 	var focusedNode = get_viewport().gui_get_focus_owner()
@@ -155,10 +148,10 @@ func _on_normal_mode_button_pressed():
 
 func _on_hard_mode_button_pressed():
 	difficultyLabel.text = "You are currently in HARD mode. 
-	Money Gain: 0.8x
+	Money Gain: 1.5x
 	Enemy HealthPoints: 2x 
 	
-	Enemy Movement Speed will be increased 140%. 
+	Enemy Movement Speed will be increased 180%. 
 	
 	This gamemode is not recommended for regular gameplay. Various elements will be added
 	to impede the player's progression. 
@@ -166,7 +159,6 @@ func _on_hard_mode_button_pressed():
 	"
 	GameManager.currentDifficulty = "Hard"
 	
-
 func _on_game_start_button_pressed() -> void:
 	if GameManager.gameDataStored == true:
 		transitionrect.visible = true
