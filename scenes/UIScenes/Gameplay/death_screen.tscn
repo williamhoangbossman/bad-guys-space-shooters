@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfw5qnfe50dyv"]
 
 [ext_resource type="Script" uid="uid://d05bbelsd42gq" path="res://scripts/UIScripts/GameplayScripts/deathScreenScript.gd" id="1_1jlxs"]
+[ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="2_tcxjd"]
 [ext_resource type="Texture2D" uid="uid://870mq6d70ico" path="res://assets/UI/whatEvenIsThis.png" id="2_vnjw7"]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=963930137]
@@ -33,17 +34,18 @@ offset_bottom = 190.0
 scale = Vector2(1.38468, 1.6641988)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "DEAD"
+text = "DEAD
+BOOHOO"
 
-[node name="ReturnButton" type="Button" parent="Control" unique_id=946543695]
+[node name="ReturnButton" type="TextureButton" parent="Control" unique_id=610000420]
 process_mode = 3
 layout_mode = 0
-offset_left = 326.0
-offset_top = 436.0
-offset_right = 397.0
-offset_bottom = 467.0
-scale = Vector2(2.8097796, 3.2707784)
-text = "RETURN"
+offset_left = 336.0
+offset_top = 480.0
+offset_right = 2436.0
+offset_bottom = 1030.0
+scale = Vector2(0.107149355, 0.15882848)
+texture_normal = ExtResource("2_tcxjd")
 
 [node name="WhatEvenIsThis" type="Sprite2D" parent="Control" unique_id=1582931648]
 modulate = Color(1, 1, 1, 0.15294118)

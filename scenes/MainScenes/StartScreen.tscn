@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://057jqgmaan3j"]
 
 [ext_resource type="Script" uid="uid://bdwh2vf805lx8" path="res://scripts/UIScripts/MenusScripts/start_screen.gd" id="1_2mdob"]
-[ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="2_dxqsf"]
 [ext_resource type="Texture2D" uid="uid://2fac8scpueki" path="res://assets/UI/Menu/SKYCLOUDBG_1.png" id="2_fpu7k"]
 [ext_resource type="Texture2D" uid="uid://cch5jher6xjk3" path="res://assets/UI/Menu/MainMenu/GameStartMenu10x.png" id="3_e4gof"]
 [ext_resource type="Texture2D" uid="uid://dn13jago60d6j" path="res://assets/UI/MainMenu/ContinueBtn.png" id="3_k2xk6"]
@@ -16,11 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="9_e4gof"]
 [ext_resource type="Texture2D" uid="uid://dxnxexckn1lob" path="res://assets/UI/Menu/CreateBtn.png" id="10_7oa8u"]
 [ext_resource type="Texture2D" uid="uid://s2ehynkrvw1w" path="res://assets/UI/Menu/EasyBtn.png" id="12_bhrft"]
+[ext_resource type="Texture2D" uid="uid://c12j5vail4mu" path="res://assets/UI/MainMenu/SelectButtons/Group 30 (1).png" id="12_mjj6g"]
 [ext_resource type="Texture2D" uid="uid://b7xfhfc5e1edj" path="res://assets/UI/Menu/BoxBtn.png" id="13_e4gof"]
 [ext_resource type="Texture2D" uid="uid://buuqcw7t04ep4" path="res://assets/UI/Menu/NormalBtn.png" id="13_nu7qv"]
 [ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="14_o38up"]
 [ext_resource type="Texture2D" uid="uid://c2fqectg7gheo" path="res://assets/UI/Menu/HardBtn.png" id="14_rp6ii"]
+[ext_resource type="Texture2D" uid="uid://ds7bymim31657" path="res://assets/UI/MainMenu/SelectButtons/Group 32 (1).png" id="14_sj7py"]
 [ext_resource type="Script" uid="uid://upgfy3iqkcoq" path="res://scripts/UIScripts/MenusScripts/descrption_label.gd" id="15_dv5bs"]
+[ext_resource type="Texture2D" uid="uid://vopre5oa0sqn" path="res://assets/UI/MainMenu/SelectButtons/Group 28 (1).png" id="16_w2kuy"]
+[ext_resource type="Texture2D" uid="uid://jl3gohcfgo25" path="res://assets/UI/MainMenu/SelectButtons/Group 31 (1).png" id="18_10p1c"]
+[ext_resource type="Texture2D" uid="uid://pcqio1cxs65n" path="res://assets/UI/MainMenu/SelectButtons/Group 29 (1).png" id="20_drs30"]
+[ext_resource type="PackedScene" uid="uid://bg6pn13rc7dgi" path="res://scenes/UIScenes/Menus/areYouSure.tscn" id="22_7oa8u"]
 
 [sub_resource type="Animation" id="Animation_fpu7k"]
 length = 0.001
@@ -272,6 +277,7 @@ offset_right = 2326.771
 offset_bottom = 1010.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("9_e4gof")
+texture_focused = ExtResource("12_mjj6g")
 
 [node name="MenuCreateButton" type="TextureButton" parent="DifficultyMenu/ColorRect" unique_id=1702299109]
 layout_mode = 0
@@ -281,6 +287,7 @@ offset_right = 2583.212
 offset_bottom = 1010.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("10_7oa8u")
+texture_focused = ExtResource("14_sj7py")
 
 [node name="DifficultyContainer" type="HBoxContainer" parent="DifficultyMenu" unique_id=1691604398]
 layout_mode = 0
@@ -291,27 +298,25 @@ offset_bottom = 652.0
 scale = Vector2(0.15, 0.15)
 theme_override_constants/separation = 200
 
-[node name="EasyModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=344480133]
+[node name="EasyModeButton" type="TextureButton" parent="DifficultyMenu/DifficultyContainer" unique_id=733961661]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_dxqsf")
-theme_override_font_sizes/font_size = 16
-icon = ExtResource("12_bhrft")
-flat = true
+texture_normal = ExtResource("12_bhrft")
+texture_hover = ExtResource("16_w2kuy")
+texture_focused = ExtResource("16_w2kuy")
 
-[node name="NormalModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=749323769]
+[node name="NormalModeButton" type="TextureButton" parent="DifficultyMenu/DifficultyContainer" unique_id=1491302829]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_dxqsf")
-icon = ExtResource("13_nu7qv")
-flat = true
+texture_normal = ExtResource("13_nu7qv")
+texture_focused = ExtResource("18_10p1c")
 
-[node name="HardModeButton" type="Button" parent="DifficultyMenu/DifficultyContainer" unique_id=877556345]
+[node name="HardModeButton" type="TextureButton" parent="DifficultyMenu/DifficultyContainer" unique_id=1586298978]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_dxqsf")
-icon = ExtResource("14_rp6ii")
-flat = true
+texture_normal = ExtResource("14_rp6ii")
+texture_hover = ExtResource("20_drs30")
+texture_focused = ExtResource("20_drs30")
 
 [node name="ColorRect2" type="Sprite2D" parent="DifficultyMenu" unique_id=1232255497]
 position = Vector2(477.639, 318)
@@ -351,15 +356,11 @@ script = ExtResource("15_dv5bs")
 [node name="Transition" parent="." unique_id=140022182 instance=ExtResource("6_q553w")]
 visible = false
 
-[node name="SettingsMenu2" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
+[node name="PrecautionMenu" parent="." unique_id=362821646 instance=ExtResource("22_7oa8u")]
 visible = false
-script = null
 
-[node name="returnButtonContainer" parent="SettingsMenu2/Control" parent_id_path=PackedInt32Array(1448677036, 336197975) index="3" unique_id=1950955532]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 71.0
-offset_bottom = 31.0
+[node name="SettingsMenu" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
+visible = false
 
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/continueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/newGameButton" to="." method="_on_new_game_button_pressed"]
@@ -373,7 +374,10 @@ offset_bottom = 31.0
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/EasyModeButton" to="." method="_on_easy_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
 [connection signal="pressed" from="DifficultyMenu/DifficultyContainer/HardModeButton" to="." method="_on_hard_mode_button_pressed"]
-[connection signal="pressed" from="SettingsMenu2/Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="PrecautionMenu/Control/optionsContainer/noButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="PrecautionMenu/Control/optionsContainer/yesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="SettingsMenu/Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]
 
 [editable path="Transition"]
-[editable path="SettingsMenu2"]
+[editable path="PrecautionMenu"]
+[editable path="SettingsMenu"]

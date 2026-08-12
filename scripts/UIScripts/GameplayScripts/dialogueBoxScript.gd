@@ -43,9 +43,9 @@ func onChatPressed() -> void:
 		3: 
 			textLabel.text = "Any upgrades you need--I'm your man!"
 		4: 
-			textLabel.text = "It really is ironic, now that I thik about it. I don't hold grudges, though."
+			textLabel.text = "It really is ironic, now that I think about it. I don't hold grudges, though."
 		5: 
-			textLabel.text = "Long before time had a name"
+			textLabel.text = "We stuck in here forever, huh. We'll never escape, so don't try anything."
 	
 	
 

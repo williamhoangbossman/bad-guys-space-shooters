@@ -86,9 +86,11 @@ animations = [{
 [resource]
 script = ExtResource("1_gxsss")
 name = "GolemMonster"
-maxHealthPoints = 20
+maxHealthPoints = 15
+moveSpeed = 275.0
 spriteFrames = SubResource("SpriteFrames_5yo2v")
+BulletSpeed = 300.0
 BulletFrequencyMin = 1.0
-BulletFrequencyMax = 3
+BulletFrequencyMax = 2
 bulletSpriteFrames = SubResource("SpriteFrames_ylexr")
 metadata/_custom_type_script = "uid://cvo0tw35ftpjg"

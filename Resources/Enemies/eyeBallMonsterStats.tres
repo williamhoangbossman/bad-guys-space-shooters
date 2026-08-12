@@ -118,6 +118,6 @@ maxHealthPoints = 1000
 moveSpeed = 700.0
 spriteFrames = SubResource("SpriteFrames_kdkfv")
 BulletFrequencyMin = 1.0
-BulletFrequencyMax = 3
+BulletFrequencyMax = 2
 bulletSpriteFrames = SubResource("SpriteFrames_7e0mp")
 metadata/_custom_type_script = "uid://cvo0tw35ftpjg"

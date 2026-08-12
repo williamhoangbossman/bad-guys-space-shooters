@@ -8,6 +8,7 @@ class_name DifficultyData
 @export var enemyMaxHPMultiplier: float = 1.0
 @export var bullet_freq_min: float = 1.0
 @export var bullet_freq_max: float = 3.0
+@export var bulletSpeedMultiplier: float = 1.0
 
 @export_category("Player Settings")
 @export var playerLivesMultiplier: float = 1

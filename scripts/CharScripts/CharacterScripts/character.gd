@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func applyAllStats(config: DifficultyData) -> void:
 	var baseHP = playerData.maxLifeCount * config.playerLivesMultiplier
-	var hpBonus = (GameManager.getUpgradeLevel("health") - 1) * 2
+	var hpBonus = (GameManager.getUpgradeLevel("health") - 1) * 2 * 1.25
 	
 	maxHealth = int(baseHP + hpBonus)
 	currentHealth = maxHealth
@@ -31,7 +31,7 @@ func applyAllStats(config: DifficultyData) -> void:
 	var baseDamage = playerData.playerBaseDamage
 	var damageBonus = (GameManager.getUpgradeLevel("damage") - 1) * 2
 	
-	damage = baseDamage + damageBonus
+	damage = int(baseDamage + damageBonus)
 
 func setupDifficulty(config: DifficultyData) -> void:
 	applyAllStats(config)
@@ -44,7 +44,7 @@ func takeDamage(amount: int) -> void: #HANDLES THE DMG + DYING
 	
 	#CHANGE HEALTH/LIVES COUNTER (IN FUTURE WE CAN ADD LIVES TO OUR COUNTER)
 	if currentHealth <= 0:
-		UiManager.openDeathScreen()
+		get_tree().change_scene_to_file.call_deferred("res://scenes/UIScenes/Gameplay/death_screen.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

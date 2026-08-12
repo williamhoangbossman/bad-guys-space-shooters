@@ -5,7 +5,9 @@ extends CanvasLayer
 
 @onready var difficultyMenu = $DifficultyMenu
 @onready var difficultyLabel = $DifficultyMenu/DescrptionLabel
-@onready var settingsMenu = $SettingsMenu2
+@onready var settingsMenu = $SettingsMenu
+@onready var precautionMenu: CanvasLayer = $PrecautionMenu
+
 
 @onready var leftCursor = $MainScreenUI/left_Cursor
 @onready var rightCursor = $MainScreenUI/right_Cursor
@@ -16,9 +18,11 @@ extends CanvasLayer
 @onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
 @onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
 
+@onready var menuBackButton: TextureButton = $DifficultyMenu/ColorRect/MenuBackButton
+@onready var menuCreateButton: TextureButton = $DifficultyMenu/ColorRect/MenuCreateButton
+
 @onready var continueButton: TextureButton = $MainScreenUI/gameOptionsContainer/continueButton
 @onready var newGameButton: TextureButton = $MainScreenUI/gameOptionsContainer/newGameButton
-
 
 var pressed: bool = false
 var buttonSelected = null
@@ -28,13 +32,13 @@ func unselectButton() -> void:
 	buttonSelected = null
 
 func _ready() -> void:
+	giveOptionsUponDataStored()
 	await get_tree().process_frame
-	
 	for child in gameOptionsContainer.get_children():
 		if child is TextureButton:
 			child.focus_entered.connect(func(): onButtonFocusEntered(child))
 			
-	giveOptionsUponDataStored()
+	
 	
 	if GameManager.gameDataStored:
 		continueButton.grab_focus()
@@ -67,17 +71,6 @@ func onButtonFocusEntered(_button: TextureButton) -> void:
 		buttonrect.end.x + cursorOffset,
 		buttonrect.get_center().y - (rightsize.y / 2)
 		)
-	
-#func _on_title_timer_timeout() -> void: #title stuff
-	#titleGrowth()
-#	await get_tree().create_timer(1).timeout	
-	#buttonfunction = true
-	
-#func titleGrowth() -> void: # title stuff again 
-	#var TweenCreate = create_tween()
-	#TweenCreate.tween_property(titleLabel, "scale", Vector2(1.4, 1.4), 0.75)\
-	#	.set_trans(Tween.TRANS_SINE)\
-	#	.set_ease(Tween.EASE_IN_OUT)
 		
 func _on_menu_back_button_pressed() -> void:
 	transitionrect.visible = true
@@ -88,8 +81,7 @@ func _on_menu_back_button_pressed() -> void:
 	await get_tree().create_timer(0.75).timeout
 	transitionrect.visible = false
 	
-	
-	playButton.grab_focus()
+	refocusMainMenu()
 	
 func _on_menu_create_button_pressed() -> void:
 	if GameManager.currentDifficulty == "Please Select!":
@@ -114,7 +106,6 @@ func _on_menu_create_button_pressed() -> void:
 	elif GameManager.currentDifficulty == "Hard":
 		gameTransition()
 		GameManager.gameDataStored = true
-
 	return
 	
 func gameTransition() ->void: 
@@ -124,7 +115,6 @@ func gameTransition() ->void:
 	transitionrect.visible = false
 	get_tree().change_scene_to_file("res://scenes/MainScenes/Game.tscn")
 	
-
 func _on_easy_mode_button_pressed() -> void:
 	
 	difficultyLabel.text = "You are currently in EASY mode. 
@@ -176,18 +166,32 @@ func _on_game_start_button_pressed() -> void:
 	difficultyMenu.visible = true
 	await get_tree().create_timer(0.75).timeout
 	transitionrect.visible = false
+	menuCreateButton.grab_focus()
 		
 func _on_quit_button_2_pressed() -> void:
 	get_tree().quit()
 	
 func _on_settings_button_pressed() -> void:
-	UiManager.openSettingsMenu()
-		
-func _on_return_button_pressed() -> void:
-	settingsButton.grab_focus()
+	settingsMenu.visible = true
+	
 
 func _on_continue_button_pressed() -> void:
 	_on_game_start_button_pressed()
 
 func _on_new_game_button_pressed() -> void:
-	UiManager.openPrecautionMenu()
+	precautionMenu.visible = true
+
+func refocusMainMenu() -> void:
+	if GameManager.gameDataStored:
+		continueButton.grab_focus()
+	else:
+		playButton.grab_focus()
+
+func _on_no_button_pressed() -> void:
+	continueButton.grab_focus()
+
+func _on_yes_button_pressed() -> void:
+	continueButton.grab_focus()
+
+func _on_return_button_pressed() -> void:
+	settingsButton.grab_focus()

@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://6oc24jg236vr" path="res://Resources/Difficulty/Hard.tres" id="16_71y7t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
-distance = -31.0
+distance = -6.0
 
 [node name="Game" type="Node2D" unique_id=805202920]
 process_mode = 1
@@ -50,7 +50,7 @@ shape = SubResource("WorldBoundaryShape2D_qbsmt")
 position = Vector2(441, -124)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wallContainer/Wall1" unique_id=709239584]
-position = Vector2(421, 628)
+position = Vector2(422, 628)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_qbsmt")
 

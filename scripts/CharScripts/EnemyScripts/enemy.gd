@@ -22,7 +22,6 @@ var minFreq: float
 var maxFreq: float
 var bulletSpeed: float
 
-
 var enemyData: enemyStats
 
 func setUp(data: enemyStats, config: DifficultyData, waveHPMultiplier: float) -> void: 
@@ -32,7 +31,7 @@ func setUp(data: enemyStats, config: DifficultyData, waveHPMultiplier: float) ->
 	currentHealth = maxHealthPoints
 	
 	moveSpeed = data.moveSpeed * config.enemyMoveSpeedMultiplier
-	bulletSpeed = data.BulletSpeed * config.enemyMoveSpeedMultiplier * 2.5 # CHANGE TO BULLETSPEED LATER
+	bulletSpeed = data.BulletSpeed * config.bulletSpeedMultiplier # CHANGE TO BULLETSPEED LATER
 	minFreq = data.BulletFrequencyMin * config.bullet_freq_min
 	maxFreq = data.BulletFrequencyMax * config.bullet_freq_max
 	
@@ -68,7 +67,7 @@ func take_damage(amount: int):
 		die()
 
 func die():
-	EconomyManager.currentMoney += EconomyManager.waveMoneyMultiplier * EconomyManager.moneyMultiplier * 1
+	EconomyManager.currentMoney += EconomyManager.waveMoneyMultiplier * EconomyManager.moneyMultiplier * 3
 	GameManager.currentScore += 1 * GameManager.scoreMultiplier
 	
 	print(EconomyManager.moneyMultiplier)

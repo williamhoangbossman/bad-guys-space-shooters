@@ -30,9 +30,11 @@ scale = Vector2(2.843636, 5.5600767)
 shape = SubResource("CapsuleShape2D_t2l28")
 
 [node name="RightRayCast" type="RayCast2D" parent="." unique_id=63522769]
+scale = Vector2(0.74276984, 0.74276984)
 target_position = Vector2(150, 0)
 
 [node name="LeftRayCast" type="RayCast2D" parent="." unique_id=970435443]
+scale = Vector2(0.74276984, 0.74276984)
 target_position = Vector2(-150, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269256957]

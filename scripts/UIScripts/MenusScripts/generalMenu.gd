@@ -9,20 +9,16 @@ func _ready() -> void:
 	
 	
 func _on_continue_button_pressed() -> void:
-	print("YESDADDY")
 	#UiManager.closeCurrentUI() --> dont use!
 	generalMenu.visible = false
 	get_tree().paused = false
 
 
 func _on_options_button_pressed() -> void:
-	print("YESDADDY")
-	UiManager.openSettingsMenu()
+	settingsMenu.visible = true
 
 func _on_about_button_pressed() -> void:
-	print("YESDADDY")
-	UiManager.openAboutScreen()
-
+	aboutMenu.visible = true
 
 func _on_main_menu_button_pressed() -> void:
 	var transition = $"../../../Transition"

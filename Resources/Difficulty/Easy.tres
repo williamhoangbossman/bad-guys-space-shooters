@@ -6,6 +6,7 @@
 script = ExtResource("1_w2co7")
 enemyMoveSpeedMultiplier = 0.8
 bullet_freq_max = 1.75
+bulletSpeedMultiplier = 0.8
 playerLivesMultiplier = 1.5
 playerBulletSpeedMultiplier = 1.3
 money_multiplier = 1.2
