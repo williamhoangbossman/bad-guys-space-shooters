@@ -51,7 +51,7 @@ func spawnBullet(data: enemyStats) -> void:
 	
 	enemyBullet.global_position.x = enemyCharacter.global_position.x
 	enemyBullet.global_position.y = enemyCharacter.global_position.y 
-	enemyBullet.setupBullet(bulletSpeed, enemyData)
+	enemyBullet.setupBullet(bulletSpeed, data)
 
 func startShotTimer() -> void:
 	shotTimer.wait_time = randf_range(minFreq, maxFreq)
@@ -68,8 +68,10 @@ func take_damage(amount: int):
 		die()
 
 func die():
-	EconomyManager.currentMoney += EconomyManager.moneyMultiplier * 1
+	EconomyManager.currentMoney += EconomyManager.waveMoneyMultiplier * EconomyManager.moneyMultiplier * 1
 	GameManager.currentScore += 1 * GameManager.scoreMultiplier
+	
+	print(EconomyManager.moneyMultiplier)
 	queue_free()
 
 func _physics_process(delta: float) -> void:

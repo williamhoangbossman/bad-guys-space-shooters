@@ -45,3 +45,30 @@ func buyGenericUpgrade(type: String, baseCost: int, multiplier: float) -> bool:
 		return true
 	return false
 	
+func resetData() -> void:
+	currentDifficulty = "Please Select!"
+	gamePaused = false
+	gameDataStored = false
+	selectedWorldName = "GolemLand"
+	currentScore = 0.0
+	scoreMultiplier = 1.0
+	
+	EconomyManager.currentMoney = 0
+
+	currentEnemyStats = null
+	currentBackgroundTexture = null
+	currentWeapon = null
+	currentSkin = null
+	
+
+	unlockedWeapons.clear()
+	unlockedSkins.clear()
+	
+	for key in upgradeLevels.keys():
+		upgradeLevels[key] = 1
+
+
+	var save_path = "user://savegame.json" 
+	if FileAccess.file_exists(save_path):
+		DirAccess.remove_absolute(save_path)
+	

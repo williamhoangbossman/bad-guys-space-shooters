@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bhq4dburvuv1v" path="res://scripts/UIScripts/MenusScripts/upgradeMenu.gd" id="1_7nlu7"]
 [ext_resource type="Resource" uid="uid://dqi57ynakuwtk" path="res://Resources/Upgrades/Upgrades.tres" id="2_jsb2q"]
 [ext_resource type="PackedScene" uid="uid://bm1ctegd1mco2" path="res://scenes/UIScenes/Menus/UpgradeButtonSlot.tscn" id="3_ctjo2"]
+[ext_resource type="Texture2D" uid="uid://blof2guekwfx3" path="res://assets/UI/atksymbol.jpeg" id="4_1wbpb"]
+[ext_resource type="Texture2D" uid="uid://clcg2iq1k3tet" path="res://assets/UI/defenseicon.png" id="5_tngri"]
 
 [node name="UpgradeMenu" type="CanvasLayer" unique_id=677118975]
 process_mode = 3
@@ -49,6 +51,11 @@ offset_right = 55.94247
 offset_bottom = 43.80327
 scale = Vector2(0.22094423, 0.53627515)
 
+[node name="Atksymbol" type="Sprite2D" parent="DamageTab/UpgradeInfo" unique_id=838680302]
+position = Vector2(20.458054, 19.821262)
+scale = Vector2(0.10939209, 0.075572126)
+texture = ExtResource("4_1wbpb")
+
 [node name="UpgradeButtonSlot" parent="DamageTab" unique_id=1888422925 instance=ExtResource("3_ctjo2")]
 layout_mode = 1
 offset_left = 16.73654
@@ -82,13 +89,26 @@ offset_right = 55.94247
 offset_bottom = 43.80327
 scale = Vector2(0.22094423, 0.53627515)
 
+[node name="Defenseicon" type="Sprite2D" parent="DefenseTab/UpgradeInfo" unique_id=704354056]
+position = Vector2(19.905128, 19.821262)
+scale = Vector2(0.09235749, 0.059726547)
+texture = ExtResource("5_tngri")
+
+[node name="ColorRect2" type="ColorRect" parent="DefenseTab/UpgradeInfo/Defenseicon" unique_id=460627243]
+z_index = 4096
+offset_left = -266.4099
+offset_top = 243.57205
+offset_right = -226.40991
+offset_bottom = 283.57205
+scale = Vector2(13.322351, 1.1573349)
+
 [node name="UpgradeButtonSlot" parent="DefenseTab" unique_id=782417021 instance=ExtResource("3_ctjo2")]
 layout_mode = 0
-offset_left = 16.308964
-offset_top = 25.745209
-offset_right = 16.308964
-offset_bottom = 25.745209
-scale = Vector2(0.033309214, 0.04592146)
+offset_left = 16.675457
+offset_top = 25.745213
+offset_right = 16.675457
+offset_bottom = 25.745213
+scale = Vector2(0.027496856, 0.044742584)
 upgradeID = "health"
 costMultiplier = 5.0
 
@@ -178,11 +198,13 @@ text = "DEFENSE
 "
 
 [node name="AttacksUpgradeTab" type="Button" parent="ButtonsTabContainer" unique_id=1584669568]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "ATTACKS"
 
 [node name="MiscUpgradesTab" type="Button" parent="ButtonsTabContainer" unique_id=879338983]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "MISC"

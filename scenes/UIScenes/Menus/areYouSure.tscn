@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bg6pn13rc7dgi"]
 
+[ext_resource type="Script" uid="uid://c4pte76shlo6g" path="res://scripts/UIScripts/MenusScripts/are_you_sure.gd" id="1_0gwoj"]
+
 [node name="PrecautionMenu" type="CanvasLayer" unique_id=362821646]
+process_mode = 3
+script = ExtResource("1_0gwoj")
 
 [node name="Control" type="Control" parent="." unique_id=982184380]
 layout_mode = 3
@@ -23,16 +27,18 @@ scale = Vector2(11.7908325, 12.671057)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 245.0
-offset_top = 51.999996
-offset_right = 492.0
-offset_bottom = 101.0
+offset_top = 52.0
+offset_right = 1192.0
+offset_bottom = 281.0
 scale = Vector2(0.43511775, 0.5883081)
 theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Are you sure you want to create a new game?
 
 Creating a new game will overwrite any data you 
-have in your current game file. "
+have in your current game file. 
+
+ALL YOUR DATA WILL BE RESET."
 
 [node name="optionsContainer" type="HBoxContainer" parent="Control" unique_id=652199530]
 layout_mode = 0
@@ -47,6 +53,10 @@ theme_override_constants/separation = 90
 layout_mode = 2
 text = "NO"
 
-[node name="noButton2" type="Button" parent="Control/optionsContainer" unique_id=1620047507]
+[node name="yesButton" type="Button" parent="Control/optionsContainer" unique_id=1620047507]
+process_mode = 3
 layout_mode = 2
 text = "YES"
+
+[connection signal="pressed" from="Control/optionsContainer/noButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="Control/optionsContainer/yesButton" to="." method="_on_yes_button_pressed"]

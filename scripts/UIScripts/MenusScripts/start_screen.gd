@@ -16,10 +16,8 @@ extends CanvasLayer
 @onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
 @onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
 
-@onready var continueButton: Button = $ButtonsContainer/continueButton
-@onready var newGameButton: Button = $ButtonsContainer/newGameButton
-
-@onready var buttonsContainer: HBoxContainer = $ButtonsContainer
+@onready var continueButton: TextureButton = $MainScreenUI/gameOptionsContainer/continueButton
+@onready var newGameButton: TextureButton = $MainScreenUI/gameOptionsContainer/newGameButton
 
 
 var pressed: bool = false
@@ -37,8 +35,14 @@ func _ready() -> void:
 		if child is TextureButton:
 			child.focus_entered.connect(func(): onButtonFocusEntered(child))
 			
-	playButton.grab_focus()
 	giveOptionsUponDataStored()
+	
+	if GameManager.gameDataStored:
+		continueButton.grab_focus()
+	else:
+		playButton.grab_focus()
+	
+	
 	#titleLabel.pivot_offset = titleLabel.size / 2
 	#titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
@@ -47,14 +51,10 @@ func _ready() -> void:
 	#slideanimation.play("SlideDown")
 	
 func giveOptionsUponDataStored() -> void:
-	if GameManager.gameDataStored:
-		var gameOptionsContainerIndex = gameOptionsContainer.get_index()
-		buttonsContainer.move_child(continueButton, gameOptionsContainerIndex)
-		newGameButton.reparent(gameOptionsContainer)
-	else:
-		var gameOptionsContainerIndex = gameOptionsContainer.get_index()
-		buttonsContainer.move_child(playButton, gameOptionsContainerIndex)
-		newGameButton.reparent(buttonsContainer)
+	var hasData = GameManager.gameDataStored
+	continueButton.visible = hasData
+	newGameButton.visible = hasData
+	playButton.visible = !hasData
 
 		
 func onButtonFocusEntered(_button: TextureButton) -> void:
@@ -91,9 +91,10 @@ func _on_menu_back_button_pressed() -> void:
 	transition.play("FadeIn")
 	await get_tree().create_timer(0.75).timeout
 	transition.play("FadeOut")
+	difficultyMenu.visible = false
 	await get_tree().create_timer(0.75).timeout
 	transitionrect.visible = false
-	difficultyMenu.visible = false
+	
 	
 	playButton.grab_focus()
 	
@@ -193,18 +194,8 @@ func _on_settings_button_pressed() -> void:
 func _on_return_button_pressed() -> void:
 	settingsButton.grab_focus()
 
+func _on_continue_button_pressed() -> void:
+	_on_game_start_button_pressed()
 
-func _on_delete_data_button_pressed() -> void:
-	GameManager.gameDataStored = false
-	GameManager.currentScore = 0
-	GameManager.scoreMultiplier = 1
-	
-	EconomyManager.currentMoney = 0
-	EconomyManager.moneyMultiplier = 1
-	
-	
-	var deletedata = $deleteDataButton
-	deletedata.text = "DELETED"
-	
-	await get_tree().create_timer(1).timeout
-	deletedata.text = "DELETE DATA"
+func _on_new_game_button_pressed() -> void:
+	UiManager.openPrecautionMenu()

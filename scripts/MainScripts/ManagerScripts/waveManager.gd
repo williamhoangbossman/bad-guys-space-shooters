@@ -42,6 +42,7 @@ func getCurrentDifficultyConfig() -> DifficultyData:
 
 func applyDifficulty(config: DifficultyData) -> void:
 	EconomyManager.moneyMultiplier = config.money_multiplier
+	print(EconomyManager.moneyMultiplier)
 	
 func startNextWave() -> void:
 	spawnEnemy()
@@ -69,7 +70,7 @@ func spawnEnemy() -> void:
 	livingEnemiesCount += 1
 	
 	var waveHPMultipler: float = 1.0 + ((currentWave - 1) * 0.2)
-	EconomyManager.moneyMultiplier = 1.0 + ((currentWave -1 ) * 1.75)
+	EconomyManager.waveMoneyMultiplier = 1.0 + ((currentWave -1 ) * 1.75)
 	var activeEnemyData = GameManager.currentEnemyStats if GameManager.currentEnemyStats != null else golemData
 	
 	enemy.setUp(activeEnemyData, currentConfig, waveHPMultipler)
