@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/CreateBtn.png.import
 uid="uid://dxnxexckn1lob"
 path="res://.godot/imported/CreateBtn.png-211a055fe47f2b82da5f147188716377.ctex"
+=======
+uid="uid://doyhyins6ddyr"
+path="res://.godot/imported/CreateBtn.png-f36d9b2fb1f479d428ead4bcdfd07233.ctex"
+>>>>>>> Stashed changes:assets/UI/CreateBtn.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/CreateBtn.png.import
 source_file="res://assets/UI/Menu/CreateBtn.png"
 dest_files=["res://.godot/imported/CreateBtn.png-211a055fe47f2b82da5f147188716377.ctex"]
+=======
+source_file="res://assets/UI/CreateBtn.png"
+dest_files=["res://.godot/imported/CreateBtn.png-f36d9b2fb1f479d428ead4bcdfd07233.ctex"]
+>>>>>>> Stashed changes:assets/UI/CreateBtn.png.import
 
 [params]
 

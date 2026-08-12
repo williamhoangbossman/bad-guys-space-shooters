@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/EasyBtn.png.import
 uid="uid://s2ehynkrvw1w"
 path="res://.godot/imported/EasyBtn.png-8281dcfa3c8502b48d9971fdee18e60a.ctex"
+=======
+uid="uid://c6uqy2n0cyxmh"
+path="res://.godot/imported/EasyBtn.png-c4f6423753fcffdd6c4a1b019015e2c5.ctex"
+>>>>>>> Stashed changes:assets/UI/EasyBtn.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/EasyBtn.png.import
 source_file="res://assets/UI/Menu/EasyBtn.png"
 dest_files=["res://.godot/imported/EasyBtn.png-8281dcfa3c8502b48d9971fdee18e60a.ctex"]
+=======
+source_file="res://assets/UI/EasyBtn.png"
+dest_files=["res://.godot/imported/EasyBtn.png-c4f6423753fcffdd6c4a1b019015e2c5.ctex"]
+>>>>>>> Stashed changes:assets/UI/EasyBtn.png.import
 
 [params]
 

@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/HardBtn.png.import
 uid="uid://c2fqectg7gheo"
 path="res://.godot/imported/HardBtn.png-5fa14e596ecf2354b4318c65235815c3.ctex"
+=======
+uid="uid://bo153snlirgt8"
+path="res://.godot/imported/HardBtn.png-6af619dd996aa4b8cf788ddd432296c2.ctex"
+>>>>>>> Stashed changes:assets/UI/HardBtn.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/HardBtn.png.import
 source_file="res://assets/UI/Menu/HardBtn.png"
 dest_files=["res://.godot/imported/HardBtn.png-5fa14e596ecf2354b4318c65235815c3.ctex"]
+=======
+source_file="res://assets/UI/HardBtn.png"
+dest_files=["res://.godot/imported/HardBtn.png-6af619dd996aa4b8cf788ddd432296c2.ctex"]
+>>>>>>> Stashed changes:assets/UI/HardBtn.png.import
 
 [params]
 

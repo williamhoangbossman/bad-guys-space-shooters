@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/Group 14.png.import
 uid="uid://cn8af74wbsswm"
 path="res://.godot/imported/Group 14.png-7ca34bbf8731e33e0ae60a9e1a26e71b.ctex"
+=======
+uid="uid://br241ywqakbe3"
+path="res://.godot/imported/Group 14.png-aef52f026e2f9bd47868a2ca8d72956d.ctex"
+>>>>>>> Stashed changes:assets/UI/Group 14.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/Group 14.png.import
 source_file="res://assets/UI/Menu/Group 14.png"
 dest_files=["res://.godot/imported/Group 14.png-7ca34bbf8731e33e0ae60a9e1a26e71b.ctex"]
+=======
+source_file="res://assets/UI/Group 14.png"
+dest_files=["res://.godot/imported/Group 14.png-aef52f026e2f9bd47868a2ca8d72956d.ctex"]
+>>>>>>> Stashed changes:assets/UI/Group 14.png.import
 
 [params]
 

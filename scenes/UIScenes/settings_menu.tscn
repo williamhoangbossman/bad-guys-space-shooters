@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cfywdwu145v71"]
+
+[ext_resource type="Texture2D" uid="uid://c7c042qjcwoot" path="res://assets/UI/BigBoxBtn.png" id="1_q8v0s"]
+[ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="2_jm4em"]
+[ext_resource type="Script" uid="uid://dbuq8371no4i4" path="res://scenes/UIScenes/place_holder_text.gd" id="2_wgun2"]
+[ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/ReturnBtn.png" id="3_jm4em"]
+
+[sub_resource type="GDScript" id="GDScript_k1ws3"]
+script/source = "extends CanvasLayer
+
+@onready var settingsMenu = $\".\"
+
+func _on_return_button_pressed() -> void:
+	settingsMenu.visible = false
+"
+
+[node name="SettingsMenu" type="CanvasLayer" unique_id=1448677036]
+script = SubResource("GDScript_k1ws3")
+
+[node name="Control" type="Control" parent="." unique_id=336197975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="transparentBackground" type="ColorRect" parent="Control" unique_id=656997278]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13333334, 0.13725491, 0.16470589, 0.8784314)
+
+[node name="BigBoxBtn" type="Sprite2D" parent="Control" unique_id=1517248271]
+position = Vector2(450, 276)
+texture = ExtResource("1_q8v0s")
+
+[node name="PlaceHolderText" type="RichTextLabel" parent="Control" unique_id=1807212521]
+process_mode = 3
+layout_mode = 0
+offset_left = 150.0
+offset_top = 100.0
+offset_right = 750.0
+offset_bottom = 452.0
+theme_override_colors/default_color = Color(0.75686276, 0.9882353, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_jm4em")
+theme_override_font_sizes/normal_font_size = 77
+text = "THE VALOUME9 AND KEYBUINDS AND THE COLOR PICKER"
+autowrap_mode = 2
+script = ExtResource("2_wgun2")
+
+[node name="returnButtonContainer" type="VBoxContainer" parent="Control" unique_id=1950955532]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 500.0
+offset_right = 557.0
+offset_bottom = 563.0
+scale = Vector2(0.1, 0.1)
+
+[node name="returnButton" type="Button" parent="Control/returnButtonContainer" unique_id=505527195]
+process_mode = 3
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_hover_color = Color(0.7372549, 0.7176471, 0.6862745, 1)
+icon = ExtResource("3_jm4em")
+flat = true
+
+[connection signal="pressed" from="Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]

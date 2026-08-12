@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/MainMenu/HardBtn.png.import
 uid="uid://cfwaoy8flsv2a"
 path="res://.godot/imported/HardBtn.png-72c6d5fd1c89689bc38ae7458263dca7.ctex"
+=======
+uid="uid://bjqabpqhw8jye"
+path="res://.godot/imported/HomeBtn.png-a8f42063c650d151dfb2aab212473c0f.ctex"
+>>>>>>> Stashed changes:assets/UI/HomeBtn.png.import
 metadata={
 "vram_texture": false
 }

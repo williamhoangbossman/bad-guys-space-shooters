@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/MainMenu/StellarSiegeMenu10x.png.import
 uid="uid://bd0lnth1fb56a"
 path="res://.godot/imported/StellarSiegeMenu10x.png-6668f3a621352f698739139be2aa8107.ctex"
+=======
+uid="uid://b62m27adpp7g2"
+path="res://.godot/imported/StellarSiegeMenu10x.png-0ec41f238570cf54d38166d843f1a27f.ctex"
+>>>>>>> Stashed changes:assets/UI/MainMenu/StellarSiegeMenu10x.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/MainMenu/StellarSiegeMenu10x.png.import
 source_file="res://assets/UI/Menu/MainMenu/StellarSiegeMenu10x.png"
 dest_files=["res://.godot/imported/StellarSiegeMenu10x.png-6668f3a621352f698739139be2aa8107.ctex"]
+=======
+source_file="res://assets/UI/MainMenu/StellarSiegeMenu10x.png"
+dest_files=["res://.godot/imported/StellarSiegeMenu10x.png-0ec41f238570cf54d38166d843f1a27f.ctex"]
+>>>>>>> Stashed changes:assets/UI/MainMenu/StellarSiegeMenu10x.png.import
 
 [params]
 

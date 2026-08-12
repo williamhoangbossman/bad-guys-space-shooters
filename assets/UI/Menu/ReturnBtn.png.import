@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/ReturnBtn.png.import
 uid="uid://bkj2ry7sxi8jj"
 path="res://.godot/imported/ReturnBtn.png-8bb5b1da122940af54f240b88850d673.ctex"
+=======
+uid="uid://ogr63rxhtrw4"
+path="res://.godot/imported/ReturnBtn.png-a8cb08022d1395c17ff7a2298b85507f.ctex"
+>>>>>>> Stashed changes:assets/UI/ReturnBtn.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/ReturnBtn.png.import
 source_file="res://assets/UI/Menu/ReturnBtn.png"
 dest_files=["res://.godot/imported/ReturnBtn.png-8bb5b1da122940af54f240b88850d673.ctex"]
+=======
+source_file="res://assets/UI/ReturnBtn.png"
+dest_files=["res://.godot/imported/ReturnBtn.png-a8cb08022d1395c17ff7a2298b85507f.ctex"]
+>>>>>>> Stashed changes:assets/UI/ReturnBtn.png.import
 
 [params]
 

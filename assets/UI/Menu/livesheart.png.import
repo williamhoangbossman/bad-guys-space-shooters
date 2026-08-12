@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/livesheart.png.import
 uid="uid://cmdqr5nv0vhvk"
 path="res://.godot/imported/livesheart.png-3ad6dd8ed16baa876b61ccf4fc68657f.ctex"
+=======
+uid="uid://bpr3sejhpng8j"
+path="res://.godot/imported/livesheart.png-1f82bb5b2c8867eba3cd00f2c4cd6a30.ctex"
+>>>>>>> Stashed changes:assets/UI/livesheart.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/livesheart.png.import
 source_file="res://assets/UI/Menu/livesheart.png"
 dest_files=["res://.godot/imported/livesheart.png-3ad6dd8ed16baa876b61ccf4fc68657f.ctex"]
+=======
+source_file="res://assets/UI/livesheart.png"
+dest_files=["res://.godot/imported/livesheart.png-1f82bb5b2c8867eba3cd00f2c4cd6a30.ctex"]
+>>>>>>> Stashed changes:assets/UI/livesheart.png.import
 
 [params]
 

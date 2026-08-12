@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/MainMenu/QuitMenu10x.png.import
 uid="uid://c6o5tl3s8rd63"
 path="res://.godot/imported/QuitMenu10x.png-499ccd079fa908b4ef04bf420feda9ac.ctex"
+=======
+uid="uid://h3rr8sj1n01i"
+path="res://.godot/imported/QuitMenu10x.png-20c57fede7309c3661111ea42caa144b.ctex"
+>>>>>>> Stashed changes:assets/UI/MainMenu/QuitMenu10x.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/MainMenu/QuitMenu10x.png.import
 source_file="res://assets/UI/Menu/MainMenu/QuitMenu10x.png"
 dest_files=["res://.godot/imported/QuitMenu10x.png-499ccd079fa908b4ef04bf420feda9ac.ctex"]
+=======
+source_file="res://assets/UI/MainMenu/QuitMenu10x.png"
+dest_files=["res://.godot/imported/QuitMenu10x.png-20c57fede7309c3661111ea42caa144b.ctex"]
+>>>>>>> Stashed changes:assets/UI/MainMenu/QuitMenu10x.png.import
 
 [params]
 

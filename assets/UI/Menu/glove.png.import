@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:assets/UI/Menu/glove.png.import
 uid="uid://cpcpjdedgvhpw"
 path="res://.godot/imported/glove.png-1fb2bf5601c6cb95df2dcb33e3e6242c.ctex"
+=======
+uid="uid://bjex583sj7feh"
+path="res://.godot/imported/glove.png-21ae21a799c7bf33e27ff038394062d4.ctex"
+>>>>>>> Stashed changes:assets/UI/glove.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:assets/UI/Menu/glove.png.import
 source_file="res://assets/UI/Menu/glove.png"
 dest_files=["res://.godot/imported/glove.png-1fb2bf5601c6cb95df2dcb33e3e6242c.ctex"]
+=======
+source_file="res://assets/UI/glove.png"
+dest_files=["res://.godot/imported/glove.png-21ae21a799c7bf33e27ff038394062d4.ctex"]
+>>>>>>> Stashed changes:assets/UI/glove.png.import
 
 [params]
 
