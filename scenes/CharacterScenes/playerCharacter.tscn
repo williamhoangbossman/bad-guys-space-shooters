@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rfe5o7ug2fr0"]
 
-[ext_resource type="Texture2D" uid="uid://dglkabj3h0172" path="res://assets/Sprites/playerdude.png" id="1_i14ww"]
+[ext_resource type="Texture2D" uid="uid://dglkabj3h0172" path="res://assets/Sprites/PlayerSprites/playerdude.png" id="1_i14ww"]
 [ext_resource type="Script" uid="uid://5xb6pth3uo8r" path="res://scripts/MainScripts/playerCharacter.gd" id="1_mf2ae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf2ae"]
@@ -84,6 +84,6 @@ autoplay = "default"
 frame_progress = 0.22963032
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2080691960]
-position = Vector2(2.842171e-14, 1.9999999)
+position = Vector2(-3.3881318e-21, 4)
 scale = Vector2(0.3255649, 0.48866713)
 shape = SubResource("CapsuleShape2D_l7djt")

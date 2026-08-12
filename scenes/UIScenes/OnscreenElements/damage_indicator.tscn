@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0awdof8i53eb"]
+
+[ext_resource type="FontFile" uid="uid://bjk4pcpi7w77" path="res://assets/Fonts/PixelOperator8-Bold.ttf" id="1_fh4cd"]
+[ext_resource type="Script" uid="uid://exeahspfhrt4" path="res://scripts/UIScripts/OnscreenElementsScripts/damageIndicatorScript.gd" id="1_xb3q3"]
+
+[node name="DamageIndicator" type="Label" unique_id=263354668]
+z_index = 100
+offset_right = 40.0
+offset_bottom = 23.0
+rotation = 0.08072256
+theme_override_fonts/font = ExtResource("1_fh4cd")
+theme_override_font_sizes/font_size = 21
+text = "DAMAGE"
+script = ExtResource("1_xb3q3")

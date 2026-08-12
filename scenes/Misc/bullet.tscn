@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cskkh0hnpv5gd"]
 
 [ext_resource type="Script" uid="uid://2lfneu1ksix0" path="res://scripts/MiscItemsScripts/BulletScript.gd" id="1_b87gg"]
-[ext_resource type="Texture2D" uid="uid://cpg670jf4igak" path="res://assets/Sprites/SpaceshipBullet.png" id="2_b87gg"]
+[ext_resource type="Texture2D" uid="uid://cpg670jf4igak" path="res://assets/Sprites/PlayerSprites/PlayerAttacks/SpaceshipBullet.png" id="2_b87gg"]
+[ext_resource type="Resource" uid="uid://dvdqqk3kdfpka" path="res://Resources/Player/playerStats.tres" id="2_imecv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
 size = Vector2(20, 126)
 
 [node name="Bullet" type="Area2D" unique_id=1393581545]
 script = ExtResource("1_b87gg")
+playerData = ExtResource("2_imecv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145334377]
 scale = Vector2(0.20000505, 0.17453478)

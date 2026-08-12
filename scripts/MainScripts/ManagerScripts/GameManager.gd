@@ -1,32 +1,47 @@
 extends Node2D
 
-var currentDifficulty: String = "Please Select!"
-var gamePaused: bool = false
-#characterData
-var characterHealth: float = 3
-var characterBulletSpeed: float = 200
-var playerBaseDamage: float = 1
-var playerBulletCooldown: float = 0.4
+@export var currentDifficulty: String = "Please Select!"
+@export var gamePaused: bool = false
+@export var gameDataStored: bool  = false
 
+var selectedWorldName: String = "GolemLand"
+var currentEnemyStats: enemyStats
+var currentBackgroundTexture: Texture2D
+
+##player customization
+var unlockedWeapons: Array[weaponData] = []
+var currentWeapon: weaponData
+var unlockedSkins: Array[Texture2D] = []
+var currentSkin: Texture2D
+##score
 var currentScore: float = 0
 var scoreMultiplier: float = 1
+##upgrade data
+var upgradeLevels: Dictionary = {
+	"health": 1,
+	"damage": 1,
+	"attack": 1,
+	"misc": 1,
+	"speed": 1,
+	"critChance": 1
+}
 
-var maxLiveCount: float = 3
-var currentLiveCount: float = 3
+func equipSkin(skinTexture: Texture2D) -> void:
+	currentSkin = skinTexture
 
-var damageMultiplier: float = 1
+func getUpgradeCost(currentLevel: int, baseCost: int, multiplier: float) -> int:
+	return int(baseCost * pow(multiplier, currentLevel - 1))
 
-#enemy data
-var enemyMaxhealth: float = 30
-var enemySpeed: float = 160
+func getUpgradeLevel(type: String) -> int:
+	return upgradeLevels.get(type, 1)
 
-var enemyBulletSpeed: float = 4
-var enemyBulletFrequencyMin = 0.05
-var enemyBulletFrequencyMax = 4
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func buyGenericUpgrade(type: String, baseCost: int, multiplier: float) -> bool:
+	var currentLevel = getUpgradeLevel(type)
+	var cost = getUpgradeCost(currentLevel, baseCost, multiplier)
+	
+	if EconomyManager.currentMoney >= cost:
+		EconomyManager.currentMoney -= cost
+		upgradeLevels[type] = currentLevel + 1
+		return true
+	return false
+	

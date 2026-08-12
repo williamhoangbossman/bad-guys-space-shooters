@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://cksu53uhsyda8"]
+
+[ext_resource type="Script" uid="uid://bhq4dburvuv1v" path="res://scripts/UIScripts/MenusScripts/upgradeMenu.gd" id="1_7nlu7"]
+[ext_resource type="Resource" uid="uid://dqi57ynakuwtk" path="res://Resources/Upgrades/Upgrades.tres" id="2_jsb2q"]
+[ext_resource type="PackedScene" uid="uid://bm1ctegd1mco2" path="res://scenes/UIScenes/Menus/UpgradeButtonSlot.tscn" id="3_ctjo2"]
+
+[node name="UpgradeMenu" type="CanvasLayer" unique_id=677118975]
+process_mode = 3
+script = ExtResource("1_7nlu7")
+upgradesData = ExtResource("2_jsb2q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=820130901]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.0067888)
+
+[node name="backButton" type="Button" parent="." unique_id=1830863679]
+offset_left = 11.000002
+offset_top = 8.0
+offset_right = 82.0
+offset_bottom = 39.0
+scale = Vector2(1.5565212, 1.8326155)
+text = "RETURN
+"
+
+[node name="DamageTab" type="Control" parent="." unique_id=3947257]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.00001
+offset_top = 126.0
+offset_right = 152.0
+offset_bottom = 166.0
+scale = Vector2(16.371365, 10.254334)
+
+[node name="Background" type="ColorRect" parent="DamageTab" unique_id=16255274]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+
+[node name="UpgradeInfo" type="ColorRect" parent="DamageTab" unique_id=755225912]
+layout_mode = 0
+offset_left = 15.9424715
+offset_top = 3.8032694
+offset_right = 55.94247
+offset_bottom = 43.80327
+scale = Vector2(0.22094423, 0.53627515)
+
+[node name="UpgradeButtonSlot" parent="DamageTab" unique_id=1888422925 instance=ExtResource("3_ctjo2")]
+layout_mode = 1
+offset_left = 16.73654
+offset_top = 26.13529
+offset_right = 16.736542
+offset_bottom = 26.13529
+scale = Vector2(0.030246543, 0.04556927)
+upgradeID = "damage"
+
+[node name="DefenseTab" type="Control" parent="." unique_id=707159438]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.00001
+offset_top = 126.0
+offset_right = 152.0
+offset_bottom = 166.0
+scale = Vector2(16.371365, 10.254334)
+
+[node name="ColorRect" type="ColorRect" parent="DefenseTab" unique_id=383111363]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0.023529412, 0.90588236, 1)
+
+[node name="UpgradeInfo" type="ColorRect" parent="DefenseTab" unique_id=134794083]
+layout_mode = 0
+offset_left = 15.9424715
+offset_top = 3.8032703
+offset_right = 55.94247
+offset_bottom = 43.80327
+scale = Vector2(0.22094423, 0.53627515)
+
+[node name="UpgradeButtonSlot" parent="DefenseTab" unique_id=782417021 instance=ExtResource("3_ctjo2")]
+layout_mode = 0
+offset_left = 16.308964
+offset_top = 25.745209
+offset_right = 16.308964
+offset_bottom = 25.745209
+scale = Vector2(0.033309214, 0.04592146)
+upgradeID = "health"
+costMultiplier = 5.0
+
+[node name="AttacksTab" type="Control" parent="." unique_id=142637782]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.00001
+offset_top = 126.0
+offset_right = 152.0
+offset_bottom = 166.0
+scale = Vector2(16.371365, 10.254334)
+
+[node name="ColorRect" type="ColorRect" parent="AttacksTab" unique_id=367281919]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.92156863, 0.28235295, 0, 1)
+
+[node name="UpgradeInfo" type="ColorRect" parent="AttacksTab" unique_id=258367504]
+layout_mode = 0
+offset_left = 16.064634
+offset_top = 3.5107136
+offset_right = 56.064636
+offset_bottom = 43.51071
+scale = Vector2(0.22094423, 0.53627515)
+
+[node name="UpgradeButtonSlot" parent="AttacksTab" unique_id=1970765023 instance=ExtResource("3_ctjo2")]
+layout_mode = 0
+offset_left = 17.103031
+offset_top = 25.84273
+offset_right = 17.103031
+offset_bottom = 25.84273
+scale = Vector2(0.026949245, 0.048469916)
+upgradeID = "attack"
+costMultiplier = 10.0
+
+[node name="MiscTab" type="Control" parent="." unique_id=1152804032]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.00001
+offset_top = 126.0
+offset_right = 152.0
+offset_bottom = 166.0
+scale = Vector2(16.371365, 10.254334)
+
+[node name="ColorRect" type="ColorRect" parent="MiscTab" unique_id=1723893607]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.5176471, 0.40392157, 0.9372549, 1)
+
+[node name="UpgradeInfo" type="ColorRect" parent="MiscTab" unique_id=329371874]
+layout_mode = 0
+offset_left = 15.422449
+offset_top = 3.1206317
+offset_right = 55.422447
+offset_bottom = 43.120632
+scale = Vector2(0.22094423, 0.53627515)
+
+[node name="UpgradeButtonSlot" parent="MiscTab" unique_id=448549028 instance=ExtResource("3_ctjo2")]
+layout_mode = 0
+offset_left = 15.759223
+offset_top = 25.452656
+offset_right = 15.759223
+offset_bottom = 25.452656
+scale = Vector2(0.031630903, 0.049181473)
+upgradeID = "critChance"
+costMultiplier = 2.0
+
+[node name="ButtonsTabContainer" type="HBoxContainer" parent="." unique_id=1217394932]
+offset_left = 126.0
+offset_top = 78.0
+offset_right = 166.0
+offset_bottom = 118.0
+
+[node name="DamageUpgradesTab" type="Button" parent="ButtonsTabContainer" unique_id=769177175]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "DAMAGE"
+
+[node name="DefenseUpgradesTab" type="Button" parent="ButtonsTabContainer" unique_id=732597901]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "DEFENSE
+"
+
+[node name="AttacksUpgradeTab" type="Button" parent="ButtonsTabContainer" unique_id=1584669568]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "ATTACKS"
+
+[node name="MiscUpgradesTab" type="Button" parent="ButtonsTabContainer" unique_id=879338983]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MISC"
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/DamageUpgradesTab" to="." method="_on_damage_upgrades_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/DefenseUpgradesTab" to="." method="_on_defense_upgrades_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/AttacksUpgradeTab" to="." method="_on_attacks_upgrade_tab_pressed"]
+[connection signal="pressed" from="ButtonsTabContainer/MiscUpgradesTab" to="." method="_on_misc_upgrades_tab_pressed"]

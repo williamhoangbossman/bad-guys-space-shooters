@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DifficultyData" format=3 uid="uid://dgcq2rq24lo2h"]
+
+[ext_resource type="Script" uid="uid://blac7h80xm6lh" path="res://Resources/Difficulty/DifficultyData.gd" id="1_y8u5t"]
+
+[resource]
+script = ExtResource("1_y8u5t")
+enemyMaxHPMultiplier = 1
+bullet_freq_max = 2.0
+playerBulletSpeedMultiplier = 1.0

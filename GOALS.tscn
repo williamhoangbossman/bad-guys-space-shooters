@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dbfg8w8b5agud"]
+
+[node name="Control" type="Control" unique_id=425842819]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 570.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=665824604]
+layout_mode = 0
+offset_right = 910.0
+offset_bottom = 592.0
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=863089202]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 60.0
+offset_right = 961.0
+offset_bottom = 327.0
+scale = Vector2(0.85627, 1.1235846)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "So the plan:
+- let player see the upgrades they got (e.g how much dmg increase/how much hp increases.
+- UPDATE HUD!
+- make platformer world look better. 
+- make controls panel: let people see the controls
+- impact frames: make bro look like he's getrting hit. + maybe anim when player is hit also
+- BALANCE THE GAME
+- When there is data, there should be a \"Continue Button\" as well as a \"New Game\" Button; no need for 
+\"Delete Data\" button --> confusing. 
+- wavecount display ( MAYBE ADD A SKIP WAVE) --> multiple enemies if player dares to do so. 
+- make the \"E to interact thing\" 
+-and console support
+FINALLY: ANY FINISHING UI TOUCHES AND WE'RE DONE!!!"

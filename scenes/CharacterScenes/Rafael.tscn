@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3kmp2mfc1hos"]
 
-[ext_resource type="Texture2D" uid="uid://c3q4g0crboi45" path="res://assets/Sprites/spritesheet.png" id="1_6g60s"]
-[ext_resource type="Script" uid="uid://hhmdxittjir" path="res://scripts/CharScripts/rafael.gd" id="1_u5f3r"]
+[ext_resource type="Texture2D" uid="uid://c3q4g0crboi45" path="res://assets/Sprites/NPCSprites/spritesheet.png" id="1_6g60s"]
+[ext_resource type="Script" uid="uid://hhmdxittjir" path="res://scripts/CharScripts/EnemyScripts/rafael.gd" id="1_u5f3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5f3r"]
 

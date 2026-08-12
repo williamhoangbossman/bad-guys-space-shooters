@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cp2ckf7lgynjq"]
 
 [ext_resource type="Script" uid="uid://docubivold24v" path="res://scripts/MiscItemsScripts/enemyBulletScript.gd" id="1_7ynlk"]
-[ext_resource type="Texture2D" uid="uid://cpnvv7f3cdr7c" path="res://assets/Sprites/CrystalAtk_1.png" id="2_7ynlk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5w5p"]
 radius = 305.74057
@@ -11,11 +10,10 @@ height = 637.5016
 script = ExtResource("1_7ynlk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274180043]
-scale = Vector2(0.08180031, 0.16737476)
+scale = Vector2(0.0685622, 0.12115841)
 shape = SubResource("CapsuleShape2D_c5w5p")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=459726399]
-scale = Vector2(0.6063932, 0.60526705)
-texture = ExtResource("2_7ynlk")
+[node name="BulletFrames" type="AnimatedSprite2D" parent="." unique_id=625568203]
+scale = Vector2(0.480917, 0.4474084)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
