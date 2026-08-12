@@ -1,6 +1,5 @@
 extends Node
 
-<<<<<<< Updated upstream
 var dialogueScene = preload("res://scenes/UIScenes/Gameplay/dialogueBox.tscn")
 var upgradeMenuScene = preload("res://scenes/UIScenes/Menus/upgrade_menu.tscn")
 var worldSelectionScene = preload("res://scenes/UIScenes/Gameplay/worldSelection.tscn")
@@ -8,16 +7,7 @@ var deathScreenScene = preload("res://scenes/UIScenes/Gameplay/death_screen.tscn
 var generalMenuScene = preload("res://scenes/UIScenes/Menus/general_menu.tscn")
 var aboutScreenScene = preload("res://scenes/UIScenes/Menus/about_menu.tscn")
 var settingsMenuScene = preload("res://scenes/UIScenes/Menus/settings_menu.tscn")
-=======
-var dialogueScene = preload("res://scenes/UIScenes/dialogueBox.tscn")
-var upgradeMenuScene = preload("res://scenes/UIScenes/upgrade_menu.tscn")
-var worldSelectionScene = preload("res://scenes/UIScenes/worldSelection.tscn")
-var deathScreenScene = preload("res://scenes/UIScenes/death_screen.tscn")
-var generalMenuScene = preload("res://scenes/UIScenes/general_menu.tscn")
-var aboutScreenScene = preload("res://scenes/UIScenes/about_menu.tscn")
-var settingsMenuScene = preload("res://scenes/UIScenes/settings_menu.tscn")
 
->>>>>>> Stashed changes
 var precautionMenuScene = preload("res://scenes/UIScenes/Menus/areYouSure.tscn")
 
 var activeUI: CanvasLayer = null
@@ -91,12 +81,7 @@ func openSettingsMenu() -> void:
 	var settingsMenu = settingsMenuScene.instantiate()
 	get_tree().root.add_child(settingsMenu)
 	activeUI = settingsMenu
-<<<<<<< Updated upstream
-	
-	
-=======
 
->>>>>>> Stashed changes
 func openPrecautionMenu() -> void:
 	closeCurrentUI()
 	
