@@ -16,6 +16,12 @@ extends CanvasLayer
 @onready var settingsButton = $MainScreenUI/gameOptionsContainer/settingsButton
 @onready var quitButton = $MainScreenUI/gameOptionsContainer/quitButton2
 
+@onready var continueButton: Button = $ButtonsContainer/continueButton
+@onready var newGameButton: Button = $ButtonsContainer/newGameButton
+
+@onready var buttonsContainer: HBoxContainer = $ButtonsContainer
+
+
 var pressed: bool = false
 var buttonSelected = null
 
@@ -32,7 +38,7 @@ func _ready() -> void:
 			child.focus_entered.connect(func(): onButtonFocusEntered(child))
 			
 	playButton.grab_focus()
-	
+	giveOptionsUponDataStored()
 	#titleLabel.pivot_offset = titleLabel.size / 2
 	#titleLabel.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	
@@ -40,6 +46,17 @@ func _ready() -> void:
 	titleTimer.start()
 	#slideanimation.play("SlideDown")
 	
+func giveOptionsUponDataStored() -> void:
+	if GameManager.gameDataStored:
+		var gameOptionsContainerIndex = gameOptionsContainer.get_index()
+		buttonsContainer.move_child(continueButton, gameOptionsContainerIndex)
+		newGameButton.reparent(gameOptionsContainer)
+	else:
+		var gameOptionsContainerIndex = gameOptionsContainer.get_index()
+		buttonsContainer.move_child(playButton, gameOptionsContainerIndex)
+		newGameButton.reparent(buttonsContainer)
+
+		
 func onButtonFocusEntered(_button: TextureButton) -> void:
 	var focusedNode = get_viewport().gui_get_focus_owner()
 	
