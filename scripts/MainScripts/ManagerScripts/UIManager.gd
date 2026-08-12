@@ -7,6 +7,7 @@ var deathScreenScene = preload("res://scenes/UIScenes/Gameplay/death_screen.tscn
 var generalMenuScene = preload("res://scenes/UIScenes/Menus/general_menu.tscn")
 var aboutScreenScene = preload("res://scenes/UIScenes/Menus/about_menu.tscn")
 var settingsMenuScene = preload("res://scenes/UIScenes/Menus/settings_menu.tscn")
+var precautionMenuScene = preload("res://scenes/UIScenes/Menus/areYouSure.tscn")
 
 var activeUI: CanvasLayer = null
 
@@ -79,5 +80,14 @@ func openSettingsMenu() -> void:
 	var settingsMenu = settingsMenuScene.instantiate()
 	get_tree().root.add_child(settingsMenu)
 	activeUI = settingsMenu
+	
+	
+func openPrecautionMenu() -> void:
+	closeCurrentUI()
+	
+	get_tree().paused = true
+	var precautionMenu = precautionMenuScene.instantiate()
+	get_tree().root.add_child(precautionMenu)
+	activeUI = precautionMenu
 	
 	

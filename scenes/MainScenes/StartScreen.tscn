@@ -351,6 +351,20 @@ offset_right = 164.0
 offset_bottom = 423.0
 text = "DELETE DATA"
 
+[node name="continueButton" type="Button" parent="." unique_id=342093832]
+offset_left = -167.0
+offset_top = 150.0
+offset_right = -76.0
+offset_bottom = 181.0
+text = "CONTINUE"
+
+[node name="newGameButton" type="Button" parent="." unique_id=322419610]
+offset_left = -164.0
+offset_top = 100.0
+offset_right = -69.0
+offset_bottom = 131.0
+text = "NEW GAME"
+
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/gameStartButton" to="." method="_on_game_start_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/gameStartButton" to="MainScreenUI/gameOptionsContainer" method="_on_game_start_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/settingsButton" to="." method="_on_settings_button_pressed"]

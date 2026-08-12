@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bg6pn13rc7dgi"]
+
+[node name="PrecautionMenu" type="CanvasLayer" unique_id=362821646]
+
+[node name="Control" type="Control" parent="." unique_id=982184380]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1694275932]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 25.999996
+offset_right = 248.0
+offset_bottom = 66.0
+scale = Vector2(11.7908325, 12.671057)
+
+[node name="AreYouSureLabel" type="Label" parent="Control" unique_id=909178284]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 245.0
+offset_top = 51.999996
+offset_right = 492.0
+offset_bottom = 101.0
+scale = Vector2(0.43511775, 0.5883081)
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Are you sure you want to create a new game?
+
+Creating a new game will overwrite any data you 
+have in your current game file. "
+
+[node name="optionsContainer" type="HBoxContainer" parent="Control" unique_id=652199530]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 413.0
+offset_right = 284.0
+offset_bottom = 453.0
+scale = Vector2(2.4649396, 2.0614865)
+theme_override_constants/separation = 90
+
+[node name="noButton" type="Button" parent="Control/optionsContainer" unique_id=1127286732]
+layout_mode = 2
+text = "NO"
+
+[node name="noButton2" type="Button" parent="Control/optionsContainer" unique_id=1620047507]
+layout_mode = 2
+text = "YES"
