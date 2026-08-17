@@ -2,44 +2,36 @@
 
 [ext_resource type="Script" uid="uid://cc5ft8qp16sc0" path="res://scripts/CharScripts/EnemyScripts/enemy.gd" id="1_r2jx8"]
 [ext_resource type="Resource" uid="uid://cbiv2om8cl5wt" path="res://Resources/Enemies/golemStats.tres" id="2_r2jx8"]
+[ext_resource type="AudioStream" uid="uid://0t4i4a2xiknt" path="res://assets/Audio/UI/Grr.mp3" id="3_t2l28"]
+[ext_resource type="AudioStream" uid="uid://c1asopraontuw" path="res://assets/Audio/UI/DeepGrr.mp3" id="4_v5lbe"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m5w63"]
-radius = 69.00725
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2l28"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5lbe"]
 
 [node name="Enemy" type="Area2D" unique_id=450332716 groups=["enemy"]]
 script = ExtResource("1_r2jx8")
 stats = ExtResource("2_r2jx8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000163674]
-position = Vector2(4.7683716e-07, 2)
-scale = Vector2(0.5941129, 1.2985171)
-shape = SubResource("CircleShape2D_m5w63")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1533941779]
-position = Vector2(93.00001, -0.9999962)
-rotation = -0.62206376
-scale = Vector2(2.843636, 5.5600767)
-shape = SubResource("CapsuleShape2D_t2l28")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=470481604]
-position = Vector2(-90, 0)
-rotation = 0.54054165
-scale = Vector2(2.843636, 5.5600767)
-shape = SubResource("CapsuleShape2D_t2l28")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1929724541]
+scale = Vector2(13.393121, 5.746633)
+shape = SubResource("CapsuleShape2D_v5lbe")
 
 [node name="RightRayCast" type="RayCast2D" parent="." unique_id=63522769]
-scale = Vector2(0.74276984, 0.74276984)
+scale = Vector2(0.47033894, 0.93703115)
 target_position = Vector2(150, 0)
 
 [node name="LeftRayCast" type="RayCast2D" parent="." unique_id=970435443]
-scale = Vector2(0.74276984, 0.74276984)
+scale = Vector2(0.38195053, 0.38195053)
 target_position = Vector2(-150, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269256957]
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=1160295280]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1489716262]
+stream = ExtResource("3_t2l28")
+
+[node name="Grrr" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=328943464]
+stream = ExtResource("4_v5lbe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

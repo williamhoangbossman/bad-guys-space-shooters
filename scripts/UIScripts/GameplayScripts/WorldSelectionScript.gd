@@ -2,6 +2,8 @@
 extends CanvasLayer
 
 @onready var worldSelectionIcon = $Control/WorldIcon
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 @export var golemData: enemyStats
 @export var eyeballMonsterData: enemyStats
@@ -13,6 +15,10 @@ var eyeballLandBG = load("res://assets/UI/DescriptionIcons/eyeballLandBG.png")
 
 var worldSelected: String = ""
 var pressed: bool = false
+
+func playSound() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
+	audio_stream_player.play()
 
 func unselectWorld() -> void:
 	worldSelected = ""
@@ -58,15 +64,18 @@ func _on_home_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainScenes/PlatformerWorld.tscn")
 		
 #	pressed = true
+	playSound()
 		
 func _on_golem_land_button_pressed() -> void:
+	playSound()
 	SpawnWorld("GolemLand", GolemLandSelectionIcon, golemData, GolemLandSelectionIcon)
 
 func _on_eyeball_land_button_pressed() -> void:
+	playSound()
 	SpawnWorld("EyeballLand", eyebalLandSelectionIcon, eyeballMonsterData, eyeballLandBG)
 
-
 func _on_return_button_pressed() -> void:
+	playSound()
 	print("YESSS")
 	UiManager.closeCurrentUI()
 	unselectWorld()

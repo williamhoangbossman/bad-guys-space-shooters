@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6labjmj5x8yg"]
+
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="1_bbxwi"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=882067356]
+stream = ExtResource("1_bbxwi")
+autoplay = true
+bus = &"default_buttons"

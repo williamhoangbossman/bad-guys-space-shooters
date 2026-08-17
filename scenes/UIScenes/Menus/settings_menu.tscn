@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c042qjcwoot" path="res://assets/UI/Menu/BigBoxBtn.png" id="2_n2w31"]
 [ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="3_a0yc1"]
 [ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="4_umcan"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="5_a0yc1"]
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1448677036]
 process_mode = 3
@@ -55,5 +56,10 @@ process_mode = 3
 layout_mode = 2
 theme_override_colors/icon_hover_color = Color(0.7372549, 0.7176471, 0.6862745, 1)
 icon = ExtResource("4_umcan")
+
+[node name="Node" type="Node" parent="." unique_id=1420259748]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node" unique_id=675881612]
+stream = ExtResource("5_a0yc1")
 
 [connection signal="pressed" from="Control/returnButtonContainer/returnButton" to="." method="_on_return_button_pressed"]

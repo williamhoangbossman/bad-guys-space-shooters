@@ -7,8 +7,14 @@ extends Node2D
 @onready var transitionAnimation = $UI/Animation/Transition/AnimationPlayer
 @onready var pauseButton = $UI/menuUI/backButton
 @onready var generalMenu = $UI/menuUI/generalMenu
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 var enemyScene = preload("res://scenes/CharacterScenes/enemy.tscn")
+
+func playSound() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
+	audio_stream_player.play()
 
 func _ready() -> void:
 		
@@ -24,6 +30,7 @@ func _process(delta: float) -> void:
 		pauseButton.disabled = false
 
 func _on_back_button_pressed() -> void: # dont use the UImanager for this!
+	playSound()
 	generalMenu.visible = true
 	get_tree().paused = true
 	
@@ -31,4 +38,5 @@ func _on_back_button_pressed() -> void: # dont use the UImanager for this!
 	
 
 func _on_home_button_pressed() -> void:
+	playSound()
 	UiManager.openWorldSelectionMenu()

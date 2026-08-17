@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bm1ctegd1mco2"]
 
 [ext_resource type="Script" uid="uid://eyofqrh2yv7g" path="res://scripts/UIScripts/MenusScripts/upgrade_button_slot.gd" id="1_ync15"]
+[ext_resource type="AudioStream" uid="uid://23oifk5i020s" path="res://assets/Audio/UI/chaChing.mp3" id="2_hu1hy"]
+[ext_resource type="AudioStream" uid="uid://bqg4sbibjfnl0" path="res://assets/Audio/UI/NoMoney?.mp3" id="3_8lh3s"]
 
 [node name="UpgradeButtonSlot" type="Control" unique_id=1888422925]
 layout_mode = 3
@@ -34,5 +36,11 @@ offset_right = 65.0
 offset_bottom = 116.0
 scale = Vector2(3.6148393, 4.237795)
 text = "Level: 1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1466195705]
+stream = ExtResource("2_hu1hy")
+
+[node name="NoMoney?" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=622903626]
+stream = ExtResource("3_8lh3s")
 
 [connection signal="pressed" from="upgradeButton" to="." method="_on_upgrade_button_pressed"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d05bbelsd42gq" path="res://scripts/UIScripts/GameplayScripts/deathScreenScript.gd" id="1_1jlxs"]
 [ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="2_tcxjd"]
 [ext_resource type="Texture2D" uid="uid://870mq6d70ico" path="res://assets/UI/whatEvenIsThis.png" id="2_vnjw7"]
+[ext_resource type="AudioStream" uid="uid://ctuov81wxdrl0" path="res://assets/Audio/UI/BooYouSuck.mp3" id="4_ganti"]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=963930137]
 script = ExtResource("1_1jlxs")
@@ -52,5 +53,8 @@ modulate = Color(1, 1, 1, 0.15294118)
 position = Vector2(516, 324.00003)
 scale = Vector2(0.3386951, 0.36118382)
 texture = ExtResource("2_vnjw7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1818480275]
+stream = ExtResource("4_ganti")
 
 [connection signal="pressed" from="Control/ReturnButton" to="." method="_on_return_button_pressed"]

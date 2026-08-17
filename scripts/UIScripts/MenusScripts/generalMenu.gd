@@ -3,24 +3,28 @@ extends CanvasLayer
 @onready var generalMenu = $"."
 @onready var settingsMenu = $SettingsMenu
 @onready var aboutMenu = $aboutMenu
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-func _ready() -> void:
-	print("gaga")
-	
-	
+func playSound() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
+	audio_stream_player.play()
+
 func _on_continue_button_pressed() -> void:
 	#UiManager.closeCurrentUI() --> dont use!
+	playSound()
 	generalMenu.visible = false
 	get_tree().paused = false
 
-
 func _on_options_button_pressed() -> void:
+	playSound()
 	settingsMenu.visible = true
 
 func _on_about_button_pressed() -> void:
+	playSound()
 	aboutMenu.visible = true
 
 func _on_main_menu_button_pressed() -> void:
+	playSound()
 	var transition = $"../../../Transition"
 	var transitionPlayer = $"../../../Transition/AnimationPlayer"
 

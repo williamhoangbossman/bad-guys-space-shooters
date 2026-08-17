@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var precautionMenu: CanvasLayer = $PrecautionMenu
 
 
+
 @onready var leftCursor = $MainScreenUI/left_Cursor
 @onready var rightCursor = $MainScreenUI/right_Cursor
 @export var cursorOffset: float = 15
@@ -24,12 +25,19 @@ extends CanvasLayer
 @onready var continueButton: TextureButton = $MainScreenUI/gameOptionsContainer/continueButton
 @onready var newGameButton: TextureButton = $MainScreenUI/gameOptionsContainer/newGameButton
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 var pressed: bool = false
 var buttonSelected = null
+
+func playSound() -> void:
+	audio_stream_player.play()
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
 
 func unselectButton() -> void:
 	pressed = false
 	buttonSelected = null
+	playSound()
 
 func _ready() -> void:
 	giveOptionsUponDataStored()
@@ -38,8 +46,6 @@ func _ready() -> void:
 		if child is TextureButton:
 			child.focus_entered.connect(func(): onButtonFocusEntered(child))
 			
-	
-	
 	if GameManager.gameDataStored:
 		continueButton.grab_focus()
 	else:
@@ -73,6 +79,7 @@ func onButtonFocusEntered(_button: TextureButton) -> void:
 		)
 		
 func _on_menu_back_button_pressed() -> void:
+	playSound()
 	transitionrect.visible = true
 	transition.play("FadeIn")
 	await get_tree().create_timer(0.75).timeout
@@ -84,6 +91,7 @@ func _on_menu_back_button_pressed() -> void:
 	refocusMainMenu()
 	
 func _on_menu_create_button_pressed() -> void:
+	playSound()
 	if GameManager.currentDifficulty == "Please Select!":
 		var WordSelector = randi_range(1, 5)
 		match WordSelector: 
@@ -116,6 +124,7 @@ func gameTransition() ->void:
 	get_tree().change_scene_to_file("res://scenes/MainScenes/Game.tscn")
 	
 func _on_easy_mode_button_pressed() -> void:
+	playSound()
 	
 	difficultyLabel.text = "You are currently in EASY mode. 
 	Money Gain: 1.5x 
@@ -127,6 +136,8 @@ func _on_easy_mode_button_pressed() -> void:
 	GameManager.currentDifficulty = "Easy"
 	
 func _on_normal_mode_button_pressed():
+	playSound()
+	
 	difficultyLabel.text = "You are currently in NORMAL mode. 
 	Money Gain: 1x 
 	Enemy HealthPoints: 1x 
@@ -137,6 +148,8 @@ func _on_normal_mode_button_pressed():
 	GameManager.currentDifficulty = "Normal"	
 
 func _on_hard_mode_button_pressed():
+	playSound()
+	
 	difficultyLabel.text = "You are currently in HARD mode. 
 	Money Gain: 1.5x
 	Enemy HealthPoints: 2x 
@@ -150,6 +163,7 @@ func _on_hard_mode_button_pressed():
 	GameManager.currentDifficulty = "Hard"
 	
 func _on_game_start_button_pressed() -> void:
+	playSound()
 	if GameManager.gameDataStored == true:
 		transitionrect.visible = true
 		print("sigmatron")
@@ -169,16 +183,20 @@ func _on_game_start_button_pressed() -> void:
 	menuCreateButton.grab_focus()
 		
 func _on_quit_button_2_pressed() -> void:
+	playSound()
 	get_tree().quit()
 	
 func _on_settings_button_pressed() -> void:
+	playSound()
 	settingsMenu.visible = true
 	
 
 func _on_continue_button_pressed() -> void:
+	playSound()
 	_on_game_start_button_pressed()
 
 func _on_new_game_button_pressed() -> void:
+	playSound()
 	precautionMenu.visible = true
 
 func refocusMainMenu() -> void:
@@ -194,4 +212,5 @@ func _on_yes_button_pressed() -> void:
 	continueButton.grab_focus()
 
 func _on_return_button_pressed() -> void:
+	playSound()
 	settingsButton.grab_focus()

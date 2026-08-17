@@ -9,6 +9,10 @@ extends Area2D
 @onready var leftRayCast = $LeftRayCast
 @onready var animatedSprite = $AnimatedSprite2D
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var grrr: AudioStreamPlayer = $AudioStreamPlayer/Grrr
+
+
 const enemyBulletScene = preload("res://scenes/Misc/enemyBullet.tscn")
 const damageIndicatorScene = preload("res://scenes/UIScenes/OnscreenElements/damage_indicator.tscn")
 
@@ -55,13 +59,13 @@ func spawnBullet(data: enemyStats) -> void:
 func startShotTimer() -> void:
 	shotTimer.wait_time = randf_range(minFreq, maxFreq)
 	shotTimer.start()
-
-func _ready() -> void:
-	pass
 	
 func take_damage(amount: int):
 	spawnDamageIndicator(amount)
 	currentHealth -= amount
+	
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
+	audio_stream_player.play()
 	
 	if currentHealth <= 0:
 		die()
@@ -69,6 +73,9 @@ func take_damage(amount: int):
 func die():
 	EconomyManager.currentMoney += EconomyManager.waveMoneyMultiplier * EconomyManager.moneyMultiplier * 3
 	GameManager.currentScore += 1 * GameManager.scoreMultiplier
+	
+	grrr.pitch_scale = randf_range(0.5, 2.25)
+	grrr.play()
 	
 	print(EconomyManager.moneyMultiplier)
 	queue_free()

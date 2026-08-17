@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://et3ofb2hihu0"]
 
 [ext_resource type="Script" uid="uid://buinj7o58vqd0" path="res://scripts/UIScripts/GameplayScripts/dialogueBoxScript.gd" id="1_7hfyf"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="2_dvtgy"]
 
 [node name="dialogueBox" type="CanvasLayer" unique_id=751850066]
 process_mode = 3
@@ -39,3 +40,6 @@ offset_top = 399.02914
 offset_right = 145.68047
 offset_bottom = 430.02914
 scale = Vector2(2.1715517, 1.9325658)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=742392296]
+stream = ExtResource("2_dvtgy")

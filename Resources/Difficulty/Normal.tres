@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_y8u5t")
-enemyMoveSpeedMultiplier = 1.125
-bullet_freq_max = 1.34
+enemyMoveSpeedMultiplier = 1.5
+bullet_freq_max = 1.28

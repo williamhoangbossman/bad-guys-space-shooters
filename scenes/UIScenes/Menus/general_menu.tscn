@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c042qjcwoot" path="res://assets/UI/Menu/BigBoxBtn.png" id="2_m41w5"]
 [ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="3_2t1yh"]
 [ext_resource type="PackedScene" uid="uid://b8x2dia5q10a" path="res://scenes/UIScenes/Menus/about_menu.tscn" id="3_qlqyq"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="6_tkggn"]
 
 [node name="generalMenu" type="CanvasLayer" unique_id=403360699]
 process_mode = 3
@@ -109,6 +110,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.1111969, 0.11119684, 0.11119681, 0.61960787)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=266553670]
+stream = ExtResource("6_tkggn")
 
 [connection signal="pressed" from="Control/optionsContainer/continueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/optionsButton" to="." method="_on_options_button_pressed"]

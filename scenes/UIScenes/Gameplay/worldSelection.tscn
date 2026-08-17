@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkj2ry7sxi8jj" path="res://assets/UI/Menu/ReturnBtn.png" id="5_psa7o"]
 [ext_resource type="Texture2D" uid="uid://cr30gvj86h3c2" path="res://assets/UI/Menu/worldbtn.png" id="6_6fpmn"]
 [ext_resource type="FontFile" uid="uid://bor0mbgvla1mx" path="res://assets/Fonts/upheavtt.ttf" id="6_psa7o"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="8_6fpmn"]
 
 [node name="WorldSelectionMenu" type="CanvasLayer" unique_id=1266624653]
 process_mode = 3
@@ -35,24 +36,24 @@ color = Color(0.10980392, 0.10980392, 0.10980392, 0.61960787)
 
 [node name="WorldIcon" type="TextureRect" parent="Control" unique_id=1655311716]
 layout_mode = 0
-offset_left = 1038.0
-offset_top = -224.0
-offset_right = 1938.0
-offset_bottom = 376.0
+offset_left = 519.0
+offset_top = 90.0
+offset_right = 1419.0
+offset_bottom = 690.0
 scale = Vector2(0.38405007, 0.5501269)
 texture = ExtResource("2_8qpck")
 
 [node name="Worldbtn" type="Sprite2D" parent="Control" unique_id=1837579195]
-position = Vector2(446, 251.00003)
+position = Vector2(258.75003, 251.75003)
 scale = Vector2(0.7023438, 0.7023438)
 texture = ExtResource("6_6fpmn")
 
 [node name="optionsContainer" type="VBoxContainer" parent="Control" unique_id=897709657]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 72.0
-offset_right = 624.0
-offset_bottom = 750.0
+offset_left = 77.75003
+offset_top = 72.75
+offset_right = 436.75003
+offset_bottom = 750.75
 theme_override_constants/separation = 90
 
 [node name="HomeButton" type="Button" parent="Control/optionsContainer" unique_id=1999063473]
@@ -98,10 +99,10 @@ flat = true
 process_mode = 3
 z_index = 1000
 layout_mode = 0
-offset_left = 340.0
-offset_top = 510.0
-offset_right = 2440.0
-offset_bottom = 1060.0
+offset_left = 141.00002
+offset_top = 504.0
+offset_right = 2241.0
+offset_bottom = 1054.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("5_psa7o")
 
@@ -110,6 +111,9 @@ offset_left = 54.0
 offset_top = 34.0
 offset_right = 62.0
 offset_bottom = 42.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1036270574]
+stream = ExtResource("8_6fpmn")
 
 [connection signal="pressed" from="Control/optionsContainer/HomeButton" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="Control/optionsContainer/GolemLandButton" to="." method="_on_golem_land_button_pressed"]

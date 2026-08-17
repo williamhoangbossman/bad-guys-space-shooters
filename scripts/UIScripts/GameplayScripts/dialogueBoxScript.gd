@@ -3,10 +3,12 @@ extends CanvasLayer
 @onready var nameLabel: Label = $Panel/VBoxContainer/NameLabel
 @onready var textLabel: Label = $Panel/VBoxContainer/TextLabel
 @onready var optionsContainer: HBoxContainer = $Panel/HBoxContainer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+
+func playSound() -> void:
+	audio_stream_player.pitch_scale = randf_range(0.5, 1.75)
+	audio_stream_player.play()
 
 func setupDialogue(data: Dictionary) -> void:
 	nameLabel.text = data.get("name", "NPC")
@@ -20,18 +22,18 @@ func setupDialogue(data: Dictionary) -> void:
 	chatButton.pressed.connect(onChatPressed)
 	optionsContainer.add_child(chatButton)
 	
-	var exitButton = Button.new()
-	exitButton.text = "Bye"
-	exitButton.pressed.connect(UiManager.closeCurrentUI)
-	optionsContainer.add_child(exitButton)
-	
 	if data.get("has_upgrades", false):
 		var upgradeButton = Button.new()
 		upgradeButton.text = "UPGRADES"
 		upgradeButton.pressed.connect(onUpgradePressed)
 		optionsContainer.add_child(upgradeButton)
-	
 		
+	var exitButton = Button.new()
+	exitButton.text = "Bye"
+	exitButton.pressed.connect(UiManager.closeCurrentUI)
+	optionsContainer.add_child(exitButton)
+	
+	
 func onChatPressed() -> void:
 	var randomText = randi_range(1, 5)
 	
@@ -48,6 +50,5 @@ func onChatPressed() -> void:
 			textLabel.text = "We stuck in here forever, huh. We'll never escape, so don't try anything."
 	
 	
-
 func onUpgradePressed() -> void:
 	UiManager.openUpgradeMenu()

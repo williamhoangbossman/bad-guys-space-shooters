@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhq4dburvuv1v" path="res://scripts/UIScripts/MenusScripts/upgradeMenu.gd" id="1_7nlu7"]
 [ext_resource type="Resource" uid="uid://dqi57ynakuwtk" path="res://Resources/Upgrades/Upgrades.tres" id="2_jsb2q"]
 [ext_resource type="PackedScene" uid="uid://bm1ctegd1mco2" path="res://scenes/UIScenes/Menus/UpgradeButtonSlot.tscn" id="3_ctjo2"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="3_o5rrr"]
 [ext_resource type="Texture2D" uid="uid://blof2guekwfx3" path="res://assets/UI/atksymbol.jpeg" id="4_1wbpb"]
 [ext_resource type="Texture2D" uid="uid://clcg2iq1k3tet" path="res://assets/UI/defenseicon.png" id="5_tngri"]
 
@@ -10,6 +11,9 @@
 process_mode = 3
 script = ExtResource("1_7nlu7")
 upgradesData = ExtResource("2_jsb2q")
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1870031510]
+stream = ExtResource("3_o5rrr")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=820130901]
 anchors_preset = 15

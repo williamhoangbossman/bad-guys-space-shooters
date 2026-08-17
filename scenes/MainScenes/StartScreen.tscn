@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://jl3gohcfgo25" path="res://assets/UI/MainMenu/SelectButtons/Group 31 (1).png" id="18_10p1c"]
 [ext_resource type="Texture2D" uid="uid://pcqio1cxs65n" path="res://assets/UI/MainMenu/SelectButtons/Group 29 (1).png" id="20_drs30"]
 [ext_resource type="PackedScene" uid="uid://bg6pn13rc7dgi" path="res://scenes/UIScenes/Menus/areYouSure.tscn" id="22_7oa8u"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="27_sj7py"]
 
 [sub_resource type="Animation" id="Animation_fpu7k"]
 length = 0.001
@@ -361,6 +362,11 @@ visible = false
 
 [node name="SettingsMenu" parent="." unique_id=1448677036 instance=ExtResource("7_47qn4")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1648670919]
+stream = ExtResource("27_sj7py")
+pitch_scale = 1.77
+bus = &"default_buttons"
 
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/continueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MainScreenUI/gameOptionsContainer/newGameButton" to="." method="_on_new_game_button_pressed"]

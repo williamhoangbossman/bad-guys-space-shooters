@@ -16,9 +16,10 @@
 [ext_resource type="Resource" uid="uid://blkkn7ubts4o0" path="res://Resources/Difficulty/Easy.tres" id="14_vep8k"]
 [ext_resource type="Resource" uid="uid://dgcq2rq24lo2h" path="res://Resources/Difficulty/Normal.tres" id="15_ov7ts"]
 [ext_resource type="Resource" uid="uid://6oc24jg236vr" path="res://Resources/Difficulty/Hard.tres" id="16_71y7t"]
+[ext_resource type="AudioStream" uid="uid://cvjbvakr0y4xs" path="res://assets/Audio/UI/button_click.mp3" id="17_ov7ts"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qbsmt"]
-distance = -6.0
+distance = 17.0
 
 [node name="Game" type="Node2D" unique_id=805202920]
 process_mode = 1
@@ -117,6 +118,9 @@ normalPreset = ExtResource("15_ov7ts")
 hardPreset = ExtResource("16_71y7t")
 
 [node name="Transition" parent="." unique_id=339286967 instance=ExtResource("4_hq8g2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=458143608]
+stream = ExtResource("17_ov7ts")
 
 [connection signal="pressed" from="UI/menuUI/backButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/menuUI/homeButton" to="." method="_on_home_button_pressed"]
